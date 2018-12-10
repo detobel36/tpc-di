@@ -11,8 +11,8 @@
   DTS:LocaleID="2060"
   DTS:ObjectName="DimCompany"
   DTS:PackageType="5"
-  DTS:VersionBuild="125"
-  DTS:VersionGUID="{C667B178-D616-4B97-AE90-ECF368C10966}">
+  DTS:VersionBuild="127"
+  DTS:VersionGUID="{E112D3B8-F5E4-4399-AF7F-C4C6998123B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -800,6 +800,12 @@
                           cachedDataType="i4"
                           cachedName="BatchID"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[BatchID]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Inputs[Entrée de conversion de données].Columns[ST_NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ST_NAME"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ST_NAME]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -890,6 +896,28 @@
                               dataType="System.Int32"
                               description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
                               name="SourceInputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[BatchID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Outputs[Sortie de conversion de données].Columns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Outputs[Sortie de conversion de données].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ST_NAME]}</property>
                             <property
                               dataType="System.Boolean"
                               description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -2018,14 +2046,6 @@
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CompanyID]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Outputs[Sortie de conversion de données].Columns[CIK]" />
                         <inputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[ST_NAME]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="10"
-                          cachedName="ST_NAME"
-                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Status]"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ST_NAME]" />
-                        <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CompanyName]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -2102,6 +2122,14 @@
                           cachedName="FoudingDateFormat"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[FoundingDate]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[FoudingDateFormat]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Status]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Outputs[Sortie de conversion de données].Columns[Status]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2999,119 +3027,118 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type"
-                  componentClassID="Microsoft.FlatFileSource"
-                  contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
-                  description="Source du fichier plat"
-                  localeId="2060"
-                  name="Flat - File - Status Type"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+                  description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+                  name="Fetch StatusType"
                   usesDispositions="true"
-                  version="1">
+                  version="4">
                   <properties>
                     <property
+                      dataType="System.String"
+                      description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">30</property>
+                    <property
                       dataType="System.Boolean"
-                      description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
-                      name="RetainNulls">false</property>
+                      description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                      name="AllowImplicitStringConversion">true</property>
                     <property
                       dataType="System.String"
-                      description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
-                      name="FileNameColumnName"></property>
+                      description="Nom de la table de base de données source."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[StatusType]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifier le mode de récupération des informations de colonne externe"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Flat File - StatusType]"
-                      connectionManagerRefId="Package.ConnectionManagers[Flat File - StatusType]"
-                      name="FlatFileConnection" />
+                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di2]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di2]"
+                      description="Gestionnaire de connexions managées"
+                      name="IDbConnection" />
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat]"
-                      name="Sortie de source de fichier plat">
+                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET]"
+                      name="Sortie de source ADO NET">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_ID]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_ID]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].ExternalColumns[ST_ID]"
+                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].ExternalColumns[ST_ID]"
                           length="4"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_ID]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_ID]"
                           name="ST_ID"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indique si les données sont au format binaire."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_NAME]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_NAME]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].ExternalColumns[ST_NAME]"
+                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].ExternalColumns[ST_NAME]"
                           length="10"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_NAME]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_NAME]"
                           name="ST_NAME"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indique si les données sont au format binaire."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].ExternalColumns[ST_ID]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].ExternalColumns[ST_ID]"
+                          dataType="wstr"
                           length="4"
                           name="ST_ID" />
                         <externalMetadataColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].ExternalColumns[ST_NAME]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].ExternalColumns[ST_NAME]"
+                          dataType="wstr"
                           length="10"
                           name="ST_NAME" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat]"
+                      refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET]"
                       isErrorOut="true"
-                      name="Sortie d'erreur de source de fichier plat">
+                      name="Sortie d'erreur de source ADO NET">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
-                          codePage="1252"
-                          dataType="text"
-                          description="Colonne de sortie d'erreur de source de fichier plat"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
-                          name="Colonne de sortie d'erreur de source de fichier plat" />
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ST_ID]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ST_ID]"
+                          name="ST_ID" />
                         <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ST_NAME]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ST_NAME]"
+                          name="ST_NAME" />
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -4788,16 +4815,14 @@
                       <inputColumns>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[ST_ID]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4"
                           cachedName="ST_ID"
                           cachedSortKeyPosition="1"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_ID]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[ST_NAME]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="10"
                           cachedName="ST_NAME"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_NAME]" />
@@ -4812,8 +4837,7 @@
                       <outputColumns>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ST_NAME]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="10"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ST_NAME]"
                           name="ST_NAME">
@@ -9371,11 +9395,10 @@
                       <inputColumns>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri].Columns[ST_ID]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4"
                           cachedName="ST_ID"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_ID]">
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_ID]">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -9389,11 +9412,10 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri].Columns[ST_NAME]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="10"
                           cachedName="ST_NAME"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_NAME]">
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_NAME]">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -9417,8 +9439,7 @@
                       <outputColumns>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_ID]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="4"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_ID]"
                           name="ST_ID"
@@ -9428,13 +9449,12 @@
                               containsID="true"
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_ID]}</property>
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_ID]}</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_NAME]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="10"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri].Columns[ST_NAME]"
                           name="ST_NAME">
@@ -9443,7 +9463,7 @@
                               containsID="true"
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat].Columns[ST_NAME]}</property>
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET].Columns[ST_NAME]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -9758,25 +9778,20 @@
                   name="Sortie de source ADO NET"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany.Outputs[Sortie de source ADO NET]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri]"
-                  name="Sortie de source de fichier plat"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat]" />
+                  name="Sortie de source ADO NET"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Inputs[Entrée de tri]"
                   name="Sortie de source de fichier plat"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry.Outputs[Sortie de source de fichier plat]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de source de fichier plat"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée droite de jointure de fusion]"
-                  name="Sortie de tri"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name.Outputs[Sortie de tri]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée droite de jointure de fusion]"
@@ -9812,6 +9827,11 @@
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID.Outputs[Sortie de tri]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée droite de jointure de fusion]"
+                  name="Sortie de tri"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name.Outputs[Sortie de tri]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Inputs[Entrée de colonne dérivée]"
@@ -9919,10 +9939,6 @@
           Size="141.333333333334,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry"
           TopLeft="331.284717285695,441.641658978114" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type"
-          TopLeft="76.3888877506058,436.402770168003" />
         <NodeLayout
           Size="189.333333333334,42"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données"
@@ -10266,7 +10282,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
           TopLeft="799.868045062137,58.4472219400439">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10288,7 +10304,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
           TopLeft="378.868051072273,315.23888404472">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10301,28 +10317,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,21.0250007535516" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
-          TopLeft="169.951387603146,479.06943683467">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.6388906387827"
-              Start="0,0"
-              End="0,40.1388906387827">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.1388906387827" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10855,6 +10849,32 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType"
+          TopLeft="82.7380940052016,447.047617520037" />
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
+          TopLeft="166.125990730444,489.714284186704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.9940432867481"
+              Start="0,0"
+              End="0,29.4940432867481">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4940432867481" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10889,6 +10909,14 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
