@@ -1,4 +1,4 @@
-CREATE TABLE DimBroker  ( SK_BrokerID  INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE DimBroker  ( SK_BrokerID  INTEGER NOT NULL IDENTITY (1,1) PRIMARY KEY,
                                                  BrokerID  INTEGER NOT NULL,
                                                  ManagerID  INTEGER,
                                                  FirstName       CHAR(50) NOT NULL,
