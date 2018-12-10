@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/7/2018 3:28:01 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="2060"
   DTS:ObjectName="DimCompany"
   DTS:PackageType="5"
-  DTS:VersionBuild="90"
-  DTS:VersionGUID="{78497278-5CD1-4302-970D-056D31C13366}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{860BE9AB-D4AF-4721-9C25-A4F316910C58}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -452,50 +452,43 @@
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Revenue]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[EPS]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="12"
                           cachedName="EPS"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[EPS]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Earnings]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="17"
                           cachedName="Earnings"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Earnings]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[DilutedEPS]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="12"
                           cachedName="DilutedEPS"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[DilutedEPS]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Margin]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="12"
                           cachedName="Margin"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Margin]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Inventory]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="17"
                           cachedName="Inventory"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Inventory]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Assets]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="17"
                           cachedName="Assets"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Assets]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Liabilities]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="17"
                           cachedName="Liabilities"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Liabilities]" />
@@ -526,11 +519,12 @@
                       <outputColumns>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[RevenueNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[RevenueNumeric]"
                           name="RevenueNumeric"
+                          precision="15"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -547,11 +541,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EPSNumeric]"
                           name="EPSNumeric"
+                          precision="10"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -568,11 +563,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EarningsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EarningsNumeric]"
                           name="EarningsNumeric"
+                          precision="15"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -589,11 +585,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[DilutedEPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[DilutedEPSNumeric]"
                           name="DilutedEPSNumeric"
+                          precision="10"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -610,11 +607,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[MarginNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[MarginNumeric]"
                           name="MarginNumeric"
+                          precision="10"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -631,11 +629,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[InventoryNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[InventoryNumeric]"
                           name="InventoryNumeric"
+                          precision="15"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -652,11 +651,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[AssetsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[AssetsNumeric]"
                           name="AssetsNumeric"
+                          precision="15"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -673,11 +673,12 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[LiabilitiesNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[LiabilitiesNumeric]"
                           name="LiabilitiesNumeric"
+                          precision="15"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1621,19 +1622,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">[TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},22,17))</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},22,17)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">TRIM(SUBSTRING(AllData,22,17))</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,22,17)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Earnings]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="17"
@@ -1645,19 +1645,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,17,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},39,17)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},39,17)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,17,1252)SUBSTRING(AllData,39,17)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,39,17)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[EPS]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="12"
@@ -1669,19 +1668,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,12,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},56,12)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},56,12)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,12,1252)SUBSTRING(AllData,56,12)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,56,12)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[DilutedEPS]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="12"
@@ -1693,19 +1691,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,12,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},68,12)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},68,12)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,12,1252)SUBSTRING(AllData,68,12)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,68,12)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Margin]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="12"
@@ -1717,19 +1714,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,12,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},80,12)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},80,12)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,12,1252)SUBSTRING(AllData,80,12)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,80,12)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Inventory]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="17"
@@ -1741,19 +1737,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,17,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},92,17)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},92,17)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,17,1252)SUBSTRING(AllData,92,17)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,92,17)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Assets]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="17"
@@ -1765,19 +1760,18 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,17,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},109,17)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},109,17)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,17,1252)SUBSTRING(AllData,109,17)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,109,17)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée].Columns[Liabilities]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Calcul"
                           errorRowDisposition="FailComponent"
                           length="17"
@@ -1789,13 +1783,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_STR,17,1252)[SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},126,17)</property>
+                              name="Expression">[REPLACE]([TRIM]([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[AllData]},126,17)),".",",")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,17,1252)SUBSTRING(AllData,126,17)</property>
+                              name="FriendlyExpression">REPLACE(TRIM(SUBSTRING(AllData,126,17)),".",",")</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -2338,57 +2332,65 @@
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Quarter]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Revenue]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Revenue"
+                          cachedPrecision="15"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_REVENUE]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Revenue]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Earnings]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Earnings"
+                          cachedPrecision="15"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_NET_EARN]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Earnings]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[EPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_BASIC_EPS]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[EPS]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[DilutedEPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_DILUT_EPS]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[DilutedEPS]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Margin]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Margin"
+                          cachedPrecision="10"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_MARGIN]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Margin]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Inventory]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Inventory"
+                          cachedPrecision="15"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_INVENTORY]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Inventory]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Assets]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Assets"
+                          cachedPrecision="15"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_ASSETS]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Assets]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Liabilities]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Liabilities"
+                          cachedPrecision="15"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[FI_LIABILITY]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Liabilities]" />
@@ -3563,50 +3565,58 @@
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[PostingDate]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[RevenueNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="RevenueNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[RevenueNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[EarningsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EarningsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EarningsNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[EPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EPSNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[DilutedEPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[MarginNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="MarginNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[MarginNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[InventoryNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="InventoryNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[InventoryNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[AssetsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="AssetsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[AssetsNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[LiabilitiesNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="LiabilitiesNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]" />
                         <inputColumn
@@ -3722,9 +3732,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Revenue]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Revenue]"
                           name="Revenue"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -3736,9 +3747,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Earnings]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Earnings]"
                           name="Earnings"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -3750,9 +3762,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[EPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[EPS]"
                           name="EPS"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -3764,9 +3777,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]"
                           name="DilutedEPS"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -3778,9 +3792,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Margin]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Margin]"
                           name="Margin"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -3792,9 +3807,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Inventory]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Inventory]"
                           name="Inventory"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -3806,9 +3822,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Assets]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Assets]"
                           name="Assets"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -3820,9 +3837,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Liabilities]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Liabilities]"
                           name="Liabilities"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -3932,50 +3950,58 @@
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[PostingDate]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[RevenueNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="RevenueNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[RevenueNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[EarningsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EarningsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EarningsNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[EPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EPSNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[DilutedEPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[MarginNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="MarginNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[MarginNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[InventoryNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="InventoryNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[InventoryNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[AssetsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="AssetsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[AssetsNumeric]" />
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion].Columns[LiabilitiesNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="LiabilitiesNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]" />
                         <inputColumn
@@ -4092,9 +4118,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Revenue]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Revenue]"
                           name="Revenue"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -4106,9 +4133,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Earnings]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Earnings]"
                           name="Earnings"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -4120,9 +4148,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[EPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[EPS]"
                           name="EPS"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -4134,9 +4163,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]"
                           name="DilutedEPS"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -4148,9 +4178,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Margin]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Margin]"
                           name="Margin"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -4162,9 +4193,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Inventory]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Inventory]"
                           name="Inventory"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -4176,9 +4208,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Assets]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Assets]"
                           name="Assets"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -4190,9 +4223,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Liabilities]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Liabilities]"
                           name="Liabilities"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -5076,8 +5110,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Revenue]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Revenue"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Revenue]">
                           <properties>
@@ -5090,8 +5125,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Earnings]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Earnings"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Earnings]">
                           <properties>
@@ -5104,8 +5140,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[EPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[EPS]">
                           <properties>
@@ -5118,8 +5155,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[DilutedEPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]">
                           <properties>
@@ -5132,8 +5170,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Margin]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Margin"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Margin]">
                           <properties>
@@ -5146,8 +5185,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Inventory]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Inventory"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Inventory]">
                           <properties>
@@ -5160,8 +5200,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Assets]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Assets"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Assets]">
                           <properties>
@@ -5174,8 +5215,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Unir tout entrée 1].Columns[Liabilities]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Liabilities"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Outputs[Sortie de jointure de fusion].Columns[Liabilities]">
                           <properties>
@@ -5295,8 +5337,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Revenue]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Revenue"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Revenue]">
                           <properties>
@@ -5309,8 +5352,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Earnings]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Earnings"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Earnings]">
                           <properties>
@@ -5323,8 +5367,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[EPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[EPS]">
                           <properties>
@@ -5337,8 +5382,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[DilutedEPS]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPS"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[DilutedEPS]">
                           <properties>
@@ -5351,8 +5397,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Margin]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Margin"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Margin]">
                           <properties>
@@ -5365,8 +5412,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Inventory]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Inventory"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Inventory]">
                           <properties>
@@ -5379,8 +5427,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Assets]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Assets"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Assets]">
                           <properties>
@@ -5393,8 +5442,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Inputs[Entrée Union All 1].Columns[Liabilities]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="Liabilities"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Outputs[Sortie de jointure de fusion].Columns[Liabilities]">
                           <properties>
@@ -5482,51 +5532,59 @@
                           name="SK_CompanyID" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Revenue]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Revenue]"
                           name="Revenue"
+                          precision="15"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Earnings]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Earnings]"
                           name="Earnings"
+                          precision="15"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[EPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[EPS]"
                           name="EPS"
+                          precision="10"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[DilutedEPS]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[DilutedEPS]"
                           name="DilutedEPS"
+                          precision="10"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Margin]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Margin]"
                           name="Margin"
+                          precision="10"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Inventory]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Inventory]"
                           name="Inventory"
+                          precision="15"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Assets]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Assets]"
                           name="Assets"
+                          precision="15"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Liabilities]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[Liabilities]"
                           name="Liabilities"
+                          precision="15"
                           scale="2" />
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all.Outputs[Unir tout sortie 1].Columns[ShOut]"
@@ -5765,8 +5823,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[RevenueNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="RevenueNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[RevenueNumeric]">
                           <properties>
@@ -5782,8 +5841,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[EPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EPSNumeric]">
                           <properties>
@@ -5799,8 +5859,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[EarningsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EarningsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EarningsNumeric]">
                           <properties>
@@ -5816,8 +5877,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[DilutedEPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[DilutedEPSNumeric]">
                           <properties>
@@ -5833,8 +5895,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[MarginNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="MarginNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[MarginNumeric]">
                           <properties>
@@ -5850,8 +5913,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[InventoryNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="InventoryNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[InventoryNumeric]">
                           <properties>
@@ -5867,8 +5931,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[AssetsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="AssetsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[AssetsNumeric]">
                           <properties>
@@ -5884,8 +5949,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri].Columns[LiabilitiesNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="LiabilitiesNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[LiabilitiesNumeric]">
                           <properties>
@@ -6076,9 +6142,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[RevenueNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[RevenueNumeric]"
                           name="RevenueNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -6090,9 +6157,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EPSNumeric]"
                           name="EPSNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -6104,9 +6172,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EarningsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[EarningsNumeric]"
                           name="EarningsNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -6118,9 +6187,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]"
                           name="DilutedEPSNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -6132,9 +6202,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[MarginNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[MarginNumeric]"
                           name="MarginNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -6146,9 +6217,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[InventoryNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[InventoryNumeric]"
                           name="InventoryNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -6160,9 +6232,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[AssetsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[AssetsNumeric]"
                           name="AssetsNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -6174,9 +6247,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]"
                           name="LiabilitiesNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -7675,8 +7749,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[RevenueNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="RevenueNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[RevenueNumeric]">
                           <properties>
@@ -7692,8 +7767,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[EPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EPSNumeric]">
                           <properties>
@@ -7709,8 +7785,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[EarningsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="EarningsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[EarningsNumeric]">
                           <properties>
@@ -7726,8 +7803,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[DilutedEPSNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="DilutedEPSNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[DilutedEPSNumeric]">
                           <properties>
@@ -7743,8 +7821,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[MarginNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="MarginNumeric"
+                          cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[MarginNumeric]">
                           <properties>
@@ -7760,8 +7839,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[InventoryNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="InventoryNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[InventoryNumeric]">
                           <properties>
@@ -7777,8 +7857,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[AssetsNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="AssetsNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[AssetsNumeric]">
                           <properties>
@@ -7794,8 +7875,9 @@
                         </inputColumn>
                         <inputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Inputs[Entrée de tri].Columns[LiabilitiesNumeric]"
-                          cachedDataType="decimal"
+                          cachedDataType="numeric"
                           cachedName="LiabilitiesNumeric"
+                          cachedPrecision="15"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données].Columns[LiabilitiesNumeric]">
                           <properties>
@@ -7973,9 +8055,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[RevenueNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[RevenueNumeric]"
                           name="RevenueNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -7987,9 +8070,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EPSNumeric]"
                           name="EPSNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -8001,9 +8085,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EarningsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[EarningsNumeric]"
                           name="EarningsNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -8015,9 +8100,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[DilutedEPSNumeric]"
                           name="DilutedEPSNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -8029,9 +8115,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[MarginNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[MarginNumeric]"
                           name="MarginNumeric"
+                          precision="10"
                           scale="2">
                           <properties>
                             <property
@@ -8043,9 +8130,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[InventoryNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[InventoryNumeric]"
                           name="InventoryNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -8057,9 +8145,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[AssetsNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[AssetsNumeric]"
                           name="AssetsNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -8071,9 +8160,10 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]"
-                          dataType="decimal"
+                          dataType="numeric"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri].Columns[LiabilitiesNumeric]"
                           name="LiabilitiesNumeric"
+                          precision="15"
                           scale="2">
                           <properties>
                             <property
@@ -9603,37 +9693,37 @@
                   name="No extension"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel.Outputs[No extension]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Inputs[Entrée de tri]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée3]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Inputs[Entrée de conversion de données]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create CIK.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Outputs[Sortie de colonne dérivée]" />
-                <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Inputs[Entrée de conversion de données]"
                   name="Sortie de colonne dérivée"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée3]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Inputs[Entrée de tri]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create CIK.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Inputs[Entrée de conversion de données]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Inputs[Entrée de tri]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split between Name and ID.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de conversion de données"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données.Outputs[Sortie de conversion de données]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
                   name="Sortie de conversion de données"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Outputs[Sortie de conversion de données]" />
@@ -9668,57 +9758,57 @@
                   name="Sortie de source ADO NET"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany.Outputs[Sortie de source ADO NET]" />
                 <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri]"
+                  name="Sortie de source de fichier plat"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Inputs[Entrée de tri]"
+                  name="Sortie de source de fichier plat"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry.Outputs[Sortie de source de fichier plat]" />
+                <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de source de fichier plat"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri]"
-                  name="Sortie de source de fichier plat"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type.Outputs[Sortie de source de fichier plat]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Inputs[Entrée de tri]"
-                  name="Sortie de source de fichier plat"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry.Outputs[Sortie de source de fichier plat]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Status.Outputs[Sortie de tri]" />
@@ -9774,93 +9864,21 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB"
-          TopLeft="207.29166357778,889.333322407802" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry"
-          TopLeft="331.284717285695,441.641658978114" />
-        <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split FINWIRE type"
-          TopLeft="710.833322741092,158.080552770579" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type"
-          TopLeft="76.3888877506058,436.402770168003" />
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion"
-          TopLeft="1358.33331756294,529.722214796477" />
-        <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table"
-          TopLeft="512.812492358498,272.030550721072" />
-        <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split between Name and ID"
-          TopLeft="893.888879492879,419.722219187352" />
-        <NodeLayout
-          Size="146.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Status"
-          TopLeft="328.472217327604,529.833327405651" />
-        <NodeLayout
-          Size="130.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create CIK"
-          TopLeft="805.833326772683,538.555548865928" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID"
-          TopLeft="536.979158665053,348.805550719135" />
-        <NodeLayout
-          Size="133.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK"
-          TopLeft="856.597213679925,761.36110043741" />
-        <NodeLayout
-          Size="192,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name"
-          TopLeft="981.527768599076,617.555548943414" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID"
-          TopLeft="96.1805541223534,526.708327473452" />
-        <NodeLayout
-          Size="178.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate"
-          TopLeft="1003.81942948637,965.333321555456" />
-        <NodeLayout
-          Size="181.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1"
-          TopLeft="1003.81942948637,1032.3333190759" />
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel"
-          TopLeft="692.534711902651,83.6388874231113" />
+          Size="164,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion"
+          TopLeft="209.722219097117,619.708322281887" />
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID"
           TopLeft="304.513884351278,343.763884798272" />
         <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Jointure de fusion"
-          TopLeft="209.722219097117,619.708322281887" />
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID"
-          TopLeft="1235.13887339789,617.333325274785" />
-        <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE"
-          TopLeft="715.86804488829,15.7805552733772" />
-        <NodeLayout
           Size="205.333333333334,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table"
           TopLeft="898.611097720762,268.293646910125" />
         <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data"
-          TopLeft="227.951385492148,795.666660351555" />
+          Size="172,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID"
+          TopLeft="1235.13887339789,617.333325274785" />
         <NodeLayout
           Size="166.666666666667,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry"
@@ -9870,193 +9888,99 @@
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by Name"
           TopLeft="1183.26387852534,758.583327179651" />
         <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data"
+          TopLeft="227.951385492148,795.666660351555" />
+        <NodeLayout
           Size="190.666666666667,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name"
           TopLeft="1427.638872301,615.666657704115" />
         <NodeLayout
-          Size="133.333333333334,42"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK"
-          TopLeft="805.138882338587,617.888882354233" />
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE"
+          TopLeft="715.86804488829,15.7805552733772" />
         <NodeLayout
           Size="170.666666666667,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany"
           TopLeft="1343.05553736373,443.49999443392" />
         <NodeLayout
+          Size="133.333333333334,42"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CIK"
+          TopLeft="805.138882338587,617.888882354233" />
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion"
+          TopLeft="1358.33331756294,529.722214796477" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB"
+          TopLeft="207.29166357778,889.333322407802" />
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry"
+          TopLeft="331.284717285695,441.641658978114" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat - File - Status Type"
+          TopLeft="76.3888877506058,436.402770168003" />
+        <NodeLayout
+          Size="189.333333333334,42"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données"
+          TopLeft="911.845229957252,348.904758572862" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table"
+          TopLeft="512.812492358498,272.030550721072" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split FINWIRE type"
+          TopLeft="710.833322741092,158.080552770579" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate"
+          TopLeft="1003.81942948637,965.333321555456" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID"
+          TopLeft="96.1805541223534,526.708327473452" />
+        <NodeLayout
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create CIK"
+          TopLeft="805.833326772683,538.555548865928" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join by CIK"
+          TopLeft="856.597213679925,761.36110043741" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split between Name and ID"
+          TopLeft="893.888879492879,419.722219187352" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Status"
+          TopLeft="328.472217327604,529.833327405651" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID"
+          TopLeft="536.979158665053,348.805550719135" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1"
+          TopLeft="1003.81942948637,1032.3333190759" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel"
+          TopLeft="692.534711902651,83.6388874231113" />
+        <NodeLayout
           Size="256,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany"
           TopLeft="169.618053028049,716.583328432342" />
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by FINWARE Name"
+          TopLeft="981.527768599076,617.555548943414" />
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
-          TopLeft="1522.97220563433,658.333324370782">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-245.041660442322,100.250002808869"
-              Start="0,0"
-              End="-245.041660442322,92.750002808869">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6556797486522" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6556797486522"
-                    Point2="0,35.6556797486522"
-                    Point3="-4,35.6556797486522" />
-                  <mssgle:LineSegment
-                    End="-241.041660442322,35.6556797486522" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-241.041660442322,35.6556797486522"
-                    Point2="-245.041660442322,35.6556797486522"
-                    Point3="-245.041660442322,39.6556797486522" />
-                  <mssgle:LineSegment
-                    End="-245.041660442322,92.750002808869" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
-          TopLeft="1321.13887339789,659.999991941452">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-376.986104162407,101.361108495958"
-              Start="0,0"
-              End="-376.986104162407,93.861108495958">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.0955188711213" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.0955188711213"
-                    Point2="0,60.0955188711213"
-                    Point3="-4,60.0955188711213" />
-                  <mssgle:LineSegment
-                    End="-372.986104162407,60.0955188711213" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-372.986104162407,60.0955188711213"
-                    Point2="-376.986104162407,60.0955188711213"
-                    Point3="-376.986104162407,64.0955188711213" />
-                  <mssgle:LineSegment
-                    End="-376.986104162407,93.861108495958" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
-          TopLeft="620.312491998387,391.472217385802">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-196.138885823802,50.1694415923123"
-              Start="0,0"
-              End="-196.138885823802,42.6694415923123">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.7647060193196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.7647060193196"
-                    Point2="0,29.7647060193196"
-                    Point3="-4,29.7647060193196" />
-                  <mssgle:LineSegment
-                    End="-192.138885823802,29.7647060193196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-192.138885823802,29.7647060193196"
-                    Point2="-196.138885823802,29.7647060193196"
-                    Point3="-196.138885823802,33.7647060193196" />
-                  <mssgle:LineSegment
-                    End="-196.138885823802,42.6694415923123" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
-          TopLeft="1077.52776859908,660.222215610081">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.069443259599,98.36111156957"
-              Start="0,0"
-              End="155.069443259599,90.86111156957">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.4514659190626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.4514659190626"
-                    Point2="0,33.4514659190626"
-                    Point3="4,33.4514659190626" />
-                  <mssgle:LineSegment
-                    End="151.069443259599,33.4514659190626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="151.069443259599,33.4514659190626"
-                    Point2="155.069443259599,33.4514659190626"
-                    Point3="155.069443259599,37.4514659190626" />
-                  <mssgle:LineSegment
-                    End="155.069443259599,90.86111156957" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
-          TopLeft="168.84722078902,569.374994140119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.8749983080974,50.3333281417686"
-              Start="0,0"
-              End="96.8749983080974,42.8333281417686">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.9082094755436" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9082094755436"
-                    Point2="0,29.9082094755436"
-                    Point3="4,29.9082094755436" />
-                  <mssgle:LineSegment
-                    End="92.8749983080974,29.9082094755436" />
-                  <mssgle:CubicBezierSegment
-                    Point1="92.8749983080974,29.9082094755436"
-                    Point2="96.8749983080974,29.9082094755436"
-                    Point3="96.8749983080974,33.9082094755436" />
-                  <mssgle:LineSegment
-                    End="96.8749983080974,42.8333281417686" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
           TopLeft="401.805550660937,572.499994072319">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10090,7 +10014,41 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
+          TopLeft="871.805549005254,659.888882354233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5694424524492,101.472218083177"
+              Start="0,0"
+              End="30.5694424524492,93.9722180831769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.1613941204606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.1613941204606"
+                    Point2="0,60.1613941204606"
+                    Point3="4,60.1613941204606" />
+                  <mssgle:LineSegment
+                    End="26.5694424524492,60.1613941204606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5694424524492,60.1613941204606"
+                    Point2="30.5694424524492,60.1613941204606"
+                    Point3="30.5694424524492,64.1613941204606" />
+                  <mssgle:LineSegment
+                    End="30.5694424524492,93.9722180831769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
           TopLeft="378.454856374042,386.430551464939">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10112,19 +10070,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
-          TopLeft="169.951387603146,479.06943683467">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
+          TopLeft="1522.97220563433,658.333324370782">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.6388906387827"
+              EndConnector="-245.041660442322,100.250002808869"
               Start="0,0"
-              End="0,40.1388906387827">
+              End="-245.041660442322,92.750002808869">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.1388906387827" />
+                    End="0,31.6556797486522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6556797486522"
+                    Point2="0,35.6556797486522"
+                    Point3="-4,35.6556797486522" />
+                  <mssgle:LineSegment
+                    End="-241.041660442322,35.6556797486522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-241.041660442322,35.6556797486522"
+                    Point2="-245.041660442322,35.6556797486522"
+                    Point3="-245.041660442322,39.6556797486522" />
+                  <mssgle:LineSegment
+                    End="-245.041660442322,92.750002808869" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10134,7 +10104,143 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
+          TopLeft="1321.13887339789,659.999991941452">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-376.986104162407,101.361108495958"
+              Start="0,0"
+              End="-376.986104162407,93.861108495958">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.0955188711213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.0955188711213"
+                    Point2="0,60.0955188711213"
+                    Point3="-4,60.0955188711213" />
+                  <mssgle:LineSegment
+                    End="-372.986104162407,60.0955188711213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-372.986104162407,60.0955188711213"
+                    Point2="-376.986104162407,60.0955188711213"
+                    Point3="-376.986104162407,64.0955188711213" />
+                  <mssgle:LineSegment
+                    End="-376.986104162407,93.861108495958" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
+          TopLeft="620.312491998387,391.472217385802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-196.138885823802,50.1694415923123"
+              Start="0,0"
+              End="-196.138885823802,42.6694415923123">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7647060193196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7647060193196"
+                    Point2="0,29.7647060193196"
+                    Point3="-4,29.7647060193196" />
+                  <mssgle:LineSegment
+                    End="-192.138885823802,29.7647060193196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-192.138885823802,29.7647060193196"
+                    Point2="-196.138885823802,29.7647060193196"
+                    Point3="-196.138885823802,33.7647060193196" />
+                  <mssgle:LineSegment
+                    End="-196.138885823802,42.6694415923123" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
+          TopLeft="1077.52776859908,660.222215610081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.069443259599,98.36111156957"
+              Start="0,0"
+              End="155.069443259599,90.86111156957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4514659190626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4514659190626"
+                    Point2="0,33.4514659190626"
+                    Point3="4,33.4514659190626" />
+                  <mssgle:LineSegment
+                    End="151.069443259599,33.4514659190626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.069443259599,33.4514659190626"
+                    Point2="155.069443259599,33.4514659190626"
+                    Point3="155.069443259599,37.4514659190626" />
+                  <mssgle:LineSegment
+                    End="155.069443259599,90.86111156957" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
+          TopLeft="168.84722078902,569.374994140119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.8749983080974,50.3333281417686"
+              Start="0,0"
+              End="96.8749983080974,42.8333281417686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9082094755436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9082094755436"
+                    Point2="0,29.9082094755436"
+                    Point3="4,29.9082094755436" />
+                  <mssgle:LineSegment
+                    End="92.8749983080974,29.9082094755436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.8749983080974,29.9082094755436"
+                    Point2="96.8749983080974,29.9082094755436"
+                    Point3="96.8749983080974,33.9082094755436" />
+                  <mssgle:LineSegment
+                    End="96.8749983080974,42.8333281417686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat2]"
           TopLeft="378.868051072273,315.23888404472">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10147,6 +10253,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,21.0250007535516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+          TopLeft="169.951387603146,479.06943683467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.6388906387827"
+              Start="0,0"
+              End="0,40.1388906387827">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1388906387827" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10278,7 +10406,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données1]"
           TopLeft="295.954857868297,838.333327018222">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10300,7 +10428,95 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données]"
+          TopLeft="1002.53372139173,390.904758572862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8174606144896"
+              Start="0,0"
+              End="0,21.3174606144896">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3174606144896" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
+          TopLeft="1003.89483050567,310.960313576792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9444449960704"
+              Start="0,0"
+              End="0,30.4444449960704">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4444449960704" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée3]"
+          TopLeft="1093.81942948637,1007.99998822212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.3333308537804"
+              Start="0,0"
+              End="0,16.8333308537804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8333308537804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
+          TopLeft="871.486104555635,581.222215532595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.6666668216387"
+              Start="0,0"
+              End="0,29.1666668216387">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1666668216387" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
           TopLeft="298.118052593432,759.249995099009">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10322,7 +10538,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
           TopLeft="618.895825511776,314.697217387739">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10335,52 +10551,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,26.6083333313962" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
-          TopLeft="1093.81942948637,1007.99998822212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.3333308537804"
-              Start="0,0"
-              End="0,16.8333308537804">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.8333308537804" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,0.416665426890177,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
-          TopLeft="871.486104555635,581.222215532595">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.6666668216387"
-              Start="0,0"
-              End="0,29.1666668216387">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.1666668216387" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10445,7 +10615,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="9.41698578573741,31.6617494443486,26.5826953125,9.421875"
+              BoundingBox="9.4169857857374,31.6617494443486,26.5826953125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10592,121 +10762,35 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="189.333333333334,42"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Conversion de données"
-          TopLeft="911.845229957252,348.904758572862" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
-          TopLeft="1003.89483050567,310.960313576792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.9444449960704"
-              Start="0,0"
-              End="0,30.4444449960704">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.4444449960704" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,7.22222249803522,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
-          TopLeft="871.805549005254,659.888882354233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30.5694424524492,101.472218083177"
-              Start="0,0"
-              End="30.5694424524492,93.9722180831769">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.1613941204606" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.1613941204606"
-                    Point2="0,60.1613941204606"
-                    Point3="4,60.1613941204606" />
-                  <mssgle:LineSegment
-                    End="26.5694424524492,60.1613941204606" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5694424524492,60.1613941204606"
-                    Point2="30.5694424524492,60.1613941204606"
-                    Point3="30.5694424524492,64.1613941204606" />
-                  <mssgle:LineSegment
-                    End="30.5694424524492,93.9722180831769" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données1]"
-          TopLeft="1002.53372139173,390.904758572862">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8174606144896"
-              Start="0,0"
-              End="0,21.3174606144896">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3174606144896" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,2.65873030724478,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="122.666666666667,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all"
-          TopLeft="1031.52776619833,864.111105971204" />
+          TopLeft="1029.16665133089,884.166656399767" />
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion2]"
-          TopLeft="923.263880346592,804.027767104076">
+          TopLeft="923.263880346592,804.027767104077">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.486108073964,60.0833388671276"
+              EndConnector="148.124993206519,80.13888929569"
               Start="0,0"
-              End="150.486108073964,52.5833388671276">
+              End="148.124993206519,72.63888929569">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5858401873975" />
+                    End="0,43.464234861825" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5858401873975"
-                    Point2="0,35.5858401873975"
-                    Point3="4,35.5858401873975" />
+                    Point1="0,43.464234861825"
+                    Point2="0,47.464234861825"
+                    Point3="4,47.464234861825" />
                   <mssgle:LineSegment
-                    End="146.486108073964,35.5858401873975" />
+                    End="144.124993206519,47.464234861825" />
                   <mssgle:CubicBezierSegment
-                    Point1="146.486108073964,35.5858401873975"
-                    Point2="150.486108073964,35.5858401873975"
-                    Point3="150.486108073964,39.5858401873975" />
+                    Point1="144.124993206519,47.464234861825"
+                    Point2="148.124993206519,47.464234861825"
+                    Point3="148.124993206519,51.464234861825" />
                   <mssgle:LineSegment
-                    End="150.486108073964,52.5833388671276" />
+                    End="148.124993206519,72.63888929569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10717,30 +10801,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion3]"
-          TopLeft="1255.26387852534,801.249993846317">
+          TopLeft="1255.26387852534,801.249993846318">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-143.291667882559,62.8611121248865"
+              EndConnector="-145.652782750007,82.916662553449"
               Start="0,0"
-              End="-143.291667882559,55.3611121248865">
+              End="-145.652782750007,75.416662553449">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.2310449495036" />
+                    End="0,45.1094396239311" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.2310449495036"
-                    Point2="0,37.2310449495036"
-                    Point3="-4,37.2310449495036" />
+                    Point1="0,45.1094396239311"
+                    Point2="0,49.1094396239311"
+                    Point3="-4,49.1094396239311" />
                   <mssgle:LineSegment
-                    End="-139.291667882559,37.2310449495036" />
+                    End="-141.652782750007,49.1094396239311" />
                   <mssgle:CubicBezierSegment
-                    Point1="-139.291667882559,37.2310449495036"
-                    Point2="-143.291667882559,37.2310449495036"
-                    Point3="-143.291667882559,41.2310449495036" />
+                    Point1="-141.652782750007,49.1094396239311"
+                    Point2="-145.652782750007,49.1094396239311"
+                    Point3="-145.652782750007,53.1094396239311" />
                   <mssgle:LineSegment
-                    End="-143.291667882559,55.3611121248865" />
+                    End="-145.652782750007,75.416662553449" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10751,18 +10835,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
-          TopLeft="1093.00693117568,906.777772637871">
+          TopLeft="1091.82637374196,926.833323066433">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.5555489175852"
+              EndConnector="0,38.4999984890228"
               Start="0,0"
-              End="0,51.0555489175852">
+              End="0,30.9999984890228">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.0555489175852" />
+                    End="0,30.9999984890228" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10774,6 +10858,14 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB">
     <Properties>
@@ -10797,14 +10889,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
