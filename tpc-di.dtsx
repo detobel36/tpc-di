@@ -1,35 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/9/2018 12:10:40 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-NRK2JSL"
   DTS:CreatorName="DESKTOP-NRK2JSL\nazrin"
-  DTS:DTSID="{C695DD1D-057A-47E0-9BF4-A3D24C764E79}"
+  DTS:DTSID="{B94C6653-4236-48CD-82B1-61F356594C5D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.0900.40"
   DTS:LocaleID="1033"
   DTS:ObjectName="tpc-di"
   DTS:PackageType="5"
   DTS:VersionBuild="49"
-  DTS:VersionGUID="{3033FDC4-9FB5-43B5-920B-FF36D0486A80}">
+  DTS:VersionGUID="{FEDEFE94-D589-4949-8118-A901C57DAB23}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9695CBA-49A2-47BC-A2C4-E2E812890143}"
-      DTS:ObjectName="DESKTOP-NRK2JSL\SQLEXPRESS.destination_di">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-NRK2JSL\SQLEXPRESS;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{531AC136-786F-4B56-9484-0972FEF1875E}"
+      DTS:DTSID="{9EDD6082-7319-451A-8E4C-5B6981E68FDC}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +29,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\HR.csv">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\HR.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +38,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeID"
-              DTS:DTSID="{1E48F2BE-BDE3-48EC-8EA0-69AB91933307}"
+              DTS:DTSID="{2434BFDB-EF10-4539-96F8-314001FC3BC3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +47,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ManagerID"
-              DTS:DTSID="{6009FBDC-D3A8-45E3-8E3B-133F05874BD8}"
+              DTS:DTSID="{61F7F2D1-6769-4C40-BAA8-7F03D71B9DE7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeFirstName"
-              DTS:DTSID="{09382725-5A65-4D2F-B9E7-690B730D05AE}"
+              DTS:DTSID="{7FB58EFD-0D71-4F47-81FC-ACCDAEF89755}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeLastName"
-              DTS:DTSID="{D7C50CEA-D5B0-4FB2-8BE3-6F7EA9ABA613}"
+              DTS:DTSID="{36A2CC54-B3E9-4798-A456-71F2902C5E31}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +74,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeMI"
-              DTS:DTSID="{71E99F81-DBC1-4E44-93E9-5F52BE818C7B}"
+              DTS:DTSID="{31A514B2-124C-49D2-9750-BA3780A01227}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +83,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeJobCode"
-              DTS:DTSID="{77D7633A-7ABE-457E-BE49-6FBEFE2C51A5}"
+              DTS:DTSID="{C0DDE0D8-74CD-4510-A5FA-94A17059775F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +92,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeBranch"
-              DTS:DTSID="{A4354F40-A25B-48D7-90CA-A4985D18936C}"
+              DTS:DTSID="{E2DE8E39-B4CD-42F7-AFB0-E75BB989007B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +101,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeeOffice"
-              DTS:DTSID="{DE63E29B-2E2B-41DE-AD00-C9F326632882}"
+              DTS:DTSID="{23EA3A50-267F-4AAC-938A-D261B6ABB1E7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +110,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EmployeePhone"
-              DTS:DTSID="{51E5FA6B-BD8B-4B33-8089-C692C11BCA74}"
+              DTS:DTSID="{84241ECB-2D2C-4B6F-B662-18779C626FD7}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -129,7 +119,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{8C984EFE-BF6A-4B89-B851-D7BED8C84AC6}"
+      DTS:DTSID="{18FDCF5B-35D7-4B7B-B629-93E9B7B3FE0A}"
       DTS:ObjectName="Flat File Connection Manager 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -139,7 +129,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\Time.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\Time.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -148,7 +138,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SK_TimeID"
-              DTS:DTSID="{685D572B-5A84-4EDB-8F91-A36653ABAAAB}"
+              DTS:DTSID="{CF6BFB86-E570-4210-9465-FAF48D6CF303}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -157,7 +147,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TimeValue"
-              DTS:DTSID="{5A84A5E0-25E5-4BC4-B582-AF906FC3D03C}"
+              DTS:DTSID="{08D70466-D5BB-432A-91E1-799B9A439D32}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -166,7 +156,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HourID"
-              DTS:DTSID="{6B061898-CC2E-4524-9AC1-5DCEADC79B8A}"
+              DTS:DTSID="{D021DD1D-E3FB-43F4-974E-7F8B500A8F21}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -175,7 +165,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HourDesc"
-              DTS:DTSID="{4F055E30-5E1C-4FEF-922F-A565367AC418}"
+              DTS:DTSID="{855736AF-8403-4CC2-B80A-3F05FEC9810E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -184,7 +174,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MinuteID"
-              DTS:DTSID="{CA9D414A-BF60-40D2-B3D5-5A598E6C93B4}"
+              DTS:DTSID="{FD1598A4-311B-4BAA-928B-142EB22EDA90}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +183,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MinuteDesc"
-              DTS:DTSID="{9B756CFB-FC97-4977-946B-7A1353335E4C}"
+              DTS:DTSID="{2EA8FC02-89A6-4443-830A-87B4DEDA7EB2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -202,7 +192,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SecondID"
-              DTS:DTSID="{EDE882F5-C67D-4E72-92C7-127EABA17FF5}"
+              DTS:DTSID="{ECF4D91F-3F24-4BB6-A466-41FFBA9CA5ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -211,7 +201,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SecondDesc"
-              DTS:DTSID="{672AE969-E2F9-4015-B9B9-85E185393A27}"
+              DTS:DTSID="{859DFA08-FD46-4079-ACCE-4DE91E1F502C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -220,7 +210,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MarketHoursFlag"
-              DTS:DTSID="{F686170E-619F-434B-BC85-9476810AE4E4}"
+              DTS:DTSID="{CA2E504C-64FF-4560-A03F-B1ADB1742D5B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -229,7 +219,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="OfficeHoursFlag"
-              DTS:DTSID="{19289A85-BAE6-48E1-BE18-C56D86CBA604}"
+              DTS:DTSID="{57EA7964-B3D6-4CEE-97C6-FD97A4600C70}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -238,7 +228,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{D30DAE9B-0504-4FC1-B783-7431E973A167}"
+      DTS:DTSID="{067A9096-CB54-415F-9A6C-0B84BB5AA73E}"
       DTS:ObjectName="Flat File Connection Manager 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -248,7 +238,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\Date.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\Date.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -257,7 +247,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SK_DateID"
-              DTS:DTSID="{D6097C3C-CF17-4F6F-AF79-CB6AC878FA24}"
+              DTS:DTSID="{A3EB4FD9-E06D-4B02-BF6B-B6F2CF8CD2B6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -266,7 +256,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DateValue"
-              DTS:DTSID="{756C223C-A14C-4106-A4A7-943F01CD62E3}"
+              DTS:DTSID="{F6F30AF2-D3F7-4EA3-8062-DEC110AB59FF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -275,7 +265,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DateDesc"
-              DTS:DTSID="{8A41FC4F-C4E3-4740-8B95-CC7F5B8E1957}"
+              DTS:DTSID="{76ABBC0E-A036-4806-932C-07A74DD7D16B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -284,7 +274,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarYearID"
-              DTS:DTSID="{760B0AC4-7956-4EC1-B376-CA455C688B0D}"
+              DTS:DTSID="{1A036188-D799-4C79-8A61-D615A153EFE3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -293,7 +283,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarYearDesc"
-              DTS:DTSID="{7319EA3A-B64E-40CF-B909-99C7F1920323}"
+              DTS:DTSID="{778D7CB1-5FA7-483D-9A70-A2FEE1EDF798}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -302,7 +292,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarQtrID"
-              DTS:DTSID="{E660A432-1205-4CA3-8466-01B5E8B13247}"
+              DTS:DTSID="{818FBF61-C6F4-4A23-8845-B52E7A9AE333}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -311,7 +301,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarQtrDesc"
-              DTS:DTSID="{4485ACC5-28E6-45DF-B792-B3432EEC277F}"
+              DTS:DTSID="{33F819BA-2A18-44F0-9F8B-5D9349246A11}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -320,7 +310,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarMonthID"
-              DTS:DTSID="{7F31DE6F-B543-45F9-8751-1DECF7C2F55D}"
+              DTS:DTSID="{E4785E73-0FF8-4221-9385-1902F341527A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -329,7 +319,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarMonthDesc"
-              DTS:DTSID="{AB815E93-0671-48C7-B60B-286B3AF33FA1}"
+              DTS:DTSID="{47B31F15-2139-4C4C-85CE-B915E86641E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -338,7 +328,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarWeekID"
-              DTS:DTSID="{79AE72AA-8B7B-4B1E-9099-A4F04D5DF3E4}"
+              DTS:DTSID="{D187B080-A486-424A-B4C0-FA68D6741776}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -347,7 +337,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarWeekDesc"
-              DTS:DTSID="{3364552E-3894-4B23-9091-4C7B3F17105A}"
+              DTS:DTSID="{C2D2873A-5B44-4A93-9ADB-8B3A7A187204}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -356,7 +346,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DayOfWeekNum"
-              DTS:DTSID="{A1E1ADA7-E84B-4A21-A32D-AAB394AB7234}"
+              DTS:DTSID="{9DA49DC4-5541-4825-ADA5-80A866A8B4A7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -365,7 +355,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DayOfWeekDesc"
-              DTS:DTSID="{87C6789F-4E77-44F5-B538-6AE980659031}"
+              DTS:DTSID="{78DDA408-F321-47E5-B64F-3CE0E6DAD6BB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -374,7 +364,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FiscalYearID"
-              DTS:DTSID="{AD69C68E-F31F-42B1-9F58-75628F5BD322}"
+              DTS:DTSID="{84C1CF56-310E-4FAF-B1C0-3F45ADD23C05}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -383,7 +373,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FiscalYearDesc"
-              DTS:DTSID="{EBABC819-05C7-4E89-8C9D-CC97817FE515}"
+              DTS:DTSID="{A4E4E207-A50D-4245-B1EC-864443063976}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -392,7 +382,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FiscalQtrID"
-              DTS:DTSID="{3693DECC-96FB-4033-BAF2-F4F907B0DF50}"
+              DTS:DTSID="{F11BCFBA-C0CD-4E54-8D9C-A747016B62DB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -401,7 +391,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FiscalQtrDesc"
-              DTS:DTSID="{FF540E11-020F-4A8B-99B4-15D462648B24}"
+              DTS:DTSID="{7B516D6E-2171-47A4-860A-D5F38DEFAAE6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -410,7 +400,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HolidayFlag"
-              DTS:DTSID="{CB401A34-5D96-4318-913C-72C37A5A7AA2}"
+              DTS:DTSID="{4B5E6653-636F-453A-BBA0-5A6C76C45EC1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -419,7 +409,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Industry]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{7135CCE9-5434-4713-A1E3-7BF4BE89ECAB}"
+      DTS:DTSID="{E8A5263E-4332-4347-B1FF-BE39CAEBA607}"
       DTS:ObjectName="Industry">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -429,7 +419,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\Industry.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\Industry.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -438,7 +428,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IN_ID"
-              DTS:DTSID="{116A2AD4-CB84-408F-A00C-5E53394E5491}"
+              DTS:DTSID="{088FC4CC-09CE-4157-B30B-994CC4FE62E8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -447,7 +437,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IN_NAME"
-              DTS:DTSID="{23E549E6-CDA3-4293-A0C8-229A251B219A}"
+              DTS:DTSID="{90263BB7-6938-4BD8-8067-089DCE84FAAD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -456,16 +446,26 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IN_SC_ID"
-              DTS:DTSID="{8C062D8B-9993-4952-BA56-A80BA23735D1}"
+              DTS:DTSID="{4B5E782B-7C87-4AE6-A2D8-83996C44102A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AE0DEF4F-2C73-447E-A8D5-0B331007B5CF}"
+      DTS:ObjectName="LocalHost.destination_di">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[statusType]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{A9485EB7-80B0-4AD7-9605-F1B48C29D016}"
+      DTS:DTSID="{E6D82E9C-08B4-4F20-BD38-226A314F4DFE}"
       DTS:ObjectName="statusType">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -475,7 +475,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\StatusType.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\StatusType.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -484,7 +484,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ST_ID"
-              DTS:DTSID="{75DFD5E1-A173-4873-9F24-60B34A74E574}"
+              DTS:DTSID="{588BB711-9D42-4069-AADF-670936D1894A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -493,7 +493,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ST_NAME"
-              DTS:DTSID="{0F248C68-94A4-46DA-9AD7-B19BCB02B25B}"
+              DTS:DTSID="{6F285011-FB7D-4C40-ACD6-CDCE0830EC23}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -502,7 +502,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TaxRate]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{AF9B6777-2780-4C7D-848B-AD6EE87E7FF4}"
+      DTS:DTSID="{EB6EA789-12A2-4D08-91D5-A393A2548EA8}"
       DTS:ObjectName="TaxRate">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -512,7 +512,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\TaxRate.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\TaxRate.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -521,7 +521,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TX_ID"
-              DTS:DTSID="{C6D5F286-8E2A-414A-A053-5E98082D2B20}"
+              DTS:DTSID="{16925C2D-A949-44FF-BE65-1C26F82CBCB3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -530,7 +530,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TX_NAME"
-              DTS:DTSID="{35918962-FB3A-4E71-954E-A5C61DAEF31F}"
+              DTS:DTSID="{448297B7-8CB4-438F-A9BB-527B186B6EE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -539,7 +539,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TX_RATE"
-              DTS:DTSID="{D9DA4FE7-98A6-467E-8DD5-65C24243C403}"
+              DTS:DTSID="{6FBECA28-4427-422D-9CA2-B8925E333119}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -548,7 +548,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TradeHistory]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{285B39E8-E8F2-4D71-8FEB-171F03386391}"
+      DTS:DTSID="{90F8C22D-022B-4805-8A31-A60D6B1FF133}"
       DTS:ObjectName="TradeHistory">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -558,7 +558,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\TradeHistory.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\TradeHistory.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -567,7 +567,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TH_T_ID"
-              DTS:DTSID="{B59F0A9E-6BAB-48B0-A12B-A8978C67532A}"
+              DTS:DTSID="{BE3DF52E-AF29-449A-81DD-75932B725BF4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -576,7 +576,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TH_DTS"
-              DTS:DTSID="{601A65A1-8945-4C9F-A57A-94A8BC1C1314}"
+              DTS:DTSID="{0B3CC07A-56B2-48C1-9204-9381A5A6D155}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -585,7 +585,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TH_ST_ID"
-              DTS:DTSID="{D746D6D5-4870-4FA5-A653-2032D4B58C73}"
+              DTS:DTSID="{0D698BE3-EF7A-478F-9360-8D68E11DEFB7}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -594,7 +594,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TradeType]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B068A651-73D4-4F74-A7F5-20F650D6DE35}"
+      DTS:DTSID="{7A18E298-5AB1-4827-A24D-EE2E5EBDFB1C}"
       DTS:ObjectName="TradeType">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -604,7 +604,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ULB\Data warehouse\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\TradeType.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\TradeType.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -613,7 +613,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TT_ID"
-              DTS:DTSID="{E0E55EA4-306E-4324-AEC9-1B91873A4961}"
+              DTS:DTSID="{8A95F771-DAA9-4E43-AEC1-C00D1CD4A14E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -622,7 +622,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TT_NAME"
-              DTS:DTSID="{AF286E72-EA20-4AE2-A418-473B3D22787C}"
+              DTS:DTSID="{F6EB0E7B-42B9-44F5-ABF8-4F62163D32F4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -631,7 +631,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TT_IS_SELL"
-              DTS:DTSID="{6723200C-369A-4979-B405-C9EB74FB9891}"
+              DTS:DTSID="{1F11000B-9049-4C4B-92C2-91BC88A90E00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -640,7 +640,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TT_IS_MRKT"
-              DTS:DTSID="{80B3EADF-C66C-4051-8E50-A85E36654F8F}"
+              DTS:DTSID="{581B975C-9184-4B54-B2A8-9956532DF88C}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -653,7 +653,7 @@
       DTS:refId="Package\dimBroker"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5167C358-DA82-4326-A77C-69D528EB050B}"
+      DTS:DTSID="{E9B9C0C8-9225-45B6-A681-F7E2A51EF10B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="dimBroker"
@@ -1313,8 +1313,8 @@
               <connections>
                 <connection
                   refId="Package\dimBroker\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1631,7 +1631,7 @@
       DTS:refId="Package\dimDate"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{9E17E4A7-22ED-433C-AFBE-1E45EF43ED6A}"
+      DTS:DTSID="{0490A5A6-255E-400F-96F5-D7FD12A6183C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="dimDate"
@@ -2580,8 +2580,8 @@
               <connections>
                 <connection
                   refId="Package\dimDate\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{3CA1E432-59E1-4FC4-A88E-457333A895B8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-NRK2JSL_SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2883,7 +2883,7 @@
       DTS:refId="Package\dimTime"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{3FD658D0-10AA-42C9-B47F-C6374603E1D6}"
+      DTS:DTSID="{675734F0-2AFD-4FA5-A3B2-7CFE5F26023D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="dimTime"
@@ -3434,8 +3434,8 @@
               <connections>
                 <connection
                   refId="Package\dimTime\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4003,7 +4003,7 @@
       DTS:refId="Package\Industry"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{589870A8-CD4B-4AC7-93D6-4D7873F554F3}"
+      DTS:DTSID="{DA3C9969-E162-430F-ADDB-08A391DB0488}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Industry"
@@ -4329,8 +4329,8 @@
               <connections>
                 <connection
                   refId="Package\Industry\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4435,7 +4435,7 @@
       DTS:refId="Package\statusType"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{9847C32B-EC46-42A2-A860-8162ED1A54BD}"
+      DTS:DTSID="{9DE7D411-FC8C-4E28-ADD7-25801761359D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="statusType"
@@ -4733,8 +4733,8 @@
               <connections>
                 <connection
                   refId="Package\statusType\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4825,7 +4825,7 @@
       DTS:refId="Package\TaxRate"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{88615DFE-E960-475F-9C67-B2AEABC6962A}"
+      DTS:DTSID="{7B312F2D-F3A7-40BA-A29F-13FF1107F955}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="TaxRate"
@@ -5122,8 +5122,8 @@
               <connections>
                 <connection
                   refId="Package\TaxRate\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5228,7 +5228,7 @@
       DTS:refId="Package\TradeType"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{3483A8AA-4CF6-41F9-8749-84FBD8DDDBED}"
+      DTS:DTSID="{03ABAD8F-A655-4346-B186-99D0E59D54D3}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="TradeType"
@@ -5405,8 +5405,8 @@
               <connections>
                 <connection
                   refId="Package\TradeType\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NRK2JSL\SQLEXPRESS.destination_di]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5698,19 +5698,19 @@
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="127,42"
+          Size="126.666666666667,42"
           Id="Package\dimBroker"
           TopLeft="246,101" />
         <NodeLayout
@@ -5722,6 +5722,10 @@
           Id="Package\dimTime"
           TopLeft="407,105" />
         <NodeLayout
+          Size="118,42"
+          Id="Package\Industry"
+          TopLeft="560,210" />
+        <NodeLayout
           Size="130,42"
           Id="Package\statusType"
           TopLeft="557,90" />
@@ -5730,13 +5734,9 @@
           Id="Package\TaxRate"
           TopLeft="564,148" />
         <NodeLayout
-          Size="129,42"
+          Size="129.333333333334,42"
           Id="Package\TradeType"
           TopLeft="556,39" />
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Industry"
-          TopLeft="560,210" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5877,11 +5877,11 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
+          Size="170.666666666667,42"
           Id="Package\dimDate\OLE DB Destination"
           TopLeft="418,67" />
         <NodeLayout
-          Size="141,42"
+          Size="141.333333333334,42"
           Id="Package\dimDate\Flat File Date"
           TopLeft="40,66" />
         <NodeLayout
@@ -6040,6 +6040,83 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\dimTime\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Industry">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Industry\OLE DB Destination"
+          TopLeft="484,72" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Industry\Flat File Source"
+          TopLeft="81,77" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Industry\Data Conversion"
+          TopLeft="272,74" />
+        <EdgeLayout
+          Id="Package\Industry.Paths[Flat File Source Output]"
+          TopLeft="232,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40,0"
+              Start="0,0"
+              End="32.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Industry.Paths[Data Conversion Output]"
+          TopLeft="428,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56,0"
+              Start="0,0"
+              End="48.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Industry\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6271,83 +6348,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\TradeType\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Industry">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Industry\OLE DB Destination"
-          TopLeft="484,72" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Industry\Flat File Source"
-          TopLeft="81,77" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Industry\Data Conversion"
-          TopLeft="272,74" />
-        <EdgeLayout
-          Id="Package\Industry.Paths[Flat File Source Output]"
-          TopLeft="232,96.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40,0"
-              Start="0,0"
-              End="32.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="32.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Industry.Paths[Data Conversion Output]"
-          TopLeft="428,94">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="56,0"
-              Start="0,0"
-              End="48.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="48.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Industry\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
