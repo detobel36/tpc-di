@@ -76,7 +76,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Rémy\Documents\MA2\Data Warehouse\Tools\output\Batch1\Industry.txt">
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\Industry.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -123,7 +123,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Rémy\Documents\MA2\Data Warehouse\Tools\output\Batch1\StatusType.txt">
+          DTS:ConnectionString="Users\Public\Documents\TPC-DI\Batch1\StatusType.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -148,23 +148,23 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.tpc-di-destination]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{79440728-416F-4469-BF36-04D0758BDE33}"
-      DTS:ObjectName="LocalHost.tpc-di-destination">
+      DTS:ObjectName="LocalHost.destination_di">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=tpc-di-destination;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.tpc-di-destination2]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di2]"
       DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
       DTS:DTSID="{C4EC74FA-94B9-4A8A-A677-39FDBBCE87C7}"
-      DTS:ObjectName="LocalHost.tpc-di-destination2">
+      DTS:ObjectName="LocalHost.destination_di2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=tpc-di-destination;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -196,7 +196,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\Rémy\Documents\MA2\Data Warehouse\Tools\output\Batch1" />
+              Folder="Users\Public\Documents\TPC-DI\Batch1" />
             <FEFEProperty
               FileSpec="FINWIRE*Q*" />
             <FEFEProperty
@@ -1950,8 +1950,8 @@
                   <connections>
                     <connection
                       refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.tpc-di-destination]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.tpc-di-destination]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                       description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                       name="OleDbConnection" />
                   </connections>
@@ -2297,8 +2297,8 @@
                   <connections>
                     <connection
                       refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Destination OLE DB 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.tpc-di-destination]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.tpc-di-destination]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
                       description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                       name="OleDbConnection" />
                   </connections>
@@ -2562,8 +2562,8 @@
                   <connections>
                     <connection
                       refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany.Connections[IDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.tpc-di-destination2]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.tpc-di-destination2]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di2]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di2]"
                       description="Gestionnaire de connexions managées"
                       name="IDbConnection" />
                   </connections>
