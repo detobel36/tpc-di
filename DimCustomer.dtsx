@@ -5513,7 +5513,7 @@
                   dataType="System.String"
                   description="The XML data used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLData">C:\Users\GTM\BDMA\BRU_ULB\Data Warehouses\Project\TPC_DI\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\CustomerMgmt.xml</property>
+                  name="XMLData">C:\Users\Public\Documents\TPC-DI\Batch1\CustomerMgmt.xml</property>
                 <property
                   dataType="System.String"
                   description="The variable used by the XML source adapter to specify XML data."
@@ -5526,7 +5526,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">C:\Users\GTM\BDMA\BRU_ULB\Data Warehouses\Project\TPC_DI\d58ea44f-adad-49d0-be9d-bec0bb58b7ac-tpc-di-tool\Tools\output\Batch1\CustomerMgmt.xsd</property>
+                  name="XMLSchemaDefinition">C:\Users\Public\Documents\TPC-DI\Batch1\CustomerMgmt.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
