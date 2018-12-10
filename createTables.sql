@@ -105,7 +105,7 @@ CREATE TABLE DimDate (  SK_DateID INTEGER Not NULL PRIMARY KEY,
                                           HolidayFlag BIT
 );
 
-CREATE TABLE DimSecurity( SK_SecurityID INTEGER Not NULL PRIMARY KEY,
+CREATE TABLE DimSecurity( SK_SecurityID INTEGER Not NULL IDENTITY (1,1) PRIMARY KEY,
                                                  Symbol CHAR(15) Not NULL,
                                                  Issue CHAR(6) Not NULL,
                                                  Status CHAR(10) Not NULL,
