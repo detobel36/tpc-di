@@ -18,7 +18,7 @@ Finally, you need to execute the file `createTables.sql` on your local database:
 
 ## Files
 
-- [`createTables.sql`](createTable.sql)
+- [`createTables.sql`](createTables.sql)
   Create destination database
 - [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)
   ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
