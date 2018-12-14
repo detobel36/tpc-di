@@ -18,13 +18,13 @@ Finally, you need to execute the file `createTables.sql` on your local database:
 
 ## Files
 
-- [`createTables.sql`](createTables.sql)
+- [`createTables.sql`](createTables.sql)       
   Create destination database
-- [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)
+- [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
   ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
-- [`DimCompany.dtsx`](DimCompany.dtsx)
+- [`DimCompany.dtsx`](DimCompany.dtsx)       
   ETL for DimCompany, DimSecurity and Financial (they use FINWIRE files)
-- [`DimCustomer.dtsx`](DimCustomer.dtsx)
+- [`DimCustomer.dtsx`](DimCustomer.dtsx)       
   ETL for DimCustomer
-- [`CustomerMgmt.xsd`](CustomerMgmt.xsd)
+- [`CustomerMgmt.xsd`](CustomerMgmt.xsd)       
   Used by DimCustomer.dtsx to open XML file
