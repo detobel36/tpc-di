@@ -11,8 +11,8 @@
   DTS:LocaleID="2060"
   DTS:ObjectName="DimCompany"
   DTS:PackageType="5"
-  DTS:VersionBuild="146"
-  DTS:VersionGUID="{7D09A0DA-5B26-441F-8873-B81C4BD0FC32}">
+  DTS:VersionBuild="149"
+  DTS:VersionGUID="{541C2AF2-D6EB-4F63-9AA6-0989BFBAC81B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -260,6 +260,13 @@
                           cachedLength="8"
                           cachedName="FoundingDate"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[FoundingDate]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Inputs[Entrée de colonne dérivée].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -292,28 +299,6 @@
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
                               name="FriendlyExpression">!(SUBSTRING(SPrating,1,1) == "A" || SUBSTRING(SPrating,1,3) == "BBB")</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[EffectiveDate]"
-                          dataType="dbDate"
-                          errorOrTruncationOperation="Calcul"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[EffectiveDate]"
-                          name="EffectiveDate"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Expression de colonne dérivée"
-                              name="Expression">(DT_DBDATE)[GETDATE]()</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Expression claire de colonne dérivée"
-                              expressionType="Notify"
-                              name="FriendlyExpression">(DT_DBDATE)GETDATE()</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -402,6 +387,28 @@
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
                               name="FriendlyExpression"> TRUE </property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[EffectiveDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée].Columns[EffectiveDate]"
+                          name="EffectiveDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">(DT_DBDATE)([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]},7,2) + "/" + [SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]},5,2) + "/" + [SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]},1,4))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)(SUBSTRING(PTS,7,2) + "/" + SUBSTRING(PTS,5,2) + "/" + SUBSTRING(PTS,1,4))</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -939,6 +946,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedLength="13"
                           cachedName="ShOut"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[ShOut]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert date and add column.Inputs[Entrée de colonne dérivée].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -1074,13 +1088,13 @@ where [refTable].[Symbol] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Expression de colonne dérivée"
-                              name="Expression">(DT_DBDATE)[GETDATE]()</property>
+                              name="Expression">(DT_DBDATE)([SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]},7,2) + "/" + [SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]},5,2) + "/" + [SUBSTRING](#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]},1,4))</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Expression claire de colonne dérivée"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_DBDATE)GETDATE()</property>
+                              name="FriendlyExpression">(DT_DBDATE)(SUBSTRING(PTS,7,2) + "/" + SUBSTRING(PTS,5,2) + "/" + SUBSTRING(PTS,1,4))</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -3996,6 +4010,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedLength="150"
                           cachedName="Description"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Outputs[Sortie de tri].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Outputs[Sortie de tri].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -4233,6 +4254,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Colonne d'entrée associée à cette colonne de sortie"
                               name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Inputs[Entrée gauche de jointure de fusion].Columns[Description]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Colonne d'entrée associée à cette colonne de sortie"
+                              name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -5141,6 +5177,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedLength="150"
                           cachedName="Description"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -5383,6 +5426,21 @@ where [refTable].[Symbol] = ?</property>
                               name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée gauche de jointure de fusion].Columns[Description]}</property>
                           </properties>
                         </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Colonne d'entrée associée à cette colonne de sortie"
+                              name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]}</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -5488,6 +5546,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedLength="10"
                           cachedName="ST_NAME"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Outputs[Sortie de tri].Columns[ST_NAME]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Outputs[Sortie de tri].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -5663,6 +5728,21 @@ where [refTable].[Symbol] = ?</property>
                               name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Inputs[Entrée droite de jointure de fusion].Columns[SK_CompanyID]}</property>
                           </properties>
                         </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Colonne d'entrée associée à cette colonne de sortie"
+                              name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]}</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -5769,6 +5849,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Outputs[Sortie de tri].Columns[Dividend]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Outputs[Sortie de tri].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -5945,6 +6032,21 @@ where [refTable].[Symbol] = ?</property>
                               name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Inputs[Entrée droite de jointure de fusion].Columns[SK_CompanyID]}</property>
                           </properties>
                         </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Colonne d'entrée associée à cette colonne de sortie"
+                              name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]}</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -6052,6 +6154,13 @@ where [refTable].[Symbol] = ?</property>
                           cachedPrecision="10"
                           cachedScale="2"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Outputs[Sortie de tri].Columns[DividendFormat]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Outputs[Sortie de tri].Columns[PTS]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -6228,6 +6337,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Colonne d'entrée associée à cette colonne de sortie"
                               name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Inputs[Entrée gauche de jointure de fusion].Columns[DividendFormat]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Colonne d'entrée associée à cette colonne de sortie"
+                              name="InputColumnID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Inputs[Entrée gauche de jointure de fusion].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -8456,6 +8580,21 @@ where [refTable].[Symbol] = ?</property>
                               name="OutputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[SK_CompanyID]}</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Unir tout entrée 1].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Outputs[Sortie de jointure de fusion].Columns[PTS]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="ID de lignage de colonne de sortie"
+                              name="OutputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]}</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -8611,6 +8750,21 @@ where [refTable].[Symbol] = ?</property>
                               name="OutputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[Status]}</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Entrée Union All 2].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Outputs[Sortie de jointure de fusion].Columns[PTS]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="ID de lignage de colonne de sortie"
+                              name="OutputColumnLineageID">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]}</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -8694,6 +8848,13 @@ where [refTable].[Symbol] = ?</property>
                           dataType="i4"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[SK_CompanyID]"
                           name="SK_CompanyID" />
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[PTS]"
+                          name="PTS" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -9322,6 +9483,24 @@ where [refTable].[Symbol] = ?</property>
                               name="NewSortKeyPosition">0</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Inputs[Entrée de tri].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[PTS]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie les options de comparaison pour les données caractères."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie l'ordre de tri de la colonne."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -9541,6 +9720,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                               name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table.Outputs[Sortie de colonne dérivée].Columns[Description]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -10062,6 +10256,24 @@ where [refTable].[Symbol] = ?</property>
                               name="NewSortKeyPosition">0</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Inputs[Entrée de tri].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion].Columns[PTS]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie les options de comparaison pour les données caractères."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie l'ordre de tri de la colonne."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -10281,6 +10493,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                               name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion].Columns[Description]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Outputs[Sortie de tri].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Outputs[Sortie de tri].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -11582,6 +11809,24 @@ where [refTable].[Symbol] = ?</property>
                               name="NewSortKeyPosition">1</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Inputs[Entrée de tri].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie les options de comparaison pour les données caractères."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie l'ordre de tri de la colonne."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -11752,6 +11997,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                               name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Create SEC CIK.Outputs[Sortie de colonne dérivée].Columns[CIK]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Outputs[Sortie de tri].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Outputs[Sortie de tri].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -11960,6 +12220,24 @@ where [refTable].[Symbol] = ?</property>
                               name="NewSortKeyPosition">1</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Inputs[Entrée de tri].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie les options de comparaison pour les données caractères."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie l'ordre de tri de la colonne."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -12117,6 +12395,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                               name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[CoNameOrCIK]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Outputs[Sortie de tri].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Outputs[Sortie de tri].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -12326,6 +12619,24 @@ where [refTable].[Symbol] = ?</property>
                               name="NewSortKeyPosition">0</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Inputs[Entrée de tri].Columns[PTS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PTS"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[PTS]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie les options de comparaison pour les données caractères."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Spécifie l'ordre de tri de la colonne."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -12484,6 +12795,21 @@ where [refTable].[Symbol] = ?</property>
                               dataType="System.Int32"
                               description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                               name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Dividend.Outputs[Sortie de conversion de données].Columns[DividendFormat]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Outputs[Sortie de tri].Columns[PTS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Outputs[Sortie de tri].Columns[PTS]"
+                          name="PTS">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                              name="SortColumnId">#{Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat].Columns[PTS]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -13950,44 +14276,44 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split FINWIRE type.Outputs[SEC]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée7]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Dividend.Inputs[Entrée de conversion de données]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE SEC table.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée6]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist.Inputs[Entrée de recherche]"
                   name="Sortie de colonne dérivée"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert date and add column.Outputs[Sortie de colonne dérivée]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée6]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée5]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert number.Inputs[Entrée de conversion de données]"
                   name="Sortie de colonne dérivée"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table.Outputs[Sortie de colonne dérivée]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée5]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by CIK.Inputs[Entrée de tri]"
                   name="Sortie de colonne dérivée"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FIN CIK.Outputs[Sortie de colonne dérivée]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Dividend.Inputs[Entrée de conversion de données]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to Financial.Inputs[Entrée de destination OLE DB]"
                   name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE SEC table.Outputs[Sortie de colonne dérivée]" />
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Inputs[Entrée de tri]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create SEC CIK.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Inputs[Entrée de conversion de données]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée3]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Inputs[Entrée de tri]"
                   name="Sortie de colonne dérivée"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to Financial.Inputs[Entrée de destination OLE DB]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Inputs[Entrée de tri]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create SEC CIK.Outputs[Sortie de colonne dérivée]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data.Inputs[Entrée de conversion de données]"
-                  name="Sortie de colonne dérivée"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Outputs[Sortie de colonne dérivée]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de commande OLE DB]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for DimCompay.Inputs[Unir tout entrée 1]"
@@ -14014,47 +14340,47 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   name="Sortie de conversion de données"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert number.Outputs[Sortie de conversion de données]" />
                 <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion4]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Entrée Union All 2]"
+                  name="Sortie de jointure de fusion"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Outputs[Sortie de jointure de fusion]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion6]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial.Inputs[Unir tout entrée 1]"
+                  name="Sortie de jointure de fusion"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by CIK.Outputs[Sortie de jointure de fusion]" />
+                <path
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion3]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Unir tout entrée 1]"
+                  name="Sortie de jointure de fusion"
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Outputs[Sortie de jointure de fusion]" />
+                <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion5]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial.Inputs[Entrée Union All 2]"
                   name="Sortie de jointure de fusion"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by Name.Outputs[Sortie de jointure de fusion]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion6]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Entrée Union All 2]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion1]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split for SEC between Name and ID.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de jointure de fusion"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Outputs[Sortie de jointure de fusion]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion4]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial.Inputs[Unir tout entrée 1]"
-                  name="Sortie de jointure de fusion"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by CIK.Outputs[Sortie de jointure de fusion]" />
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Inputs[Entrée de tri]"
-                  name="Sortie de jointure de fusion"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany.Inputs[Entrée de colonne dérivée]"
                   name="Sortie de jointure de fusion"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Outputs[Sortie de jointure de fusion]" />
                 <path
                   refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion2]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Inputs[Unir tout entrée 1]"
+                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Inputs[Entrée de tri]"
                   name="Sortie de jointure de fusion"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Outputs[Sortie de jointure de fusion]" />
+                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Outputs[Sortie de jointure de fusion]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion3]"
-                  endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split for SEC between Name and ID.Inputs[Entrée de fractionnement conditionnel]"
-                  name="Sortie de jointure de fusion"
-                  startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Outputs[Sortie de jointure de fusion]" />
-                <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 11]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de multidiffusion 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of CompanyID.Outputs[Sortie de multidiffusion 1]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 13]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 11]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de multidiffusion 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of Name.Outputs[Sortie de multidiffusion 1]" />
@@ -14064,117 +14390,117 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   name="Sortie de multidiffusion 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 13]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de multidiffusion 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion for Status.Outputs[Sortie de multidiffusion 1]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 21]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 2]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by Name.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de multidiffusion 2"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of Name.Outputs[Sortie de multidiffusion 2]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 2]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 21]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID.Inputs[Entrée de tri]"
                   name="Sortie de multidiffusion 2"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB]"
                   name="Sortie de recherche avec correspondance"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist.Outputs[Sortie de recherche avec correspondance]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Company History.Inputs[Entrée de commande OLE DB]"
                   name="Sortie de recherche avec correspondance"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if CompanyID exist.Outputs[Sortie de recherche avec correspondance]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for Secutiry.Inputs[Entrée Union All 1]"
                   name="Sortie de recherche sans correspondance"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist.Outputs[Sortie de recherche sans correspondance]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for DimCompay.Inputs[Entrée Union All 1]"
                   name="Sortie de recherche sans correspondance"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if CompanyID exist.Outputs[Sortie de recherche sans correspondance]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Keep only IsCurrent row.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de source ADO NET"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany.Outputs[Sortie de source ADO NET]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Inputs[Entrée de tri]"
                   name="Sortie de source ADO NET"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType.Outputs[Sortie de source ADO NET]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Inputs[Entrée de tri]"
                   name="Sortie de source de fichier plat"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry.Outputs[Sortie de source de fichier plat]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
                   name="Sortie de source de fichier plat"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE.Outputs[Sortie de source de fichier plat]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of CompanyID.Inputs[Multidiffusion entrée 1]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée droite de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by CIK.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by CIK.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion for Status.Inputs[Multidiffusion entrée 1]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri8]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of Name.Inputs[Multidiffusion entrée 1]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri9]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri8]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri10]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri9]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by Name.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by FINWARE Name.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri10]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK.Inputs[Entrée gauche de jointure de fusion]"
                   name="Sortie de tri"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK.Outputs[Sortie de tri]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 13]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to DimSecurity.Inputs[Entrée de destination ADO NET]"
                   name="Unir tout sortie 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for Secutiry.Outputs[Unir tout sortie 1]" />
@@ -14189,7 +14515,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   name="Unir tout sortie 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for DimCompay.Outputs[Unir tout sortie 1]" />
                 <path
-                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
+                  refId="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 13]"
                   endId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate.Inputs[Entrée de colonne dérivée]"
                   name="Unir tout sortie 1"
                   startId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial.Outputs[Unir tout sortie 1]" />
@@ -14240,153 +14566,85 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK"
-          TopLeft="944.666652609905,1046.26665770928" />
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel"
-          TopLeft="1082.41565847392,85.0833318417272" />
-        <NodeLayout
           Size="160,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Dividend"
           TopLeft="1110.83331678063,365.399996017218" />
-        <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE SEC table"
-          TopLeft="1086.77776412666,279.844439893431" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry"
-          TopLeft="1825.33231407027,544.486101583557" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial"
-          TopLeft="160.992061093096,1164.72220810685" />
-        <NodeLayout
-          Size="209.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table"
-          TopLeft="1988.52675608293,302.07499462828" />
-        <NodeLayout
-          Size="214.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name"
-          TopLeft="1180.83331573755,935.866659754912" />
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IN_ID"
           TopLeft="1798.56148113585,446.608327403714" />
         <NodeLayout
-          Size="144,43.3333333333334"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC"
-          TopLeft="1073.33331733942,1158.66665922801" />
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all for Financial"
+          TopLeft="160.992061093096,1164.72220810685" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry"
-          TopLeft="1791.26981457784,375.416659983495" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FIN CIK"
-          TopLeft="37.6587350447733,547.511104261346" />
-        <NodeLayout
-          Size="153.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by CIK"
-          TopLeft="52.5892891526404,1043.64998544683" />
-        <NodeLayout
-          Size="218.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert date and add column"
-          TopLeft="1038.33331786096,1235.33332527479" />
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to Financial"
-          TopLeft="163.144838838795,1313.75553743415" />
-        <NodeLayout
-          Size="178.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate"
-          TopLeft="156.478172271469,1242.42220665786" />
-        <NodeLayout
-          Size="200.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if CompanyID exist"
-          TopLeft="1686.11109966206,986.388886370596" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store DimCompany"
-          TopLeft="1701.33926036235,1313.42220371339" />
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of CompanyID"
-          TopLeft="445.499993381401,901.399988268613" />
-        <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status"
-          TopLeft="1803.35314773112,624.877770150568" />
-        <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE"
-          TopLeft="1105.74899145956,17.2249996919931" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany"
-          TopLeft="585.992056581363,526.122215178742" />
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType"
-          TopLeft="1466.7856924289,387.825396356791" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status"
-          TopLeft="1104.83332636704,437.799996761084" />
-        <NodeLayout
-          Size="192,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion for Status"
-          TopLeft="1448.99998790522,564.533327816328" />
-        <NodeLayout
-          Size="245.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split for FIN between Name and ID"
-          TopLeft="120.992065613114,437.055552210741" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status"
-          TopLeft="1130.83332452923,652.599992824793" />
+          Size="204,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for Secutiry"
+          TopLeft="1049.99999668863,1502.27777135935" />
         <NodeLayout
           Size="152,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create SEC CIK"
           TopLeft="974.66665216287,854.399992685318" />
         <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data"
-          TopLeft="1721.99898227672,898.511102956997" />
-        <NodeLayout
-          Size="153.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by CIK"
-          TopLeft="35.297623968846,621.644437842634" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID"
-          TopLeft="1480.22815254606,467.486106310206" />
+          Size="172,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID"
+          TopLeft="472.519837142752,785.177766717937" />
         <NodeLayout
           Size="205.333333333334,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE FIN table"
           TopLeft="135.714283691985,285.626979933514" />
         <NodeLayout
-          Size="212,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by FINWARE Name"
-          TopLeft="221.686510080323,622.177771082985" />
+          Size="164,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by Name"
+          TopLeft="277.98611082654,1047.08332897474" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID"
-          TopLeft="2009.36008910582,402.249994207918" />
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by FINWARE Name"
+          TopLeft="1180.83331573755,935.866659754912" />
         <NodeLayout
-          Size="177.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to DimSecurity"
-          TopLeft="1057.49998424202,1587.38887549672" />
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType"
+          TopLeft="1466.7856924289,387.825396356791" />
         <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split FINWIRE type"
-          TopLeft="1105.9920470115,162.413886026426" />
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert Data"
+          TopLeft="1723.78469653583,897.892055349019" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK"
-          TopLeft="974.66665216287,935.466657926242" />
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion"
+          TopLeft="604.027772634808,692.444441499975" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Company History"
+          TopLeft="1875.16664859901,1102.33332876166" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to Financial"
+          TopLeft="163.144838838795,1313.75553743415" />
+        <NodeLayout
+          Size="190.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name"
+          TopLeft="727.63888190397,787.055550919308" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store DimCompany"
+          TopLeft="1701.33926036235,1313.42220371339" />
+        <NodeLayout
+          Size="229.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History"
+          TopLeft="1215.83332710382,1411.16665998995" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for DimCompay"
+          TopLeft="1682.66665146748,1209.99999364614" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of Name"
+          TopLeft="730.416659640355,905.777774058448" />
+        <NodeLayout
+          Size="144,43.3333333333334"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC"
+          TopLeft="1073.33331733942,1158.66665922801" />
         <NodeLayout
           Size="178.666666666667,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join CMP with Status"
@@ -14396,353 +14654,275 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert number"
           TopLeft="162.281749063126,366.238091596251" />
         <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion for Status"
+          TopLeft="1448.99998790522,564.533327816328" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name"
+          TopLeft="1210.97220803507,1050.22221592002" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist"
+          TopLeft="1055.13888209023,1310.88888434304" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Keep only IsCurrent row"
+          TopLeft="574.166661968662,604.444441654947" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by Status"
+          TopLeft="1104.83332636704,437.799996761084" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fractionnement conditionnel"
+          TopLeft="1082.41565847392,85.0833318417272" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE SEC table"
+          TopLeft="1086.77776412666,279.844439893431" />
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join Industry"
+          TopLeft="1825.33231407027,544.486101583557" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split FINWIRE type"
+          TopLeft="1105.9920470115,162.413886026426" />
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split for FIN between Name and ID"
+          TopLeft="120.992065613114,437.055552210741" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by IndustryID"
+          TopLeft="2009.36008910582,402.249994207918" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of CompanyID"
+          TopLeft="445.499993381401,901.399988268613" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FINWARE CMP table"
+          TopLeft="1988.52675608293,302.07499462828" />
+        <NodeLayout
           Size="248,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Split for SEC between Name and ID"
           TopLeft="996.333318506678,751.466657616298" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort CMP by Status"
+          TopLeft="1803.35314773112,624.877770150568" />
+        <NodeLayout
+          Size="200.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if CompanyID exist"
+          TopLeft="1686.11109966206,986.388886370596" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - Industry"
+          TopLeft="1791.26981457784,375.416659983495" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by CIK"
+          TopLeft="35.297623968846,621.644437842634" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Create FIN CIK"
+          TopLeft="37.6587350447733,547.511104261346" />
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort FIN by FINWARE Name"
+          TopLeft="221.686510080323,622.177771082985" />
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to DimSecurity"
+          TopLeft="1057.49998424202,1587.38887549672" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by ST_ID"
+          TopLeft="1480.22815254606,467.486106310206" />
+        <NodeLayout
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert date and add column"
+          TopLeft="1038.33331786096,1235.33332527479" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert QtrStartDate"
+          TopLeft="156.478172271469,1242.42220665786" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort SEC by CIK"
+          TopLeft="974.66665216287,935.466657926242" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by CIK"
+          TopLeft="944.666652609905,1046.26665770928" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by CIK"
+          TopLeft="52.5892891526404,1043.64998544683" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Status"
+          TopLeft="1130.83332452923,652.599992824793" />
         <NodeLayout
           Size="256,42.6666666666667"
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Add missing column for DimCompany"
           TopLeft="1663.66564981262,819.427771037784" />
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by CompanyID"
-          TopLeft="472.519837142752,785.177766717937" />
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Flat File - FINWIRE"
+          TopLeft="1105.74899145956,17.2249996919931" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany"
+          TopLeft="585.992056581363,526.122215178742" />
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 11]"
-          TopLeft="1146.49998426686,1201.99999256134">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="1756.27776445366,1029.05555303726">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,33.3333327134453"
+              EndConnector="0,180.944440608882"
               Start="0,0"
-              End="0,25.8333327134453">
+              End="0,173.444440608882">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.8333327134453" />
+                    End="0,173.444440608882" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-91.50201171875,80.917532804441,183.0040234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
-          TopLeft="249.068450015616,1207.38887477352">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="1117.90277272277,1353.55555100971">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,35.0333318843439"
+              EndConnector="0,148.722220349643"
               Start="0,0"
-              End="0,27.5333318843439">
+              End="0,141.222220349643">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5333318843439" />
+                    End="0,141.222220349643" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-91.50201171875,64.8064226748215,183.0040234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
-          TopLeft="1188.27776989258,479.799996761084">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="1818.5555441065,1029.05555303726">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,172.799996063709"
+              EndConnector="174.611104492508,73.2777757243941"
               Start="0,0"
-              End="0,165.299996063709">
+              End="174.611104492508,65.7777757243941">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,165.299996063709" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
-          TopLeft="1049.22220794194,978.133324592908">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,68.1333331163723"
-              Start="0,0"
-              End="0,60.6333331163723">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.6333331163723" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
-          TopLeft="555.34324859541,827.844433384603">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,73.5555548840099"
-              Start="0,0"
-              End="0,66.0555548840099">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.0555548840099" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
-          TopLeft="1872.50245315862,489.274994070382">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,55.2111075131754"
-              Start="0,0"
-              End="0,47.7111075131754">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.7111075131754" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
-          TopLeft="108.499012116299,664.311104509301">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,379.338880937531"
-              Start="0,0"
-              End="0,371.838880937531">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,371.838880937531" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
-          TopLeft="1548.94740355897,510.152772976872">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,54.3805548394554"
-              Start="0,0"
-              End="0,46.8805548394554">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.8805548394554" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
-          TopLeft="1888.01981439778,667.544436817235">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-66.4722207383147,55.0083280700945"
-              Start="0,0"
-              End="-66.4722207383147,47.5083280700945">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.7120530831036" />
+                    End="0,25.658901974145" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.7120530831036"
-                    Point2="0,32.7120530831036"
-                    Point3="-4,32.7120530831036" />
+                    Point1="0,25.658901974145"
+                    Point2="0,29.658901974145"
+                    Point3="4,29.658901974145" />
                   <mssgle:LineSegment
-                    End="-62.4722207383147,32.7120530831036" />
+                    End="170.611104492508,29.658901974145" />
                   <mssgle:CubicBezierSegment
-                    Point1="-62.4722207383147,32.7120530831036"
-                    Point2="-66.4722207383147,32.7120530831036"
-                    Point3="-66.4722207383147,36.7120530831036" />
+                    Point1="170.611104492508,29.658901974145"
+                    Point2="174.611104492508,29.658901974145"
+                    Point3="174.611104492508,33.658901974145" />
                   <mssgle:LineSegment
-                    End="-66.4722207383147,47.5083280700945" />
+                    End="174.611104492508,65.7777757243941" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-4.37145947249603,34.658901974145,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
-          TopLeft="2092.69342243915,444.916660874585">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="1173.8055487569,1353.55555100971">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-174.472219479994,99.5694407089715"
+              EndConnector="156.694445013586,57.6111089802448"
               Start="0,0"
-              End="-174.472219479994,92.0694407089715">
+              End="156.694445013586,50.1111089802448">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.072914450472" />
+                    End="0,19.3489957100551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,55.072914450472"
-                    Point2="0,59.072914450472"
-                    Point3="-4,59.072914450472" />
+                    Point1="0,19.3489957100551"
+                    Point2="0,23.3489957100551"
+                    Point3="4,23.3489957100551" />
                   <mssgle:LineSegment
-                    End="-170.472219479994,59.072914450472" />
+                    End="152.694445013586,23.3489957100551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-170.472219479994,59.072914450472"
-                    Point2="-174.472219479994,59.072914450472"
-                    Point3="-174.472219479994,63.072914450472" />
+                    Point1="152.694445013586,23.3489957100551"
+                    Point2="156.694445013586,23.3489957100551"
+                    Point3="156.694445013586,27.3489957100551" />
                   <mssgle:LineSegment
-                    End="-174.472219479994,92.0694407089715" />
+                    End="156.694445013586,50.1111089802448" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-13.329789211957,28.3489957100551,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
-          TopLeft="1189.74899163341,59.8916663586598">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 21]"
+          TopLeft="652.916661523696,735.111108166642">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,25.1916654830674"
+              EndConnector="-94.3968243809444,50.0666585512953"
               Start="0,0"
-              End="0,17.6916654830674">
+              End="-94.3968243809444,42.5666585512953">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.6916654830674" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
-          TopLeft="1872.91564785685,418.083326650163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,28.5250007535516"
-              Start="0,0"
-              End="0,21.0250007535516">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0250007535516" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET]"
-          TopLeft="1550.17358915415,430.492063023458">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,36.994043286748"
-              Start="0,0"
-              End="0,29.494043286748">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.494043286748" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 11]"
-          TopLeft="586.38888227029,944.06665493528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="411.166659228505,102.200002774001"
-              Start="0,0"
-              End="411.166659228505,94.7000027740007">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.3222526982648" />
+                    End="0,16.3598241798243" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.3222526982648"
-                    Point2="0,61.3222526982648"
-                    Point3="4,61.3222526982648" />
+                    Point1="0,16.3598241798243"
+                    Point2="0,20.3598241798243"
+                    Point3="-4,20.3598241798243" />
                   <mssgle:LineSegment
-                    End="407.166659228505,61.3222526982648" />
+                    End="-90.3968243809444,20.3598241798243" />
                   <mssgle:CubicBezierSegment
-                    Point1="407.166659228505,61.3222526982648"
-                    Point2="411.166659228505,61.3222526982648"
-                    Point3="411.166659228505,65.3222526982648" />
+                    Point1="-90.3968243809444,20.3598241798243"
+                    Point2="-94.3968243809444,20.3598241798243"
+                    Point3="-94.3968243809444,24.3598241798243" />
                   <mssgle:LineSegment
-                    End="411.166659228505,94.7000027740007" />
+                    End="-94.3968243809444,42.5666585512953" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14752,7 +14932,41 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 1]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 2]"
+          TopLeft="793.527770751467,948.444440725115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-407.541659924926,98.6388882496291"
+              Start="0,0"
+              End="-407.541659924926,91.1388882496291">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2517673575764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.2517673575764"
+                    Point2="0,49.2517673575764"
+                    Point3="-4,49.2517673575764" />
+                  <mssgle:LineSegment
+                    End="-403.541659924926,49.2517673575764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-403.541659924926,49.2517673575764"
+                    Point2="-407.541659924926,49.2517673575764"
+                    Point3="-407.541659924926,53.2517673575764" />
+                  <mssgle:LineSegment
+                    End="-407.541659924926,91.1388882496291" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 13]"
           TopLeft="1514.33332123856,607.199994482994">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14786,7 +15000,109 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion4]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 12]"
+          TopLeft="675.361105968141,735.111108166642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="147.611109269162,51.9444427526662"
+              Start="0,0"
+              End="147.611109269162,44.4444427526662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9722213763331" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9722213763331"
+                    Point2="0,25.9722213763331"
+                    Point3="4,25.9722213763331" />
+                  <mssgle:LineSegment
+                    End="143.611109269162,25.9722213763331" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.611109269162,25.9722213763331"
+                    Point2="147.611109269162,25.9722213763331"
+                    Point3="147.611109269162,29.9722213763331" />
+                  <mssgle:LineSegment
+                    End="147.611109269162,44.4444427526662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 11]"
+          TopLeft="823.083326307022,948.444440725115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="444.333326172497,101.77777519491"
+              Start="0,0"
+              End="444.333326172497,94.2777751949099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.592473012649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.592473012649"
+                    Point2="0,44.592473012649"
+                    Point3="4,44.592473012649" />
+                  <mssgle:LineSegment
+                    End="440.333326172497,44.592473012649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="440.333326172497,44.592473012649"
+                    Point2="444.333326172497,44.592473012649"
+                    Point3="444.333326172497,48.592473012649" />
+                  <mssgle:LineSegment
+                    End="444.333326172497,94.2777751949099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 1]"
+          TopLeft="586.38888227029,944.06665493528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="411.166659228505,102.200002774001"
+              Start="0,0"
+              End="411.166659228505,94.7000027740007">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.3222526982648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.3222526982648"
+                    Point2="0,61.3222526982648"
+                    Point3="4,61.3222526982648" />
+                  <mssgle:LineSegment
+                    End="407.166659228505,61.3222526982648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="407.166659228505,61.3222526982648"
+                    Point2="411.166659228505,61.3222526982648"
+                    Point3="411.166659228505,65.3222526982648" />
+                  <mssgle:LineSegment
+                    End="411.166659228505,94.7000027740007" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion6]"
           TopLeft="129.255955819307,1086.3166521135">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14820,31 +15136,31 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion3]"
-          TopLeft="1214.16665786256,695.26665949146">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion5]"
+          TopLeft="359.98611082654,1089.74999564141">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-93.8333393558858,56.199998124838"
+              EndConnector="-78.5496052889997,74.972212465439"
               Start="0,0"
-              End="-93.8333393558858,48.699998124838">
+              End="-78.5496052889997,67.472212465439">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.099999062419" />
+                    End="0,40.5927341871135" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.099999062419"
-                    Point2="0,28.099999062419"
-                    Point3="-4,28.099999062419" />
+                    Point1="0,40.5927341871135"
+                    Point2="0,44.5927341871135"
+                    Point3="-4,44.5927341871135" />
                   <mssgle:LineSegment
-                    End="-89.8333393558858,28.099999062419" />
+                    End="-74.5496052889997,44.5927341871135" />
                   <mssgle:CubicBezierSegment
-                    Point1="-89.8333393558858,28.099999062419"
-                    Point2="-93.8333393558858,28.099999062419"
-                    Point3="-93.8333393558858,32.099999062419" />
+                    Point1="-74.5496052889997,44.5927341871135"
+                    Point2="-78.5496052889997,44.5927341871135"
+                    Point3="-78.5496052889997,48.5927341871135" />
                   <mssgle:LineSegment
-                    End="-93.8333393558858,48.699998124838" />
+                    End="-78.5496052889997,67.472212465439" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14854,7 +15170,41 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion2]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion4]"
+          TopLeft="1293.63887470174,1092.88888258669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-125.638890695655,65.777776641319"
+              Start="0,0"
+              End="-125.638890695655,58.277776641319">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0329663585849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.0329663585849"
+                    Point2="0,39.0329663585849"
+                    Point3="-4,39.0329663585849" />
+                  <mssgle:LineSegment
+                    End="-121.638890695655,39.0329663585849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.638890695655,39.0329663585849"
+                    Point2="-125.638890695655,39.0329663585849"
+                    Point3="-125.638890695655,43.0329663585849" />
+                  <mssgle:LineSegment
+                    End="-125.638890695655,58.277776641319" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion3]"
           TopLeft="1021.99998594324,1088.93332437595">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14888,29 +15238,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion1]"
-          TopLeft="1792.38439951382,765.219431553996">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,54.2083394837883"
-              Start="0,0"
-              End="0,46.7083394837883">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.7083394837883" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion2]"
           TopLeft="1892.00939756736,587.152768250223">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14923,6 +15251,62 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,30.2250019003451" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion1]"
+          TopLeft="1214.16665786256,695.26665949146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-93.8333393558858,56.199998124838"
+              Start="0,0"
+              End="-93.8333393558858,48.699998124838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.099999062419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.099999062419"
+                    Point2="0,28.099999062419"
+                    Point3="-4,28.099999062419" />
+                  <mssgle:LineSegment
+                    End="-89.8333393558858,28.099999062419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.8333393558858,28.099999062419"
+                    Point2="-93.8333393558858,28.099999062419"
+                    Point3="-93.8333393558858,32.099999062419" />
+                  <mssgle:LineSegment
+                    End="-93.8333393558858,48.699998124838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion]"
+          TopLeft="1792.38439951382,765.219431553996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54.2083394837883"
+              Start="0,0"
+              End="0,46.7083394837883">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.7083394837883" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14955,18 +15339,30 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de conversion de données1]"
-          TopLeft="1789.55504096939,941.177769623664">
+          TopLeft="1794.45136320249,940.558722015686">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,45.2111167469327"
+              EndConnector="-8.00693020709855,45.8301643549104"
               Start="0,0"
-              End="0,37.7111167469327">
+              End="-8.00693020709855,38.3301643549104">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.7111167469327" />
+                    End="0,18.9150821774552" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9150821774552"
+                    Point2="0,22.9150821774552"
+                    Point3="-4,22.9150821774552" />
+                  <mssgle:LineSegment
+                    End="-4.00693020709855,22.9150821774552" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.00693020709855,22.9150821774552"
+                    Point2="-8.00693020709855,22.9150821774552"
+                    Point3="-8.00693020709855,26.9150821774552" />
+                  <mssgle:LineSegment
+                    End="-8.00693020709855,38.3301643549104" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14998,7 +15394,121 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de commande OLE DB1]"
+          TopLeft="1330.49999377049,1453.83332665662">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-145.833330415189,48.4444447027315"
+              Start="0,0"
+              End="-145.833330415189,40.9444447027315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.8404670798363" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.8404670798363"
+                    Point2="0,28.8404670798363"
+                    Point3="-4,28.8404670798363" />
+                  <mssgle:LineSegment
+                    End="-141.833330415189,28.8404670798363" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.833330415189,28.8404670798363"
+                    Point2="-145.833330415189,28.8404670798363"
+                    Point3="-145.833330415189,32.8404670798363" />
+                  <mssgle:LineSegment
+                    End="-145.833330415189,40.9444447027315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de commande OLE DB]"
+          TopLeft="1993.16664859901,1144.99999542832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-163.388886020415,64.999998217821"
+              Start="0,0"
+              End="-163.388886020415,57.499998217821">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7217587480718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.7217587480718"
+                    Point2="0,38.7217587480718"
+                    Point3="-4,38.7217587480718" />
+                  <mssgle:LineSegment
+                    End="-159.388886020415,38.7217587480718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159.388886020415,38.7217587480718"
+                    Point2="-163.388886020415,38.7217587480718"
+                    Point3="-163.388886020415,42.7217587480718" />
+                  <mssgle:LineSegment
+                    End="-163.388886020415,57.499998217821" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée7]"
+          TopLeft="1191.13887378698,322.511106560098">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42.8888894571198"
+              Start="0,0"
+              End="0,35.3888894571198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3888894571198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,9.6944447285599,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée6]"
+          TopLeft="1146.40276664226,1277.99999194146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32.8888924015846"
+              Start="0,0"
+              End="0,25.3888924015846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.3888924015846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée5]"
           TopLeft="239.331349710889,328.293646600181">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15020,7 +15530,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée5]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
           TopLeft="112.47817950681,590.177770928012">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15033,28 +15543,6 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,23.9666669146218" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée4]"
-          TopLeft="1792.16564937801,862.094437704451">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,36.4166652525464"
-              Start="0,0"
-              End="0,28.9166652525464">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9166652525464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15087,28 +15575,6 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée2]"
-          TopLeft="1191.13887378698,322.511106560098">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,42.8888894571198"
-              Start="0,0"
-              End="0,35.3888894571198">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.3888894571198" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
           TopLeft="244.811505555132,1285.08887332453">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15130,7 +15596,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée1]"
           TopLeft="1051.33331882954,897.066659351985">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15143,6 +15609,28 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,30.8999985742569" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée]"
+          TopLeft="1793.05850650756,862.094437704451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.7976176445683"
+              Start="0,0"
+              End="0,28.2976176445683">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2976176445683" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15340,6 +15828,30 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[IsCurrent]"
+          TopLeft="673.430550635068,647.111108321614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,45.3333331783613"
+              Start="0,0"
+              End="0,37.8333331783613">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.8333331783613" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.34798828125,14.1398111204307,42.6959765625,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[FIN]"
           TopLeft="1150.32538034483,205.080552693093">
           <EdgeLayout.Curve>
@@ -15483,121 +15995,26 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="For the DimCompany, normally use &#xA;file and not table StatusType&#xA;But for DimSecurity is noted tu use&#xA;directly the Table&#xA;"
-          ParentId="Package\Loop for each files\SSIS ForEach Loop Enumerate"
-          Size="204,90.6666666666667"
-          Id="bf1e61b6-d1bf-41d5-96c9-b6ce84d79740"
-          TopLeft="1462.2618829725,319.273013757278">
-          <AnnotationLayout.FontInfo>
-            <mssge:FontInfo
-              Color="#FFF1F1F1">
-              <mssge:FontInfo.TextDecorations>
-                <av:TextDecorationCollection />
-              </mssge:FontInfo.TextDecorations>
-            </mssge:FontInfo>
-          </AnnotationLayout.FontInfo>
-        </AnnotationLayout>
-        <NodeLayout
-          Size="236,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Company History"
-          TopLeft="1875.16664859901,1102.33332876166" />
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="1818.5555441065,1029.05555303726">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 13]"
+          TopLeft="249.068450015616,1207.38887477352">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="174.611104492508,73.2777757243941"
+              EndConnector="0,35.0333318843439"
               Start="0,0"
-              End="174.611104492508,65.7777757243941">
+              End="0,27.5333318843439">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.658901974145" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.658901974145"
-                    Point2="0,29.658901974145"
-                    Point3="4,29.658901974145" />
-                  <mssgle:LineSegment
-                    End="170.611104492508,29.658901974145" />
-                  <mssgle:CubicBezierSegment
-                    Point1="170.611104492508,29.658901974145"
-                    Point2="174.611104492508,29.658901974145"
-                    Point3="174.611104492508,33.658901974145" />
-                  <mssgle:LineSegment
-                    End="174.611104492508,65.7777757243941" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-4.37145947249589,34.658901974145,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for DimCompay"
-          TopLeft="1682.66665146748,1209.99999364614" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de commande OLE DB]"
-          TopLeft="1993.16664859901,1144.99999542832">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-163.388886020415,64.999998217821"
-              Start="0,0"
-              End="-163.388886020415,57.499998217821">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.7217587480718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.7217587480718"
-                    Point2="0,38.7217587480718"
-                    Point3="-4,38.7217587480718" />
-                  <mssgle:LineSegment
-                    End="-159.388886020415,38.7217587480718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-159.388886020415,38.7217587480718"
-                    Point2="-163.388886020415,38.7217587480718"
-                    Point3="-163.388886020415,42.7217587480718" />
-                  <mssgle:LineSegment
-                    End="-163.388886020415,57.499998217821" />
+                    End="0,27.5333318843439" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="1756.27776445366,1029.05555303726">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,180.944440608882"
-              Start="0,0"
-              End="0,173.444440608882">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,173.444440608882" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.50201171875,80.917532804441,183.0040234375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15622,102 +16039,20 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist"
-          TopLeft="1055.13888209023,1310.88888434304" />
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de colonne dérivée7]"
-          TopLeft="1146.40276664226,1277.99999194146">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 11]"
+          TopLeft="1146.49998426686,1201.99999256134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,32.8888924015846"
+              EndConnector="0,33.3333327134453"
               Start="0,0"
-              End="0,25.3888924015846">
+              End="0,25.8333327134453">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.3888924015846" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="229.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History"
-          TopLeft="1215.83332710382,1411.16665998995" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="1173.8055487569,1353.55555100971">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="156.694445013586,57.6111089802448"
-              Start="0,0"
-              End="156.694445013586,50.1111089802448">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3489957100551" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.3489957100551"
-                    Point2="0,23.3489957100551"
-                    Point3="4,23.3489957100551" />
-                  <mssgle:LineSegment
-                    End="152.694445013586,23.3489957100551" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.694445013586,23.3489957100551"
-                    Point2="156.694445013586,23.3489957100551"
-                    Point3="156.694445013586,27.3489957100551" />
-                  <mssgle:LineSegment
-                    End="156.694445013586,50.1111089802448" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.0177774932072,28.3489957100551,200.73,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all data for Secutiry"
-          TopLeft="1049.99999668863,1502.27777135935" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de commande OLE DB1]"
-          TopLeft="1330.49999377049,1453.83332665662">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-145.833330415189,48.4444447027315"
-              Start="0,0"
-              End="-145.833330415189,40.9444447027315">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.8404670798363" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.8404670798363"
-                    Point2="0,28.8404670798363"
-                    Point3="-4,28.8404670798363" />
-                  <mssgle:LineSegment
-                    End="-141.833330415189,28.8404670798363" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-141.833330415189,28.8404670798363"
-                    Point2="-145.833330415189,28.8404670798363"
-                    Point3="-145.833330415189,32.8404670798363" />
-                  <mssgle:LineSegment
-                    End="-145.833330415189,40.9444447027315" />
+                    End="0,25.8333327134453" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15727,31 +16062,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de recherche sans correspondance1]"
-          TopLeft="1117.90277272277,1353.55555100971">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,148.722220349643"
-              Start="0,0"
-              End="0,141.222220349643">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,141.222220349643" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.50201171875,64.8064226748215,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 13]"
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Unir tout sortie 1]"
           TopLeft="1149.08332379866,1544.94443802602">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15769,127 +16080,25 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion"
-          TopLeft="604.027772634808,692.444441499975" />
-        <NodeLayout
-          Size="190.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Sort by Company Name"
-          TopLeft="727.63888190397,787.055550919308" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 12]"
-          TopLeft="675.361105968141,735.111108166642">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="147.611109269162,51.9444427526662"
-              Start="0,0"
-              End="147.611109269162,44.4444427526662">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.9722213763331" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.9722213763331"
-                    Point2="0,25.9722213763331"
-                    Point3="4,25.9722213763331" />
-                  <mssgle:LineSegment
-                    End="143.611109269162,25.9722213763331" />
-                  <mssgle:CubicBezierSegment
-                    Point1="143.611109269162,25.9722213763331"
-                    Point2="147.611109269162,25.9722213763331"
-                    Point3="147.611109269162,29.9722213763331" />
-                  <mssgle:LineSegment
-                    End="147.611109269162,44.4444427526662" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194.666666666667,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Keep only IsCurrent row"
-          TopLeft="574.166661968662,604.444441654947" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
-          TopLeft="671.412692608346,568.788881845408">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,35.6555598095388"
-              Start="0,0"
-              End="0,28.1555598095388">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.1555598095388" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[IsCurrent]"
-          TopLeft="673.430550635068,647.111108321614">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,45.3333331783613"
-              Start="0,0"
-              End="0,37.8333331783613">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.8333331783613" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-21.34798828125,14.1398111204306,42.6959765625,9.5537109375"
+              BoundingBox="-8,9.4722187353492,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 2]"
-          TopLeft="652.916661523696,735.111108166642">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri10]"
+          TopLeft="1049.22220794194,978.133324592908">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-94.3968243809444,50.0666585512953"
+              EndConnector="0,68.1333331163723"
               Start="0,0"
-              End="-94.3968243809444,42.5666585512953">
+              End="0,60.6333331163723">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.3598241798243" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.3598241798243"
-                    Point2="0,20.3598241798243"
-                    Point3="-4,20.3598241798243" />
-                  <mssgle:LineSegment
-                    End="-90.3968243809444,20.3598241798243" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-90.3968243809444,20.3598241798243"
-                    Point2="-94.3968243809444,20.3598241798243"
-                    Point3="-94.3968243809444,24.3598241798243" />
-                  <mssgle:LineSegment
-                    End="-94.3968243809444,42.5666585512953" />
+                    End="0,60.6333331163723" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15898,132 +16107,8 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Multidiffusion of Name"
-          TopLeft="730.416659640355,905.777774058448" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri8]"
-          TopLeft="823.027770772163,829.722217585974">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,76.0555564724734"
-              Start="0,0"
-              End="0,68.5555564724734">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.5555564724734" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="165.333333333334,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join SEC by Name"
-          TopLeft="1210.97220803507,1050.22221592002" />
         <EdgeLayout
           Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri9]"
-          TopLeft="1290.90276188631,978.533326421579">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,71.6888894984457"
-              Start="0,0"
-              End="0,64.1888894984457">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.1888894984457" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 13]"
-          TopLeft="823.083326307022,948.444440725115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="444.333326172497,101.77777519491"
-              Start="0,0"
-              End="444.333326172497,94.2777751949099">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.592473012649" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.592473012649"
-                    Point2="0,44.592473012649"
-                    Point3="4,44.592473012649" />
-                  <mssgle:LineSegment
-                    End="440.333326172497,44.592473012649" />
-                  <mssgle:CubicBezierSegment
-                    Point1="440.333326172497,44.592473012649"
-                    Point2="444.333326172497,44.592473012649"
-                    Point3="444.333326172497,48.592473012649" />
-                  <mssgle:LineSegment
-                    End="444.333326172497,94.2777751949099" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate\Join FIN by Name"
-          TopLeft="277.98611082654,1047.08332897474" />
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de multidiffusion 21]"
-          TopLeft="793.527770751467,948.444440725115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-407.541659924926,98.6388882496291"
-              Start="0,0"
-              End="-407.541659924926,91.1388882496291">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.2517673575764" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.2517673575764"
-                    Point2="0,49.2517673575764"
-                    Point3="-4,49.2517673575764" />
-                  <mssgle:LineSegment
-                    End="-403.541659924926,49.2517673575764" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-403.541659924926,49.2517673575764"
-                    Point2="-407.541659924926,49.2517673575764"
-                    Point3="-407.541659924926,53.2517673575764" />
-                  <mssgle:LineSegment
-                    End="-407.541659924926,91.1388882496291" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri10]"
           TopLeft="330.836310453432,664.844437749652">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16045,31 +16130,19 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion5]"
-          TopLeft="359.98611082654,1089.74999564141">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri8]"
+          TopLeft="1188.27776989258,479.799996761084">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-78.5496052889997,74.972212465439"
+              EndConnector="0,172.799996063709"
               Start="0,0"
-              End="-78.5496052889997,67.472212465439">
+              End="0,165.299996063709">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5927341871135" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.5927341871135"
-                    Point2="0,44.5927341871135"
-                    Point3="-4,44.5927341871135" />
-                  <mssgle:LineSegment
-                    End="-74.5496052889997,44.5927341871135" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-74.5496052889997,44.5927341871135"
-                    Point2="-78.5496052889997,44.5927341871135"
-                    Point3="-78.5496052889997,48.5927341871135" />
-                  <mssgle:LineSegment
-                    End="-78.5496052889997,67.472212465439" />
+                    End="0,165.299996063709" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16079,31 +16152,19 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de jointure de fusion6]"
-          TopLeft="1293.63887470174,1092.88888258669">
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri7]"
+          TopLeft="1290.90276188631,978.533326421579">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-125.638890695655,65.777776641319"
+              EndConnector="0,71.6888894984457"
               Start="0,0"
-              End="-125.638890695655,58.277776641319">
+              End="0,64.1888894984457">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0329663585849" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.0329663585849"
-                    Point2="0,39.0329663585849"
-                    Point3="-4,39.0329663585849" />
-                  <mssgle:LineSegment
-                    End="-121.638890695655,39.0329663585849" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-121.638890695655,39.0329663585849"
-                    Point2="-125.638890695655,39.0329663585849"
-                    Point3="-125.638890695655,43.0329663585849" />
-                  <mssgle:LineSegment
-                    End="-125.638890695655,58.277776641319" />
+                    End="0,64.1888894984457" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16112,9 +16173,334 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri6]"
+          TopLeft="823.027770772163,829.722217585974">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,76.0555564724734"
+              Start="0,0"
+              End="0,68.5555564724734">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5555564724734" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri5]"
+          TopLeft="2092.69342243915,444.916660874585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-174.472219479994,99.5694407089715"
+              Start="0,0"
+              End="-174.472219479994,92.0694407089715">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.072914450472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.072914450472"
+                    Point2="0,59.072914450472"
+                    Point3="-4,59.072914450472" />
+                  <mssgle:LineSegment
+                    End="-170.472219479994,59.072914450472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170.472219479994,59.072914450472"
+                    Point2="-174.472219479994,59.072914450472"
+                    Point3="-174.472219479994,63.072914450472" />
+                  <mssgle:LineSegment
+                    End="-174.472219479994,92.0694407089715" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri4]"
+          TopLeft="1888.01981439778,667.544436817235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-66.4722207383147,55.0083280700945"
+              Start="0,0"
+              End="-66.4722207383147,47.5083280700945">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7120530831036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.7120530831036"
+                    Point2="0,32.7120530831036"
+                    Point3="-4,32.7120530831036" />
+                  <mssgle:LineSegment
+                    End="-62.4722207383147,32.7120530831036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.4722207383147,32.7120530831036"
+                    Point2="-66.4722207383147,32.7120530831036"
+                    Point3="-66.4722207383147,36.7120530831036" />
+                  <mssgle:LineSegment
+                    End="-66.4722207383147,47.5083280700945" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri3]"
+          TopLeft="1548.94740355897,510.152772976872">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54.3805548394554"
+              Start="0,0"
+              End="0,46.8805548394554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.8805548394554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri2]"
+          TopLeft="108.499012116299,664.311104509301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,379.338880937531"
+              Start="0,0"
+              End="0,371.838880937531">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,371.838880937531" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri1]"
+          TopLeft="1872.50245315862,489.274994070382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55.2111075131754"
+              Start="0,0"
+              End="0,47.7111075131754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7111075131754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de tri]"
+          TopLeft="555.34324859541,827.844433384603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,73.5555548840099"
+              Start="0,0"
+              End="0,66.0555548840099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.0555548840099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat1]"
+          TopLeft="1872.91564785685,418.083326650163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.5250007535516"
+              Start="0,0"
+              End="0,21.0250007535516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0250007535516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source de fichier plat]"
+          TopLeft="1189.74899163341,59.8916663586598">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,25.1916654830674"
+              Start="0,0"
+              End="0,17.6916654830674">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6916654830674" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET1]"
+          TopLeft="1550.17358915415,430.492063023458">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,36.994043286748"
+              Start="0,0"
+              End="0,29.494043286748">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.494043286748" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop for each files\SSIS ForEach Loop Enumerate.Paths[Sortie de source ADO NET]"
+          TopLeft="671.412692608346,568.788881845408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.6555598095388"
+              Start="0,0"
+              End="0,28.1555598095388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1555598095388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="For the DimCompany, normally use &#xA;file and not table StatusType&#xA;But for DimSecurity is noted tu use&#xA;directly the Table&#xA;"
+          ParentId="Package\Loop for each files\SSIS ForEach Loop Enumerate"
+          Size="204,90.6666666666667"
+          Id="bf1e61b6-d1bf-41d5-96c9-b6ce84d79740"
+          TopLeft="1462.2618829725,319.273013757278">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store DimCompany">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if CompanyID exist">
     <Properties>
@@ -16139,35 +16525,6 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store DimCompany">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch StatusType">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Store to DimSecurity">
     <Properties>
       <Property>
@@ -16176,23 +16533,8 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Check if Symbol exist">
+    design-time-name="Package\Loop for each files\SSIS ForEach Loop Enumerate\Fetch DimCompany">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
