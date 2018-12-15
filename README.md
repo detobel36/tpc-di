@@ -25,13 +25,16 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 
 ## Files
 
-- [`createTables.sql`](createTables.sql)       
-  Create destination database
-- [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
-  ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
+- [`CustomerMgmt.xsd`](CustomerMgmt.xsd)       
+  Used by DimCustomer.dtsx to open XML file
 - [`DimCompany.dtsx`](DimCompany.dtsx)       
   ETL for DimCompany, DimSecurity and Financial (they use FINWIRE files)
 - [`DimCustomer.dtsx`](DimCustomer.dtsx)       
   ETL for DimCustomer
-- [`CustomerMgmt.xsd`](CustomerMgmt.xsd)       
-  Used by DimCustomer.dtsx to open XML file
+- [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
+  ETL for FactMarketHistory (use DailyMarket.txt)     
+  :warning: Not yet finish  
+- [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
+  ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
+- [`createTables.sql`](createTables.sql)       
+  Create destination database
