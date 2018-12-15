@@ -11,8 +11,8 @@
   DTS:LocaleID="2060"
   DTS:ObjectName="DimCompany"
   DTS:PackageType="5"
-  DTS:VersionBuild="149"
-  DTS:VersionGUID="{541C2AF2-D6EB-4F63-9AA6-0989BFBAC81B}">
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{15610D50-EF7E-423D-95C0-BACF283AECBA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -14134,7 +14134,7 @@ WHERE IsCurrent = 1 AND CompanyID = ?</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.DimSecurity
 SET 
-	EndDate = CONVERT (date, GETDATE()),
+	EndDate = CONVERT (date, ?),
 	IsCurrent = 0
 WHERE IsCurrent = 1 AND Symbol = ?</property>
                     <property
@@ -14164,17 +14164,34 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
                           cachedDataType="str"
                           cachedLength="15"
                           cachedName="Symbol"
-                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
                           lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Merge all SEC.Outputs[Unir tout sortie 1].Columns[Symbol]" />
+                        <inputColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].Columns[EffectiveDate]"
+                          cachedDataType="dbDate"
+                          cachedName="EffectiveDate"
+                          externalMetadataColumnId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Convert date and add column.Outputs[Sortie de colonne dérivée].Columns[EffectiveDate]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          dataType="dbDate"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Loop for each files\SSIS ForEach Loop Enumerate\Update existing Security History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
                           codePage="1252"
                           dataType="str"
                           length="15"
-                          name="Param_0">
+                          name="Param_1">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -15480,9 +15497,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,9.6944447285599,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16080,9 +16095,7 @@ WHERE IsCurrent = 1 AND Symbol = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,9.4722187353492,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
