@@ -1,0 +1,2555 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/17/2018 11:58:18 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NRK2JSL"
+  DTS:CreatorName="DESKTOP-NRK2JSL\nazrin"
+  DTS:DTSID="{E72A5009-E792-4F62-8059-8F4291A06BBC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactHoldings"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B5306F4D-0B04-4C4C-9010-B0DA4FF7D07F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HoldingHistory]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C8D300F8-CE3F-4CEB-A1DE-16D66A38D1D6}"
+      DTS:ObjectName="HoldingHistory">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\HoldingHistory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HH_H_T_ID"
+              DTS:DTSID="{F22054A2-70CE-498D-8E48-BBDE1D2220E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HH_T_ID"
+              DTS:DTSID="{A577D622-FE89-4C0C-927D-6095A2CE5AF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HH_BEFORE_QTY"
+              DTS:DTSID="{87A9F26D-AFD2-4A4E-9233-73FF386A04A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HH_AFTER_QTY"
+              DTS:DTSID="{4C563740-966A-43D0-95AB-78A21B85E74E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{35DBF8A1-B9DA-45CA-A41F-C65C8DC1D0A3}"
+      DTS:ObjectName="LocalHost.destination_di">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LocalHost;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FactHoldings"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7ef6ce38-4bbb-4c7c-9f66-005787e77dd5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactHoldings"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FactHoldings\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\Data Conversion.Inputs[Data Conversion Input].Columns[HH_T_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_T_ID"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_T_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\FactHoldings\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HH_T_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HH_T_ID]"
+                      name="Copy of HH_T_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_T_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\FactHoldings\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\FactHoldings\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Derived Column.Outputs[Derived Column Output].Columns[BatchId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactHoldings\Derived Column.Outputs[Derived Column Output].Columns[BatchId]"
+                      name="BatchId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactHoldings\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\FactHoldings\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactHoldings\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\dimTrade"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="dimTrade"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimTrade]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactHoldings\dimTrade.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[TradeID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradeID]"
+                      name="TradeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_BrokerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_BrokerID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_BrokerID]"
+                      name="SK_BrokerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateDateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CreateDateID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateDateID]"
+                      name="SK_CreateDateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateTimeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CreateTimeID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateTimeID]"
+                      name="SK_CreateTimeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseDateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CloseDateID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseDateID]"
+                      name="SK_CloseDateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseTimeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CloseTimeID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseTimeID]"
+                      name="SK_CloseTimeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                      length="10"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[DT_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[DT_Type]"
+                      length="12"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[DT_Type]"
+                      name="DT_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[CashFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[CashFlag]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[CashFlag]"
+                      name="CashFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_SecurityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_SecurityID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_SecurityID]"
+                      name="SK_SecurityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CompanyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CompanyID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CompanyID]"
+                      name="SK_CompanyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      precision="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BidPrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[BidPrice]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BidPrice]"
+                      name="BidPrice"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CustomerID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CustomerID]"
+                      name="SK_CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_AccountID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_AccountID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_AccountID]"
+                      name="SK_AccountID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[ExecutedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[ExecutedBy]"
+                      length="64"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[ExecutedBy]"
+                      name="ExecutedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradePrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[TradePrice]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradePrice]"
+                      name="TradePrice"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Fee]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Fee]"
+                      name="Fee"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Commission]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Commission]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Commission]"
+                      name="Commission"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Tax]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Tax]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Tax]"
+                      name="Tax"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      precision="5"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[TradeID]"
+                      dataType="i4"
+                      name="TradeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_BrokerID]"
+                      dataType="i4"
+                      name="SK_BrokerID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CreateDateID]"
+                      dataType="i4"
+                      name="SK_CreateDateID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CreateTimeID]"
+                      dataType="i4"
+                      name="SK_CreateTimeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CloseDateID]"
+                      dataType="i4"
+                      name="SK_CloseDateID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CloseTimeID]"
+                      dataType="i4"
+                      name="SK_CloseTimeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[DT_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="DT_Type" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[CashFlag]"
+                      dataType="bool"
+                      name="CashFlag" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_SecurityID]"
+                      dataType="i4"
+                      name="SK_SecurityID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CompanyID]"
+                      dataType="i4"
+                      name="SK_CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="numeric"
+                      name="Quantity"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[BidPrice]"
+                      dataType="numeric"
+                      name="BidPrice"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_CustomerID]"
+                      dataType="i4"
+                      name="SK_CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[SK_AccountID]"
+                      dataType="i4"
+                      name="SK_AccountID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[ExecutedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="ExecutedBy" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[TradePrice]"
+                      dataType="numeric"
+                      name="TradePrice"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                      dataType="numeric"
+                      name="Fee"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Commission]"
+                      dataType="numeric"
+                      name="Commission"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[Tax]"
+                      dataType="numeric"
+                      name="Tax"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="numeric"
+                      name="BatchID"
+                      precision="5" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[TradeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[TradeID]"
+                      name="TradeID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_BrokerID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_BrokerID]"
+                      name="SK_BrokerID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CreateDateID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CreateDateID]"
+                      name="SK_CreateDateID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CreateTimeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CreateTimeID]"
+                      name="SK_CreateTimeID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CloseDateID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CloseDateID]"
+                      name="SK_CloseDateID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CloseTimeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CloseTimeID]"
+                      name="SK_CloseTimeID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[DT_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[DT_Type]"
+                      name="DT_Type" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[CashFlag]"
+                      dataType="bool"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[CashFlag]"
+                      name="CashFlag" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_SecurityID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_SecurityID]"
+                      name="SK_SecurityID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CompanyID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CompanyID]"
+                      name="SK_CompanyID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[BidPrice]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[BidPrice]"
+                      name="BidPrice"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_CustomerID]"
+                      name="SK_CustomerID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_AccountID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[SK_AccountID]"
+                      name="SK_AccountID" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ExecutedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ExecutedBy]"
+                      name="ExecutedBy" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[TradePrice]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[TradePrice]"
+                      name="TradePrice"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                      name="Fee"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Commission]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Commission]"
+                      name="Commission"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Tax]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[Tax]"
+                      name="Tax"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID"
+                      precision="5" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\HoldingHistory"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="HoldingHistory"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactHoldings\HoldingHistory.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HoldingHistory]"
+                  connectionManagerRefId="Package.ConnectionManagers[HoldingHistory]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_H_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_H_T_ID]"
+                      length="50"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_H_T_ID]"
+                      name="HH_H_T_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_T_ID]"
+                      length="50"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_T_ID]"
+                      name="HH_T_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_BEFORE_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_BEFORE_QTY]"
+                      length="50"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_BEFORE_QTY]"
+                      name="HH_BEFORE_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_AFTER_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_AFTER_QTY]"
+                      length="50"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_AFTER_QTY]"
+                      name="HH_AFTER_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_H_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HH_H_T_ID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HH_T_ID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_BEFORE_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HH_BEFORE_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].ExternalColumns[HH_AFTER_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HH_AFTER_QTY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of HH_T_ID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of HH_T_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[Copy of HH_T_ID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[HH_H_T_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_H_T_ID"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_H_T_ID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[HH_AFTER_QTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_AFTER_QTY"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_AFTER_QTY]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[TradeID]"
+                      cachedDataType="i4"
+                      cachedName="TradeID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradeID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_SecurityID]"
+                      cachedDataType="i4"
+                      cachedName="SK_SecurityID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_SecurityID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CustomerID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CustomerID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_AccountID]"
+                      cachedDataType="i4"
+                      cachedName="SK_AccountID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_AccountID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CompanyID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CompanyID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[TradePrice]"
+                      cachedDataType="numeric"
+                      cachedName="TradePrice"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradePrice]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CloseDateID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseDateID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseDateID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CloseTimeID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseTimeID"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseTimeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_SecurityID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_SecurityID]"
+                      name="SK_SecurityID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_SecurityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CustomerID]"
+                      name="SK_CustomerID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CustomerID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_AccountID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_AccountID]"
+                      name="SK_AccountID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_AccountID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CompanyID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CompanyID]"
+                      name="SK_CompanyID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CompanyID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[TradePrice]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[TradePrice]"
+                      name="TradePrice"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[TradePrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_H_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_H_T_ID]"
+                      name="HH_H_T_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[HH_H_T_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[Copy of HH_T_ID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[Copy of HH_T_ID]"
+                      name="Copy of HH_T_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of HH_T_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_AFTER_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_AFTER_QTY]"
+                      name="HH_AFTER_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input].Columns[HH_AFTER_QTY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseDateID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseDateID]"
+                      name="SK_CloseDateID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CloseDateID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseTimeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseTimeID]"
+                      name="SK_CloseTimeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input].Columns[SK_CloseTimeID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactHoldings]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactHoldings\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_SecurityID]"
+                      cachedDataType="i4"
+                      cachedName="SK_SecurityID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_SecurityID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_SecurityID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CustomerID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_CustomerID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CustomerID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_AccountID]"
+                      cachedDataType="i4"
+                      cachedName="SK_AccountID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_AccountID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_AccountID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CompanyID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_CompanyID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CompanyID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TradePrice]"
+                      cachedDataType="numeric"
+                      cachedName="TradePrice"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentPrice]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[TradePrice]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HH_H_T_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_H_T_ID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_H_T_ID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of HH_T_ID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of HH_T_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentTradeID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[Copy of HH_T_ID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HH_AFTER_QTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_AFTER_QTY"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentHolding]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[HH_AFTER_QTY]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_CloseDateID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseDateID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DateID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseDateID]" />
+                    <inputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_CloseTimeID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseTimeID"
+                      externalMetadataColumnId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_TimeID]"
+                      lineageId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output].Columns[SK_CloseTimeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeID]"
+                      dataType="i4"
+                      name="TradeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentTradeID]"
+                      dataType="i4"
+                      name="CurrentTradeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_CustomerID]"
+                      dataType="i4"
+                      name="SK_CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_AccountID]"
+                      dataType="i4"
+                      name="SK_AccountID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_SecurityID]"
+                      dataType="i4"
+                      name="SK_SecurityID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_CompanyID]"
+                      dataType="i4"
+                      name="SK_CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DateID]"
+                      dataType="i4"
+                      name="SK_DateID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_TimeID]"
+                      dataType="i4"
+                      name="SK_TimeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentPrice]"
+                      dataType="i4"
+                      name="CurrentPrice" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentHolding]"
+                      dataType="numeric"
+                      name="CurrentHolding"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="numeric"
+                      name="BatchID"
+                      precision="5" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactHoldings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort.Inputs[Sort Input].Columns[HH_H_T_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_H_T_ID"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_H_T_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort.Inputs[Sort Input].Columns[HH_BEFORE_QTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_BEFORE_QTY"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_BEFORE_QTY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort.Inputs[Sort Input].Columns[HH_AFTER_QTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HH_AFTER_QTY"
+                      lineageId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_AFTER_QTY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort.Inputs[Sort Input].Columns[Copy of HH_T_ID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of HH_T_ID"
+                      lineageId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HH_T_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_H_T_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_H_T_ID]"
+                      name="HH_H_T_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_H_T_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_BEFORE_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_BEFORE_QTY]"
+                      name="HH_BEFORE_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_BEFORE_QTY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_AFTER_QTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[HH_AFTER_QTY]"
+                      name="HH_AFTER_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output].Columns[HH_AFTER_QTY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[Copy of HH_T_ID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort.Outputs[Sort Output].Columns[Copy of HH_T_ID]"
+                      name="Copy of HH_T_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HH_T_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactHoldings\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactHoldings\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[TradeID]"
+                      cachedDataType="i4"
+                      cachedName="TradeID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_BrokerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_BrokerID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_BrokerID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CreateDateID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CreateDateID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateDateID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CreateTimeID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CreateTimeID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateTimeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CloseDateID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseDateID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseDateID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CloseTimeID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CloseTimeID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseTimeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Status"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[DT_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="DT_Type"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[DT_Type]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[CashFlag]"
+                      cachedDataType="bool"
+                      cachedName="CashFlag"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[CashFlag]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_SecurityID]"
+                      cachedDataType="i4"
+                      cachedName="SK_SecurityID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_SecurityID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CompanyID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CompanyID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[Quantity]"
+                      cachedDataType="numeric"
+                      cachedName="Quantity"
+                      cachedPrecision="6"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[BidPrice]"
+                      cachedDataType="numeric"
+                      cachedName="BidPrice"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BidPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CustomerID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CustomerID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[SK_AccountID]"
+                      cachedDataType="i4"
+                      cachedName="SK_AccountID"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_AccountID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[ExecutedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="ExecutedBy"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[ExecutedBy]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[TradePrice]"
+                      cachedDataType="numeric"
+                      cachedName="TradePrice"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradePrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[Fee]"
+                      cachedDataType="numeric"
+                      cachedName="Fee"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Fee]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[Commission]"
+                      cachedDataType="numeric"
+                      cachedName="Commission"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Commission]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Tax"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Tax]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactHoldings\Sort 1.Inputs[Sort Input].Columns[BatchID]"
+                      cachedDataType="numeric"
+                      cachedName="BatchID"
+                      cachedPrecision="5"
+                      lineageId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BatchID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactHoldings\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradeID]"
+                      name="TradeID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_BrokerID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_BrokerID]"
+                      name="SK_BrokerID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_BrokerID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CreateDateID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CreateDateID]"
+                      name="SK_CreateDateID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateDateID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CreateTimeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CreateTimeID]"
+                      name="SK_CreateTimeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CreateTimeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseDateID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseDateID]"
+                      name="SK_CloseDateID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseDateID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseTimeID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CloseTimeID]"
+                      name="SK_CloseTimeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CloseTimeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Status]"
+                      name="Status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[DT_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[DT_Type]"
+                      name="DT_Type">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[DT_Type]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[CashFlag]"
+                      dataType="bool"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[CashFlag]"
+                      name="CashFlag">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[CashFlag]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_SecurityID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_SecurityID]"
+                      name="SK_SecurityID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_SecurityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CompanyID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CompanyID]"
+                      name="SK_CompanyID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CompanyID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Quantity]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Quantity]"
+                      name="Quantity"
+                      precision="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[BidPrice]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[BidPrice]"
+                      name="BidPrice"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BidPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_CustomerID]"
+                      name="SK_CustomerID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_CustomerID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_AccountID]"
+                      dataType="i4"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[SK_AccountID]"
+                      name="SK_AccountID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[SK_AccountID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[ExecutedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[ExecutedBy]"
+                      name="ExecutedBy">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[ExecutedBy]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradePrice]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[TradePrice]"
+                      name="TradePrice"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[TradePrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Fee]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Fee]"
+                      name="Fee"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Fee]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Commission]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Commission]"
+                      name="Commission"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Commission]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Tax]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[Tax]"
+                      name="Tax"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[Tax]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[BatchID]"
+                      dataType="numeric"
+                      lineageId="Package\FactHoldings\Sort 1.Outputs[Sort Output].Columns[BatchID]"
+                      name="BatchID"
+                      precision="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output].Columns[BatchID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactHoldings.Paths[Data Conversion Output]"
+              endId="Package\FactHoldings\Sort.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\FactHoldings\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[Derived Column Output]"
+              endId="Package\FactHoldings\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\FactHoldings\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[Flat File Source Output]"
+              endId="Package\FactHoldings\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\FactHoldings\HoldingHistory.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[Merge Join Output]"
+              endId="Package\FactHoldings\Derived Column.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\FactHoldings\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[OLE DB Source Output]"
+              endId="Package\FactHoldings\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\FactHoldings\dimTrade.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[Sort Output]"
+              endId="Package\FactHoldings\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\FactHoldings\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\FactHoldings.Paths[Sort Output1]"
+              endId="Package\FactHoldings\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\FactHoldings\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\FactHoldings"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FactHoldings">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\FactHoldings\Merge Join"
+          TopLeft="419,214" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FactHoldings\Data Conversion"
+          TopLeft="96,206" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\FactHoldings\OLE DB Destination"
+          TopLeft="403,369" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\FactHoldings\Sort 1"
+          TopLeft="433,130" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\FactHoldings\dimTrade"
+          TopLeft="580,127" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\FactHoldings\Derived Column"
+          TopLeft="404,295" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\FactHoldings\Sort"
+          TopLeft="276,209" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\FactHoldings\HoldingHistory"
+          TopLeft="103,116" />
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[OLE DB Source Output]"
+          TopLeft="580,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-40,0"
+              Start="0,0"
+              End="-32.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-32.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Derived Column Output]"
+          TopLeft="484.75,337">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Sort Output1]"
+          TopLeft="485.25,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Sort Output]"
+          TopLeft="374,232.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="45,0"
+              Start="0,0"
+              End="37.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Flat File Source Output]"
+          TopLeft="175.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Data Conversion Output]"
+          TopLeft="252,228.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="24,0"
+              Start="0,0"
+              End="16.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Merge Join Output]"
+          TopLeft="482.5,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\FactHoldings"
+          Size="29,NaN"
+          Id="16fc8f4a-9b2c-479b-a47c-01e2202a5f11"
+          TopLeft="562,396">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
