@@ -48,7 +48,7 @@ CREATE TABLE DimCustomer  ( SK_CustomerID  INTEGER NOT NULL IDENTITY (1,1) PRIMA
                                                  EndDate date NOT NULL
 );
 
-CREATE TABLE DimAccount  ( SK_AccountID  INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE DimAccount  ( SK_AccountID  INTEGER NOT NULL IDENTITY (1,1) PRIMARY KEY,
                             AccountID  INTEGER NOT NULL,
                             SK_BrokerID  INTEGER NOT NULL REFERENCES DimBroker (SK_BrokerID),
                             SK_CustomerID  INTEGER NOT NULL REFERENCES DimCustomer (SK_CustomerID),
