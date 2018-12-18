@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-NRK2JSL"
   DTS:CreatorName="DESKTOP-NRK2JSL\nazrin"
-  DTS:DTSID="{B71157D1-9AD2-4B5A-971E-EA22991CAB5C}"
+  DTS:DTSID="{12195017-81D3-408C-A400-648AC629701E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.0900.40"
   DTS:LocaleID="1033"
   DTS:ObjectName="dimAccount"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{477191DA-EDE4-4175-8A14-89BDD9FC3511}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{B5503408-ED5A-4E92-B97B-9F271400D59B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{2AD97080-BF16-4DD8-9CC0-477DD1C3D249}"
+      DTS:DTSID="{E3DF6814-D1D2-4FAB-A169-29D23DBA1E57}"
       DTS:ObjectName="LocalHost.destination_di">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.destination_di 1]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{10EF35A1-7739-46EA-AAD5-FD8AAD0BF6D1}"
+      DTS:DTSID="{D4D228FE-481D-4A8E-A96A-4BC8C6CE66F0}"
       DTS:ObjectName="LocalHost.destination_di 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.destination_di 2]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{26CF3A6D-FF6A-4B58-9D6D-F669186EF419}"
+      DTS:DTSID="{2392967A-4CB2-4A40-8BC4-1EED6BC2BD0D}"
       DTS:ObjectName="LocalHost.destination_di 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -53,7 +53,7 @@
       DTS:refId="Package\dimAccount"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{80C8D6F2-818D-4221-B1BA-F4CD51853AFF}"
+      DTS:DTSID="{1FF8E5EE-9CF6-4944-866D-BDE9A0242585}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="dimAccount"
@@ -3655,6 +3655,221 @@
                           name="SortColumnId">#{Package\dimAccount\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CA_TAX_ST]}</property>
                       </properties>
                     </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dimAccount\Save to DimAccount"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Save to DimAccount"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimAccount]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dimAccount\Save to DimAccount.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[IsCurrent]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[IsCurrent]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[effectiveDate]"
+                      cachedDataType="dbDate"
+                      cachedName="effectiveDate"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[EffectiveDate]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[effectiveDate]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[batchId]"
+                      cachedDataType="i4"
+                      cachedName="batchId"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[BatchID]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[batchId]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[endDate]"
+                      cachedDataType="dbDate"
+                      cachedName="endDate"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[EndDate]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[endDate]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[SK_BrokerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_BrokerID"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_BrokerID]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[SK_BrokerID]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[SK_CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CustomerID"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_CustomerID]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[SK_CustomerID]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[Copy of Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="Copy of Status"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[Status]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of Status]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[Copy of CA_TAX_ST]"
+                      cachedDataType="i4"
+                      cachedName="Copy of CA_TAX_ST"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[TaxStatus]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_TAX_ST]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[Copy of CA_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of CA_NAME"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[AccountDesc]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_NAME]" />
+                    <inputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].Columns[Copy of CA_ID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of CA_ID"
+                      externalMetadataColumnId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[AccountID]"
+                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_AccountID]"
+                      dataType="i4"
+                      name="SK_AccountID" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[AccountID]"
+                      dataType="i4"
+                      name="AccountID" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_BrokerID]"
+                      dataType="i4"
+                      name="SK_BrokerID" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_CustomerID]"
+                      dataType="i4"
+                      name="SK_CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[AccountDesc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountDesc" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[TaxStatus]"
+                      dataType="i4"
+                      name="TaxStatus" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[EffectiveDate]"
+                      dataType="dbDate"
+                      name="EffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dimAccount\Save to DimAccount.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dimAccount\Save to DimAccount.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dimAccount\Save to DimAccount.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dimAccount\Save to DimAccount.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -7271,209 +7486,6 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\dimAccount\SQL Server Destination"
-              componentClassID="Microsoft.SQLServerDestination"
-              contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
-              description="SQL Server Destination"
-              name="SQL Server Destination"
-              version="5">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.String"
-                  description="The name of the database object to copy data into."
-                  expressionType="Notify"
-                  name="BulkInsertTableName">[dbo].[DimAccount]</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
-                  name="BulkInsertCheckConstraints">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
-                  expressionType="Notify"
-                  name="BulkInsertFirstRow">-1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
-                  name="BulkInsertFireTriggers">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
-                  name="BulkInsertKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="BulkInsertKeepNulls">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
-                  expressionType="Notify"
-                  name="BulkInsertLastRow">-1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
-                  name="BulkInsertMaxErrors">-1</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
-                  expressionType="Notify"
-                  name="BulkInsertOrder"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
-                  name="BulkInsertTablock">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
-                  expressionType="Notify"
-                  name="Timeout">30</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
-                  name="MaxInsertCommitSize">0</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dimAccount\SQL Server Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.destination_di 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.destination_di 2]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input]"
-                  hasSideEffects="true"
-                  name="SQL Server Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[IsCurrent]"
-                      cachedDataType="bool"
-                      cachedName="IsCurrent"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[IsCurrent]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[IsCurrent]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[batchId]"
-                      cachedDataType="i4"
-                      cachedName="batchId"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[BatchID]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[batchId]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[SK_BrokerID]"
-                      cachedDataType="i4"
-                      cachedName="SK_BrokerID"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SK_BrokerID]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[SK_BrokerID]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[SK_CustomerID]"
-                      cachedDataType="i4"
-                      cachedName="SK_CustomerID"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SK_CustomerID]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[SK_CustomerID]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Copy of CA_ID]"
-                      cachedDataType="i4"
-                      cachedName="Copy of CA_ID"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[AccountID]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_ID]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Copy of Status]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="6"
-                      cachedName="Copy of Status"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Status]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of Status]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Copy of CA_NAME]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of CA_NAME"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[AccountDesc]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_NAME]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Copy of CA_TAX_ST]"
-                      cachedDataType="i4"
-                      cachedName="Copy of CA_TAX_ST"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[TaxStatus]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[Copy of CA_TAX_ST]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[effectiveDate]"
-                      cachedDataType="dbDate"
-                      cachedName="effectiveDate"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[EffectiveDate]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[effectiveDate]" />
-                    <inputColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[endDate]"
-                      cachedDataType="dbDate"
-                      cachedName="endDate"
-                      externalMetadataColumnId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[EndDate]"
-                      lineageId="Package\dimAccount\Merge with DimCustomer.Outputs[Merge Join Output].Columns[endDate]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SK_AccountID]"
-                      dataType="i4"
-                      name="SK_AccountID" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[AccountID]"
-                      dataType="i4"
-                      name="AccountID" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SK_BrokerID]"
-                      dataType="i4"
-                      name="SK_BrokerID" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SK_CustomerID]"
-                      dataType="i4"
-                      name="SK_CustomerID" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Status]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Status" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[AccountDesc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="AccountDesc" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[TaxStatus]"
-                      dataType="i4"
-                      name="TaxStatus" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[IsCurrent]"
-                      dataType="bool"
-                      name="IsCurrent" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[BatchID]"
-                      dataType="i4"
-                      name="BatchID" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[EffectiveDate]"
-                      dataType="dbDate"
-                      name="EffectiveDate" />
-                    <externalMetadataColumn
-                      refId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[EndDate]"
-                      dataType="dbDate"
-                      name="EndDate" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-            </component>
           </components>
           <paths>
             <path
@@ -7486,11 +7498,6 @@
               endId="Package\dimAccount\Sort Action.Inputs[Sort Input]"
               name="Action"
               startId="Package\dimAccount\Source-CustomerMgmt.Outputs[Action]" />
-            <path
-              refId="Package\dimAccount.Paths[ActionTs]"
-              endId="Package\dimAccount\SQL Server Destination.Inputs[SQL Server Destination Input]"
-              name="ActionTs"
-              startId="Package\dimAccount\Conditional Split.Outputs[Valid Date]" />
             <path
               refId="Package\dimAccount.Paths[Customer]"
               endId="Package\dimAccount\Sort Customer.Inputs[Sort Input]"
@@ -7532,15 +7539,15 @@
               name="New"
               startId="Package\dimAccount\ActionType.Outputs[New]" />
             <path
-              refId="Package\dimAccount.Paths[OLE DB Source Output]"
-              endId="Package\dimAccount\Order by BrokerID.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\dimAccount\dimBroker.Outputs[OLE DB Source Output]" />
-            <path
               refId="Package\dimAccount.Paths[OLE DB Source Output1]"
               endId="Package\dimAccount\Sort by CustomerID.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\dimAccount\dimCustomer.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\dimAccount.Paths[OLE DB Source Output]"
+              endId="Package\dimAccount\Order by BrokerID.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\dimAccount\dimBroker.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\dimAccount.Paths[Sort Output]"
               endId="Package\dimAccount\Merge with DimBroker.Inputs[Merge Join Right Input]"
@@ -7586,6 +7593,11 @@
               endId="Package\dimAccount\Sort by C_ID.Inputs[Sort Input]"
               name="Valid Date"
               startId="Package\dimAccount\Check date for Broker.Outputs[Valid Date]" />
+            <path
+              refId="Package\dimAccount.Paths[Valid Date1]"
+              endId="Package\dimAccount\Save to DimAccount.Inputs[Entrée de destination OLE DB]"
+              name="Valid Date"
+              startId="Package\dimAccount\Conditional Split.Outputs[Valid Date]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -7616,85 +7628,227 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="138.666666666667,42"
-          Id="Package\dimAccount\Sort Account"
-          TopLeft="194.055555565904,102.611110697852" />
-        <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\dimAccount\Sort by C_ID"
-          TopLeft="771.666667051613,555.96666598479" />
-        <NodeLayout
-          Size="146,42"
-          Id="Package\dimAccount\Sort Customer"
-          TopLeft="19.9337606941087,133.149572236314" />
-        <NodeLayout
-          Size="154.666666666667,42"
-          Id="Package\dimAccount\Conditional Split"
-          TopLeft="735.833333916962,720.266665845315" />
-        <NodeLayout
-          Size="130.666666666667,42"
-          Id="Package\dimAccount\Sort Action"
-          TopLeft="337.944444444444,27.3611111111111" />
-        <NodeLayout
-          Size="188,42.6666666666667"
-          Id="Package\dimAccount\SQL Server Destination"
-          TopLeft="722.166667126119,805.005554455254" />
-        <NodeLayout
           Size="126.666666666667,42"
           Id="Package\dimAccount\dimBroker"
           TopLeft="947.462116605179,232.027275377295" />
-        <NodeLayout
-          Size="198.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Merge with DimCustomer"
-          TopLeft="716.500001080334,643.983332682451" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Order by BrokerID"
-          TopLeft="923.333329223096,309.316669115225" />
-        <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\dimAccount\Merge with DimBroker"
-          TopLeft="750.83333376795,388.283334325155" />
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\dimAccount\Sort by CustomerID"
-          TopLeft="554.166668131947,575.033334635099" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\dimAccount\Sort ActionId"
-          TopLeft="413.555555565904,168.111110697852" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Order by CA_B_ID"
-          TopLeft="730.190477109381,307.624243416064" />
-        <NodeLayout
-          Size="182.666666666667,42"
-          Id="Package\dimAccount\Merge CustomerMgmt"
-          TopLeft="516,28" />
-        <NodeLayout
-          Size="150,46"
-          Id="Package\dimAccount\Source-CustomerMgmt"
-          TopLeft="24.3611111111111,24.9444444444445" />
-        <NodeLayout
-          Size="165.333333333334,42"
-          Id="Package\dimAccount\Data Conversion 1"
-          TopLeft="736.909090909091,98.363636363636" />
-        <NodeLayout
-          Size="218,42"
-          Id="Package\dimAccount\Merge Account and Customer"
-          TopLeft="121.369658130007,185.354700441442" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\dimAccount\ActionType"
-          TopLeft="747.16666675359,198.400000511408" />
         <NodeLayout
           Size="141.333333333334,42"
           Id="Package\dimAccount\dimCustomer"
           TopLeft="572.833334103226,505.816668030421" />
         <NodeLayout
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Merge with DimCustomer"
+          TopLeft="716.500001080334,643.983332682451" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\dimAccount\Merge with DimBroker"
+          TopLeft="750.83333376795,388.283334325155" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Order by BrokerID"
+          TopLeft="923.333329223096,309.316669115225" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Check date for Broker"
+          TopLeft="752.499988786876,460.599993289709" />
+        <NodeLayout
+          Size="150,46"
+          Id="Package\dimAccount\Source-CustomerMgmt"
+          TopLeft="24.3611111111111,24.9444444444445" />
+        <NodeLayout
+          Size="182.666666666667,42"
+          Id="Package\dimAccount\Merge CustomerMgmt"
+          TopLeft="516,28" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Order by CA_B_ID"
+          TopLeft="730.190477109381,307.624243416064" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\dimAccount\Merge Account and Customer"
+          TopLeft="121.369658130007,185.354700441442" />
+        <NodeLayout
           Size="162.666666666667,42"
           Id="Package\dimAccount\Derived Column 1"
           TopLeft="733,29.5" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\dimAccount\Sort by CustomerID"
+          TopLeft="554.166668131947,575.033334635099" />
+        <NodeLayout
+          Size="165.333333333334,42"
+          Id="Package\dimAccount\Data Conversion 1"
+          TopLeft="736.909090909091,98.363636363636" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\dimAccount\Sort Customer"
+          TopLeft="19.9337606941087,133.149572236314" />
+        <NodeLayout
+          Size="138.666666666667,42"
+          Id="Package\dimAccount\Sort Account"
+          TopLeft="194.055555565904,102.611110697852" />
+        <NodeLayout
+          Size="154.666666666667,42"
+          Id="Package\dimAccount\Conditional Split"
+          TopLeft="735.833333916962,720.266665845315" />
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\dimAccount\Sort by C_ID"
+          TopLeft="771.666667051613,555.96666598479" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\dimAccount\ActionType"
+          TopLeft="747.16666675359,198.400000511408" />
+        <NodeLayout
+          Size="130.666666666667,42"
+          Id="Package\dimAccount\Sort Action"
+          TopLeft="337.944444444444,27.3611111111111" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\dimAccount\Sort ActionId"
+          TopLeft="413.555555565904,168.111110697852" />
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Data Conversion Output]"
+          TopLeft="817.871212164674,140.363636363636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.0363641477718"
+              Start="0,0"
+              End="0,50.5363641477718">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5363641477718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Customer]"
+          TopLeft="75.6944444444444,70.9444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.2393162496643,62.2051277918698"
+              Start="0,0"
+              End="17.2393162496643,54.7051277918698">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2759622162215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2759622162215"
+                    Point2="0,25.2759622162215"
+                    Point3="4,25.2759622162215" />
+                  <mssgle:LineSegment
+                    End="13.2393162496643,25.2759622162215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.2393162496643,25.2759622162215"
+                    Point2="17.2393162496643,25.2759622162215"
+                    Point3="17.2393162496643,29.2759622162215" />
+                  <mssgle:LineSegment
+                    End="17.2393162496643,54.7051277918698" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.2365528126678,30.2759622162215,43.712421875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Action]"
+          TopLeft="174.361111111111,48.1527777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163.583333333333,0"
+              Start="0,0"
+              End="156.083333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="156.083333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.7066666666665,5,28.67,9.470703125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Account]"
+          TopLeft="123.027777777778,70.9444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.361111121459,31.6666662534078"
+              Start="0,0"
+              End="140.361111121459,24.1666662534078">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.86719420323165" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.86719420323165"
+                    Point2="0,12.8671942032316"
+                    Point3="4,12.8671942032316" />
+                  <mssgle:LineSegment
+                    End="136.361111121459,12.8671942032316" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.361111121459,12.8671942032316"
+                    Point2="140.361111121459,12.8671942032316"
+                    Point3="140.361111121459,16.8671942032316" />
+                  <mssgle:LineSegment
+                    End="140.361111121459,24.1666662534078" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="51.5861024357295,17.8671942032316,37.18890625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Valid Date]"
+          TopLeft="842.749994585911,503.266659956376">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.7000060284138"
+              Start="0,0"
+              End="0,45.2000060284138">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2000060284138" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.43453125,17.7254912954569,46.8690625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\dimAccount.Paths[Sort Output7]"
           TopLeft="813.734127660888,350.29091008273">
@@ -7982,6 +8136,28 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\dimAccount.Paths[Merge Join Output3]"
+          TopLeft="843.666661277413,430.950000991821">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6499922978879"
+              Start="0,0"
+              End="0,22.1499922978879">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1499922978879" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\dimAccount.Paths[Merge Join Output2]"
           TopLeft="814.500000831981,686.649999349117">
           <EdgeLayout.Curve>
@@ -8081,211 +8257,37 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Data Conversion Output]"
-          TopLeft="817.871212164674,140.363636363636">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.0363641477718"
-              Start="0,0"
-              End="0,50.5363641477718">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5363641477718" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Customer]"
-          TopLeft="75.6944444444444,70.9444444444445">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.2393162496643,62.2051277918698"
-              Start="0,0"
-              End="17.2393162496643,54.7051277918698">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.2759622162215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.2759622162215"
-                    Point2="0,25.2759622162215"
-                    Point3="4,25.2759622162215" />
-                  <mssgle:LineSegment
-                    End="13.2393162496643,25.2759622162215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.2393162496643,25.2759622162215"
-                    Point2="17.2393162496643,25.2759622162215"
-                    Point3="17.2393162496643,29.2759622162215" />
-                  <mssgle:LineSegment
-                    End="17.2393162496643,54.7051277918698" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.2365528126678,30.2759622162215,43.712421875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[ActionTs]"
-          TopLeft="814.666667188207,762.266665845315">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.7388886099393"
-              Start="0,0"
-              End="0,35.2388886099393">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.2388886099393" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.43453125,12.7449325862196,46.8690625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Action]"
-          TopLeft="174.361111111111,48.1527777777778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="163.583333333333,0"
-              Start="0,0"
-              End="156.083333333333,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="156.083333333333,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="63.7066666666665,5,28.67,9.470703125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Account]"
-          TopLeft="123.027777777778,70.9444444444445">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="140.361111121459,31.6666662534078"
-              Start="0,0"
-              End="140.361111121459,24.1666662534078">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.86719420323165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.86719420323165"
-                    Point2="0,12.8671942032316"
-                    Point3="4,12.8671942032316" />
-                  <mssgle:LineSegment
-                    End="136.361111121459,12.8671942032316" />
-                  <mssgle:CubicBezierSegment
-                    Point1="136.361111121459,12.8671942032316"
-                    Point2="140.361111121459,12.8671942032316"
-                    Point3="140.361111121459,16.8671942032316" />
-                  <mssgle:LineSegment
-                    End="140.361111121459,24.1666662534078" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="51.5861024357295,17.8671942032316,37.18890625,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Check date for Broker"
-          TopLeft="752.499988786876,460.599993289709" />
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Save to DimAccount"
+          TopLeft="722.916655894369,807.055546011859" />
         <EdgeLayout
-          Id="Package\dimAccount.Paths[Merge Join Output3]"
-          TopLeft="843.666661277413,430.950000991821">
+          Id="Package\dimAccount.Paths[Valid Date1]"
+          TopLeft="811.708328238999,762.266665845315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.6499922978879"
+              EndConnector="0,44.788880166544"
               Start="0,0"
-              End="0,22.1499922978879">
+              End="0,37.288880166544">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.1499922978879" />
+                    End="0,37.288880166544" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,3.07499614894394,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Valid Date]"
-          TopLeft="842.749994585911,503.266659956376">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.7000060284138"
-              Start="0,0"
-              End="0,45.2000060284138">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.2000060284138" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.43453125,17.7254912954569,46.8690625,9.7490234375"
+              BoundingBox="-23.43453125,13.769928364522,46.8690625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dimAccount\SQL Server Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dimAccount\dimBroker">
     <Properties>
@@ -8301,6 +8303,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dimAccount\dimCustomer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dimAccount\Save to DimAccount">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
