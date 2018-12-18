@@ -33,7 +33,6 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
   ETL for DimCustomer
 - [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
   ETL for FactMarketHistory (use DailyMarket.txt)     
-  :warning: Not yet finish  
 - [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
   ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
 - [`createTables.sql`](createTables.sql)       
