@@ -13,7 +13,7 @@ CREATE TABLE DimBroker  ( SK_BrokerID  INTEGER NOT NULL IDENTITY (1,1) PRIMARY K
                                                  EndDate date NOT NULL                                                 
 );
 
-CREATE TABLE DimCustomer  ( SK_CustomerID  INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE DimCustomer  ( SK_CustomerID  INTEGER NOT NULL IDENTITY (1,1) PRIMARY KEY,
                                                  CustomerID INTEGER NOT NULL,
                                                  TaxID CHAR(20) NOT NULL,
                                                  Status CHAR(10) NOT NULL,
