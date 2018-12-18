@@ -1,18 +1,18 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/14/2018 5:34:29 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-RÉMY"
   DTS:CreatorName="PC-RÉMY\Rémy"
-  DTS:DTSID="{D555C094-BDCC-4136-B793-B05A68E6B1BD}"
+  DTS:DTSID="{7D48931D-46B4-4197-B645-E3EE285B9EC7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.0900.40"
   DTS:LocaleID="2060"
   DTS:ObjectName="FactMarketHistory"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{75E6DABA-5303-4932-9E54-AD7047CAD507}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{6877E74B-C315-4503-B73D-4060546FC75B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -20,7 +20,7 @@
       DTS:refId="Package.ConnectionManagers[FlatFile - DailyMarket]"
       DTS:CreationName="FLATFILE"
       DTS:Description="FlatFile - DailyMarket"
-      DTS:DTSID="{EDA15A69-9AB1-4812-BA18-D488928F35A6}"
+      DTS:DTSID="{8892288E-3098-48D3-8568-192A1257EF5A}"
       DTS:ObjectName="FlatFile - DailyMarket">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_DATE"
-              DTS:DTSID="{728375AD-37C7-41B0-A52B-4F5D9F41B42F}"
+              DTS:DTSID="{45FD7DD7-4EB2-41CD-8639-648B6C7D2F69}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_S_SYMB"
-              DTS:DTSID="{7D0BFB44-7030-4ED4-8E50-F7DE3445B523}"
+              DTS:DTSID="{1DD6AE47-2B12-4F4C-A41D-D5155D163A5C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_CLOSE"
-              DTS:DTSID="{C61C8708-4BD2-4221-9484-04D4029BD7EE}"
+              DTS:DTSID="{E4D67868-D92E-44BD-B88D-EF5CA570C45A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_HIGH"
-              DTS:DTSID="{7399BD4D-7821-454B-9703-0E64D2E26E88}"
+              DTS:DTSID="{7C30A6C0-6A76-4C49-9987-75387ED2C302}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_LOW"
-              DTS:DTSID="{C18F3688-22AB-4A3D-8F48-258761C95BD2}"
+              DTS:DTSID="{4867B60A-4387-4E8D-8170-B32094EE4074}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DM_VOL"
-              DTS:DTSID="{68ABD26E-B49C-480B-BAFC-50CF26D818A2}"
+              DTS:DTSID="{051778E8-6E3D-4521-B1C3-7809769A83BB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -93,7 +93,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{0D043CAE-1C40-4358-B24A-01E540F1624E}"
+      DTS:DTSID="{98D27355-725D-4873-A75A-5783C9EB6E73}"
       DTS:ObjectName="LocalHost.destination_di">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -107,7 +107,7 @@
       DTS:refId="Package\FactMarketHistory"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{F770F31F-364F-440E-B205-1020230CEE2B}"
+      DTS:DTSID="{8FA20983-53FF-43D8-A792-2F300BBBB02C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="FactMarketHistory"
@@ -117,6 +117,95 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\FactMarketHistory\Calculate Yield"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Calculate Yield"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée].Columns[DM_CLOSE]"
+                      cachedDataType="numeric"
+                      cachedName="DM_CLOSE"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée].Columns[Dividend]"
+                      cachedDataType="i4"
+                      cachedName="Dividend"
+                      lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[Dividend]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée].Columns[Yield]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée].Columns[Yield]"
+                      name="Yield"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_NUMERIC,5,2)((#{Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[Dividend]} / #{Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]}) * 100)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,5,2)((Dividend / DM_CLOSE) * 100)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\FactMarketHistory\Check date interval"
               componentClassID="Microsoft.ConditionalSplit"
@@ -582,6 +671,15 @@
                       lineageId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[EndDate]"
                       name="EndDate"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[Dividend]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].ExternalColumns[Dividend]"
+                      lineageId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[Dividend]"
+                      name="Dividend"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -707,6 +805,11 @@
                       dataType="dbDate"
                       lineageId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie d'erreur de source OLE DB].Columns[EndDate]"
                       name="EndDate" />
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie d'erreur de source OLE DB].Columns[Dividend]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie d'erreur de source OLE DB].Columns[Dividend]"
+                      name="Dividend" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -972,6 +1075,13 @@
                       cachedLength="50"
                       cachedName="DM_HIGH"
                       lineageId="Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_HIGH]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Format Date &amp; add BatchID.Inputs[Entrée de colonne dérivée].Columns[DM_CLOSE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DM_CLOSE"
+                      lineageId="Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_CLOSE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1050,6 +1160,30 @@
                           description="Expression claire de colonne dérivée"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_NUMERIC,8,2)(REPLACE(DM_HIGH,".",","))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée].Columns[DM_CLOSE_Format]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée].Columns[DM_CLOSE_Format]"
+                      name="DM_CLOSE_Format"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_NUMERIC,8,2)([REPLACE](#{Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_CLOSE]},".",","))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,8,2)(REPLACE(DM_CLOSE,".",","))</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1479,10 +1613,10 @@
                       lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[DM_DATE]" />
                     <inputColumn
                       refId="Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="numeric"
                       cachedName="DM_CLOSE"
+                      cachedPrecision="8"
+                      cachedScale="2"
                       lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[DM_CLOSE]" />
                     <inputColumn
                       refId="Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW]"
@@ -1520,6 +1654,13 @@
                       cachedPrecision="8"
                       cachedScale="2"
                       lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[DM_HIGH]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion].Columns[Yield]"
+                      cachedDataType="numeric"
+                      cachedName="Yield"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[Yield]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1551,11 +1692,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="numeric"
                       lineageId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
+                      name="DM_CLOSE"
+                      precision="8"
+                      scale="2">
                       <properties>
                         <property
                           containsID="true"
@@ -1675,6 +1816,21 @@
                           name="InputColumnID">#{Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion].Columns[DM_DATE]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[Yield]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[Yield]"
+                      name="Yield"
+                      precision="5"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion].Columns[Yield]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1721,13 +1877,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_S_SYMB]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DM_CLOSE"
-                      lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE]" />
-                    <inputColumn
                       refId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -1758,6 +1907,13 @@
                       cachedDataType="dbDate"
                       cachedName="DM_DATEFormat"
                       lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_DATEFormat]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE_Format]"
+                      cachedDataType="numeric"
+                      cachedName="DM_CLOSE_Format"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE_Format]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1794,6 +1950,11 @@
                       cachedDataType="dbDate"
                       cachedName="EndDate"
                       lineageId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée droite de jointure de fusion].Columns[Dividend]"
+                      cachedDataType="i4"
+                      cachedName="Dividend"
+                      lineageId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri].Columns[Dividend]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1803,21 +1964,6 @@
                   refId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion]"
                   name="Sortie de jointure de fusion">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_LOW]"
                       codePage="1252"
@@ -1939,6 +2085,34 @@
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
                           name="InputColumnID">#{Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_DATEFormat]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
+                      name="DM_CLOSE"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE_Format]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[Dividend]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[Dividend]"
+                      name="Dividend">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join by Symbol.Inputs[Entrée droite de jointure de fusion].Columns[Dividend]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2486,37 +2660,63 @@
                       cachedDataType="i4"
                       cachedName="SK_SecurityID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[SK_SecurityID]" />
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_SecurityID]" />
                     <inputColumn
                       refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_DATE]"
                       cachedDataType="dbDate"
                       cachedName="DM_DATE"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_DATE]" />
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_DATE]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
-                      cachedDataType="i4"
-                      cachedName="DM_LOW_MIN_DATE"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]" />
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW_MIN]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[Yield]"
                       cachedDataType="numeric"
-                      cachedName="DM_LOW_MIN"
+                      cachedName="Yield"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[Yield]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE]"
+                      cachedDataType="numeric"
+                      cachedName="DM_CLOSE"
                       cachedPrecision="8"
                       cachedScale="2"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]" />
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_CLOSE]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH_MAX_DATE]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DM_LOW"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_LOW]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_VOL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DM_VOL"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_VOL]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[BatchID]"
                       cachedDataType="i4"
-                      cachedName="DM_HIGH_MAX_DATE"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_HIGH_MAX_DATE]" />
+                      cachedName="BatchID"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[BatchID]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH_MAX]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[SK_CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="SK_CompanyID"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_CompanyID]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH]"
                       cachedDataType="numeric"
-                      cachedName="DM_HIGH_MAX"
+                      cachedName="DM_HIGH"
                       cachedPrecision="8"
                       cachedScale="2"
-                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_HIGH_MAX]" />
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_HIGH]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[SK_DateID]"
+                      cachedDataType="i4"
+                      cachedName="SK_DateID"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_DateID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2530,56 +2730,37 @@
                       cachedDataType="i4"
                       cachedName="SK_SecurityID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_SecurityID]" />
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[SK_SecurityID]" />
                     <inputColumn
                       refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_DATE]"
                       cachedDataType="dbDate"
                       cachedName="DM_DATE"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_DATE]" />
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_DATE]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DM_CLOSE"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_CLOSE]" />
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DM_LOW"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_LOW]" />
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_VOL]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DM_VOL"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_VOL]" />
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[BatchID]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH_MAX_DATE]"
                       cachedDataType="i4"
-                      cachedName="BatchID"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[BatchID]" />
+                      cachedName="DM_HIGH_MAX_DATE"
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_HIGH_MAX_DATE]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[SK_CompanyID]"
-                      cachedDataType="i4"
-                      cachedName="SK_CompanyID"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_CompanyID]" />
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH_MAX]"
                       cachedDataType="numeric"
-                      cachedName="DM_HIGH"
+                      cachedName="DM_HIGH_MAX"
                       cachedPrecision="8"
                       cachedScale="2"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_HIGH]" />
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_HIGH_MAX]" />
                     <inputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[SK_DateID]"
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW_MIN]"
+                      cachedDataType="numeric"
+                      cachedName="DM_LOW_MIN"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
                       cachedDataType="i4"
-                      cachedName="SK_DateID"
-                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[SK_DateID]" />
+                      cachedName="DM_LOW_MIN_DATE"
+                      lineageId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2591,18 +2772,33 @@
                   name="Sortie de jointure de fusion">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
+                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[Yield]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[Yield]"
+                      name="Yield"
+                      precision="5"
+                      scale="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_CLOSE]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[Yield]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]"
+                      name="DM_CLOSE"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_CLOSE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2617,7 +2813,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2632,7 +2828,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_VOL]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_VOL]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2646,7 +2842,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[SK_SecurityID]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[SK_SecurityID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2659,7 +2855,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[BatchID]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[BatchID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2672,7 +2868,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[SK_CompanyID]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[SK_CompanyID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2687,7 +2883,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2700,35 +2896,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[SK_DateID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
-                      dataType="i4"
-                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
-                      name="DM_LOW_MIN_DATE">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW_MIN_DATE]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]"
-                      dataType="numeric"
-                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]"
-                      name="DM_LOW_MIN"
-                      precision="8"
-                      scale="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_LOW_MIN]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[SK_DateID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2741,7 +2909,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH_MAX_DATE]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH_MAX_DATE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2756,7 +2924,35 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion].Columns[DM_HIGH_MAX]}</property>
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_HIGH_MAX]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN]"
+                      name="DM_LOW_MIN"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW_MIN]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]"
+                      name="DM_LOW_MIN_DATE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion].Columns[DM_LOW_MIN_DATE]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3971,10 +4167,10 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\FactMarketHistory\Sort by Date and Security.Inputs[Entrée de tri].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="numeric"
                       cachedName="DM_CLOSE"
+                      cachedPrecision="8"
+                      cachedScale="2"
                       lineageId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]">
                       <properties>
                         <property
@@ -4122,6 +4318,24 @@
                           name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Sort by Date and Security.Inputs[Entrée de tri].Columns[Yield]"
+                      cachedDataType="numeric"
+                      cachedName="Yield"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[Yield]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4134,11 +4348,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="numeric"
                       lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
+                      name="DM_CLOSE"
+                      precision="8"
+                      scale="2">
                       <properties>
                         <property
                           containsID="true"
@@ -4257,6 +4471,21 @@
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[DM_DATE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[Yield]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri].Columns[Yield]"
+                      name="Yield"
+                      precision="5"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\FactMarketHistory\Join by DM_DATE.Outputs[Sortie de jointure de fusion].Columns[Yield]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4386,10 +4615,10 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\FactMarketHistory\Sort by DM_DATE.Inputs[Entrée de tri].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="numeric"
                       cachedName="DM_CLOSE"
+                      cachedPrecision="8"
+                      cachedScale="2"
                       lineageId="Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]">
                       <properties>
                         <property
@@ -4520,6 +4749,24 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Sort by DM_DATE.Inputs[Entrée de tri].Columns[Yield]"
+                      cachedDataType="numeric"
+                      cachedName="Yield"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée].Columns[Yield]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4532,11 +4779,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="numeric"
                       lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
+                      name="DM_CLOSE"
+                      precision="8"
+                      scale="2">
                       <properties>
                         <property
                           containsID="true"
@@ -4643,6 +4890,21 @@
                           name="SortColumnId">#{Package\FactMarketHistory\Join by Symbol.Outputs[Sortie de jointure de fusion].Columns[DM_HIGH]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[Yield]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri].Columns[Yield]"
+                      name="Yield"
+                      precision="5"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée].Columns[Yield]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4687,24 +4949,6 @@
                           dataType="System.Int32"
                           description="Spécifie l'ordre de tri de la colonne."
                           name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\FactMarketHistory\Sort by DM_S_SYMB.Inputs[Entrée de tri].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DM_CLOSE"
-                      lineageId="Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_CLOSE]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison pour les données caractères."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie l'ordre de tri de la colonne."
-                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -4793,6 +5037,24 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Sort by DM_S_SYMB.Inputs[Entrée de tri].Columns[DM_CLOSE_Format]"
+                      cachedDataType="numeric"
+                      cachedName="DM_CLOSE_Format"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée].Columns[DM_CLOSE_Format]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4817,21 +5079,6 @@
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_S_SYMB]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE]"
-                      name="DM_CLOSE">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat].Columns[DM_CLOSE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4903,6 +5150,21 @@
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée].Columns[DM_HIGH_Format]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE_Format]"
+                      dataType="numeric"
+                      lineageId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri].Columns[DM_CLOSE_Format]"
+                      name="DM_CLOSE_Format"
+                      precision="8"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée].Columns[DM_CLOSE_Format]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5295,6 +5557,22 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Sort by Symbol.Inputs[Entrée de tri].Columns[Dividend]"
+                      cachedDataType="i4"
+                      cachedName="Dividend"
+                      lineageId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[Dividend]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5384,6 +5662,19 @@
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[EndDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri].Columns[Dividend]"
+                      dataType="i4"
+                      lineageId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri].Columns[Dividend]"
+                      name="Dividend">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB].Columns[Dividend]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5484,10 +5775,10 @@
                       lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[SK_DateID]" />
                     <inputColumn
                       refId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB].Columns[DM_CLOSE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="numeric"
                       cachedName="DM_CLOSE"
+                      cachedPrecision="8"
+                      cachedScale="2"
                       externalMetadataColumnId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB].ExternalColumns[ClosePrice]"
                       lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_CLOSE]" />
                     <inputColumn
@@ -5548,6 +5839,14 @@
                       cachedName="DM_LOW_MIN_DATE"
                       externalMetadataColumnId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB].ExternalColumns[SK_FiftyTwoWeekLowDate]"
                       lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[DM_LOW_MIN_DATE]" />
+                    <inputColumn
+                      refId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB].Columns[Yield]"
+                      cachedDataType="numeric"
+                      cachedName="Yield"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB].ExternalColumns[Yield]"
+                      lineageId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion].Columns[Yield]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5679,10 +5978,30 @@
               name="Sortie de colonne dérivée"
               startId="Package\FactMarketHistory\Get min-max column.Outputs[Sortie de colonne dérivée]" />
             <path
+              refId="Package\FactMarketHistory.Paths[Sortie de colonne dérivée2]"
+              endId="Package\FactMarketHistory\Sort by DM_DATE.Inputs[Entrée de tri]"
+              name="Sortie de colonne dérivée"
+              startId="Package\FactMarketHistory\Calculate Yield.Outputs[Sortie de colonne dérivée]" />
+            <path
               refId="Package\FactMarketHistory.Paths[Sortie de colonne dérivée1]"
               endId="Package\FactMarketHistory\Sort by DM_S_SYMB.Inputs[Entrée de tri]"
               name="Sortie de colonne dérivée"
               startId="Package\FactMarketHistory\Format Date &amp; add BatchID.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion5]"
+              endId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de jointure de fusion"
+              startId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion4]"
+              endId="Package\FactMarketHistory\Join max and min.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de jointure de fusion"
+              startId="Package\FactMarketHistory\Join Min Date.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion6]"
+              endId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de jointure de fusion"
+              startId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion]"
               endId="Package\FactMarketHistory\Keep only valid date association.Inputs[Entrée de fractionnement conditionnel]"
@@ -5704,21 +6023,6 @@
               name="Sortie de jointure de fusion"
               startId="Package\FactMarketHistory\Join Max Date.Outputs[Sortie de jointure de fusion]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion4]"
-              endId="Package\FactMarketHistory\Join max and min.Inputs[Entrée droite de jointure de fusion]"
-              name="Sortie de jointure de fusion"
-              startId="Package\FactMarketHistory\Join Min Date.Outputs[Sortie de jointure de fusion]" />
-            <path
-              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion5]"
-              endId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion]"
-              name="Sortie de jointure de fusion"
-              startId="Package\FactMarketHistory\Join max and min.Outputs[Sortie de jointure de fusion]" />
-            <path
-              refId="Package\FactMarketHistory.Paths[Sortie de jointure de fusion6]"
-              endId="Package\FactMarketHistory\Store to FactMarketHistory.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de jointure de fusion"
-              startId="Package\FactMarketHistory\Join to have max and min.Outputs[Sortie de jointure de fusion]" />
-            <path
               refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 1]"
               endId="Package\FactMarketHistory\Sort All by Security, Date &amp; Max.Inputs[Entrée de tri]"
               name="Sortie de multidiffusion 1"
@@ -5729,20 +6033,20 @@
               name="Sortie de multidiffusion 1"
               startId="Package\FactMarketHistory\Duplicate to make all combination.Outputs[Sortie de multidiffusion 1]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 21]"
-              endId="Package\FactMarketHistory\Group by DM_DATE &amp; Security.Inputs[Entrée d'agrégation 1]"
-              name="Sortie de multidiffusion 2"
-              startId="Package\FactMarketHistory\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
-            <path
-              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 22]"
+              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 2]"
               endId="Package\FactMarketHistory\Made all combination.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de multidiffusion 2"
               startId="Package\FactMarketHistory\Duplicate to make all combination.Outputs[Sortie de multidiffusion 2]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 2]"
+              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 21]"
               endId="Package\FactMarketHistory\MIN - Group by Date and SecurityID.Inputs[Entrée d'agrégation 1]"
               name="Sortie de multidiffusion 2"
               startId="Package\FactMarketHistory\Multidiffusion 1.Outputs[Sortie de multidiffusion 2]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 22]"
+              endId="Package\FactMarketHistory\Group by DM_DATE &amp; Security.Inputs[Entrée d'agrégation 1]"
+              name="Sortie de multidiffusion 2"
+              startId="Package\FactMarketHistory\Multidiffusion.Outputs[Sortie de multidiffusion 2]" />
             <path
               refId="Package\FactMarketHistory.Paths[Sortie de multidiffusion 3]"
               endId="Package\FactMarketHistory\Sort by Date and Security.Inputs[Entrée de tri]"
@@ -5759,27 +6063,17 @@
               name="Sortie de source de fichier plat"
               startId="Package\FactMarketHistory\FlatFile - DailyMarket.Outputs[Sortie de source de fichier plat]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de source OLE DB]"
-              endId="Package\FactMarketHistory\Sort by DateValue.Inputs[Entrée de tri]"
-              name="Sortie de source OLE DB"
-              startId="Package\FactMarketHistory\Fetch DimDate.Outputs[Sortie de source OLE DB]" />
-            <path
               refId="Package\FactMarketHistory.Paths[Sortie de source OLE DB1]"
               endId="Package\FactMarketHistory\Sort by Symbol.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\FactMarketHistory\Fetch DimSecurity.Outputs[Sortie de source OLE DB]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri2]"
-              endId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée droite de jointure de fusion]"
-              name="Sortie de tri"
-              startId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri]" />
+              refId="Package\FactMarketHistory.Paths[Sortie de source OLE DB]"
+              endId="Package\FactMarketHistory\Sort by DateValue.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\FactMarketHistory\Fetch DimDate.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\FactMarketHistory.Paths[Sortie de tri]"
-              endId="Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion]"
-              name="Sortie de tri"
-              startId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri]" />
-            <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri1]"
               endId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\FactMarketHistory\Sort by DM_S_SYMB.Outputs[Sortie de tri]" />
@@ -5795,29 +6089,39 @@
               startId="Package\FactMarketHistory\Order Security.Outputs[Sortie de tri]" />
             <path
               refId="Package\FactMarketHistory.Paths[Sortie de tri5]"
-              endId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée droite de jointure de fusion]"
-              name="Sortie de tri"
-              startId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri]" />
-            <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri6]"
               endId="Package\FactMarketHistory\Join Max Date.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\FactMarketHistory\Sort by Security, Date &amp; Max.Outputs[Sortie de tri]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri7]"
+              refId="Package\FactMarketHistory.Paths[Sortie de tri6]"
               endId="Package\FactMarketHistory\Join Max Date.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\FactMarketHistory\Sort All by Security, Date &amp; Max.Outputs[Sortie de tri]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri8]"
+              refId="Package\FactMarketHistory.Paths[Sortie de tri7]"
               endId="Package\FactMarketHistory\Join Min Date.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\FactMarketHistory\Sort by Security, Date &amp; Min.Outputs[Sortie de tri]" />
             <path
-              refId="Package\FactMarketHistory.Paths[Sortie de tri9]"
+              refId="Package\FactMarketHistory.Paths[Sortie de tri8]"
               endId="Package\FactMarketHistory\Join Min Date.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\FactMarketHistory\Sort All by Security, Date &amp; Min.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de tri9]"
+              endId="Package\FactMarketHistory\Join to have max and min.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\FactMarketHistory\Sort by Date and Security.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de tri1]"
+              endId="Package\FactMarketHistory\Join by Symbol.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\FactMarketHistory\Sort by Symbol.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\FactMarketHistory.Paths[Sortie de tri2]"
+              endId="Package\FactMarketHistory\Join by DM_DATE.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\FactMarketHistory\Sort by DM_DATE.Outputs[Sortie de tri]" />
             <path
               refId="Package\FactMarketHistory.Paths[Valid date]"
               endId="Package\FactMarketHistory\Get min-max column.Inputs[Entrée de colonne dérivée]"
@@ -5825,7 +6129,7 @@
               startId="Package\FactMarketHistory\Keep only valid date association.Outputs[Valid date]" />
             <path
               refId="Package\FactMarketHistory.Paths[Valid date1]"
-              endId="Package\FactMarketHistory\Sort by DM_DATE.Inputs[Entrée de tri]"
+              endId="Package\FactMarketHistory\Calculate Yield.Inputs[Entrée de colonne dérivée]"
               name="Valid date"
               startId="Package\FactMarketHistory\Check date interval.Outputs[Valid date]" />
           </paths>
@@ -5860,130 +6164,126 @@
         <NodeLayout
           Size="225.333333333334,42"
           Id="Package\FactMarketHistory\Group by DM_DATE &amp; Security"
-          TopLeft="425.992057144287,697.415074138276" />
+          TopLeft="425.992057144287,721.681740371021" />
         <NodeLayout
           Size="176,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by DM_S_SYMB"
-          TopLeft="956.617049237358,210.696292528753" />
+          TopLeft="974.950382297503,160.429626760924" />
         <NodeLayout
           Size="146.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Order Security"
-          TopLeft="465.277770844599,768.708723863727" />
+          TopLeft="465.277770844599,792.975390096472" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by Symbol"
-          TopLeft="741.385570963076,227.403699637409" />
+          TopLeft="743.885570925823,165.003700753208" />
         <NodeLayout
           Size="144,42.6666666666667"
           Id="Package\FactMarketHistory\Join Min Date"
-          TopLeft="687.638878675385,1412.18888251179" />
+          TopLeft="687.638878675385,1436.45554874453" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Join by Symbol"
-          TopLeft="948.931864166692,315.225920289247" />
+          TopLeft="965.598530585006,253.692588056216" />
         <NodeLayout
           Size="171.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Multidiffusion 1"
-          TopLeft="450.099199642205,1141.62142622637" />
+          TopLeft="450.099199642205,1165.88809245911" />
         <NodeLayout
           Size="177.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Get min-max column"
-          TopLeft="449.702374251293,1063.06586507337" />
+          TopLeft="449.702374251293,1087.33253130611" />
         <NodeLayout
           Size="180,42.6666666666667"
           Id="Package\FactMarketHistory\Made all combination"
-          TopLeft="447.718247296732,909.748403881424" />
+          TopLeft="447.718247296732,934.015070114169" />
         <NodeLayout
           Size="213.333333333334,42"
           Id="Package\FactMarketHistory\Sort by Security, Date &amp; Min"
-          TopLeft="812.499987892807,1331.68888397111" />
+          TopLeft="812.499987892807,1355.95555020385" />
         <NodeLayout
           Size="165.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Fetch DimSecurity"
-          TopLeft="737.45038583653,146.033330722054" />
+          TopLeft="739.950385799277,83.6333318378529" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Multidiffusion"
-          TopLeft="998.561493056783,621.688885004255" />
+          TopLeft="1009.39482622869,646.822217888169" />
         <NodeLayout
           Size="200.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by Date and Security"
-          TopLeft="997.346215297113,716.188884397281" />
+          TopLeft="996.512881976197,740.455550630026" />
         <NodeLayout
           Size="238.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Duplicate to make all combination"
-          TopLeft="418.353168369226,836.962690936955" />
+          TopLeft="418.353168369226,861.2293571697" />
         <NodeLayout
           Size="229.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Keep only valid date association"
-          TopLeft="424.503961928366,983.256342702872" />
+          TopLeft="424.503961928366,1007.52300893562" />
         <NodeLayout
           Size="210.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Format Date &amp; add BatchID"
-          TopLeft="942.450382781791,70.8666654113929" />
+          TopLeft="955.783715916442,74.3333320160708" />
         <NodeLayout
           Size="146.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Join Max Date"
-          TopLeft="302.083328831941,1418.35554908805" />
+          TopLeft="302.083328831941,1442.62221532079" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by DM_DATE"
-          TopLeft="953.422604840514,469.922218242022" />
+          TopLeft="963.422604691502,489.855551218919" />
         <NodeLayout
           Size="228,42.6666666666667"
           Id="Package\FactMarketHistory\Sort All by Security, Date &amp; Min"
-          TopLeft="549.999991804362,1256.91110699402" />
+          TopLeft="549.999991804362,1281.17777322676" />
         <NodeLayout
           Size="250.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\MIN - Group by Date and SecurityID"
-          TopLeft="795.734115126764,1257.54999547979" />
+          TopLeft="795.734115126764,1281.81666171253" />
         <NodeLayout
           Size="162.666666666667,42"
           Id="Package\FactMarketHistory\Join by DM_DATE"
-          TopLeft="981.200382204372,551.466659785906" />
+          TopLeft="997.867048622686,578.333325972159" />
         <NodeLayout
           Size="216,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by Security, Date &amp; Max"
-          TopLeft="23.6607139331424,1327.34761427558" />
+          TopLeft="23.6607139331424,1351.61428050832" />
         <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Fetch DimDate"
-          TopLeft="1173.28371267544,389.688886760605" />
+          TopLeft="1173.28371267544,413.95555299335" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\FactMarketHistory\Sort by DateValue"
-          TopLeft="1169.53371273132,473.3888848467" />
+          TopLeft="1169.53371273132,497.655551079445" />
         <NodeLayout
           Size="162.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Join max and min"
-          TopLeft="459.999993145466,1510.99999341369" />
+          TopLeft="459.999993145466,1535.26665964643" />
         <NodeLayout
           Size="205.333333333334,42.6666666666667"
           Id="Package\FactMarketHistory\Store to FactMarketHistory"
-          TopLeft="951.696414390045,1744.33648311367" />
+          TopLeft="966.27974750607,1769.68648266038" />
         <NodeLayout
           Size="178.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\FlatFile - DailyMarket"
-          TopLeft="958.28371587919,0.43333332558473" />
+          TopLeft="969.95038237201,2.16666662792367" />
         <NodeLayout
           Size="230.666666666667,42.6666666666667"
           Id="Package\FactMarketHistory\Sort All by Security, Date &amp; Max"
-          TopLeft="286.309519543179,1256.00237645985" />
+          TopLeft="286.309519543179,1280.26904269259" />
         <NodeLayout
           Size="171.333333333334,42"
           Id="Package\FactMarketHistory\Check date interval"
-          TopLeft="943.839271649986,389.466661955515" />
+          TopLeft="955.505938142806,328.799996373653" />
         <NodeLayout
           Size="252,42.6666666666667"
           Id="Package\FactMarketHistory\MAX - Group by Date and SecurityID"
-          TopLeft="0.446428564775459,1259.63332719422" />
-        <NodeLayout
-          Size="201.333333333334,42.6666666666667"
-          Id="Package\FactMarketHistory\Join to have max and min"
-          TopLeft="957.499985732139,1651.73332601865" />
+          TopLeft="0.446428564775459,1283.89999342696" />
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de tri9]"
-          TopLeft="663.999991804362,1299.57777366069">
+          Id="Package\FactMarketHistory.Paths[Sortie de tri8]"
+          TopLeft="663.999991804362,1323.84443989343">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6016,8 +6316,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de tri8]"
-          TopLeft="919.166654559474,1373.68888397111">
+          Id="Package\FactMarketHistory.Paths[Sortie de tri7]"
+          TopLeft="919.166654559474,1397.95555020385">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6050,8 +6350,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de tri7]"
-          TopLeft="400.085313076449,1298.66904312652">
+          Id="Package\FactMarketHistory.Paths[Sortie de tri6]"
+          TopLeft="400.085313076449,1322.93570935926">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6072,8 +6372,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de tri6]"
-          TopLeft="131.660713933142,1370.01428094225">
+          Id="Package\FactMarketHistory.Paths[Sortie de tri5]"
+          TopLeft="131.660713933142,1394.28094717499">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6106,30 +6406,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de tri5]"
-          TopLeft="1094.03421162574,758.855551063948">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,892.877774954704"
-              Start="0,0"
-              End="0,885.377774954704">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,885.377774954704" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de tri4]"
-          TopLeft="538.148802940246,811.375390530394">
+          TopLeft="538.148802940246,835.642056763139">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6151,30 +6429,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de tri3]"
-          TopLeft="1251.53371273132,516.055551513367">
+          TopLeft="1251.53371273132,540.322217746111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-163.222219415837,35.411108272539"
+              EndConnector="-146.555552997523,38.0111082260477"
               Start="0,0"
-              End="-163.222219415837,27.911108272539">
+              End="-146.555552997523,30.5111082260477">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.0397169281644" />
+                    End="0,18.5845220953465" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.0397169281644"
-                    Point2="0,21.0397169281644"
-                    Point3="-4,21.0397169281644" />
+                    Point1="0,18.5845220953465"
+                    Point2="0,22.5845220953465"
+                    Point3="-4,22.5845220953465" />
                   <mssgle:LineSegment
-                    End="-159.222219415837,21.0397169281644" />
+                    End="-142.555552997523,22.5845220953465" />
                   <mssgle:CubicBezierSegment
-                    Point1="-159.222219415837,21.0397169281644"
-                    Point2="-163.222219415837,21.0397169281644"
-                    Point3="-163.222219415837,25.0397169281644" />
+                    Point1="-142.555552997523,22.5845220953465"
+                    Point2="-146.555552997523,22.5845220953465"
+                    Point3="-146.555552997523,26.5845220953465" />
                   <mssgle:LineSegment
-                    End="-163.222219415837,27.911108272539" />
+                    End="-146.555552997523,30.5111082260477" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6185,30 +6463,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de tri2]"
-          TopLeft="816.718904296409,270.070366304075">
+          TopLeft="1049.42260443487,532.522217885586">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="183.768515425838,45.1555539851723"
+              EndConnector="0,45.8111080865731"
               Start="0,0"
-              End="183.768515425838,37.6555539851723">
+              End="0,38.3111080865731">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.8086388808641" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8086388808641"
-                    Point2="0,26.8086388808641"
-                    Point3="4,26.8086388808641" />
-                  <mssgle:LineSegment
-                    End="179.768515425838,26.8086388808641" />
-                  <mssgle:CubicBezierSegment
-                    Point1="179.768515425838,26.8086388808641"
-                    Point2="183.768515425838,26.8086388808641"
-                    Point3="183.768515425838,30.8086388808641" />
-                  <mssgle:LineSegment
-                    End="183.768515425838,37.6555539851723" />
+                    End="0,38.3111080865731" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6219,18 +6485,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de tri1]"
-          TopLeft="1046.33001225758,253.362959195419">
+          TopLeft="819.218904259156,207.670367419875">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.8629610938281"
+              EndConnector="197.935181881405,46.022220636341"
               Start="0,0"
-              End="0,54.3629610938281">
+              End="197.935181881405,38.522220636341">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.3629610938281" />
+                    End="0,23.3231747735895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3231747735895"
+                    Point2="0,27.3231747735895"
+                    Point3="4,27.3231747735895" />
+                  <mssgle:LineSegment
+                    End="193.935181881405,27.3231747735895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="193.935181881405,27.3231747735895"
+                    Point2="197.935181881405,27.3231747735895"
+                    Point3="197.935181881405,31.3231747735895" />
+                  <mssgle:LineSegment
+                    End="197.935181881405,38.522220636341" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6241,18 +6519,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de tri]"
-          TopLeft="1036.08927130022,512.588884908689">
+          TopLeft="1063.83001199681,203.096293427591">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.8777748772172"
+              EndConnector="0,50.5962946286245"
               Start="0,0"
-              End="0,31.3777748772172">
+              End="0,43.0962946286245">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.3777748772172" />
+                    End="0,43.0962946286245" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6263,7 +6541,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de source OLE DB1]"
-          TopLeft="818.417978399803,188.699997388721">
+          TopLeft="820.91797836255,126.29999850452">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6285,7 +6563,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de source OLE DB]"
-          TopLeft="1249.74204603671,432.355553427272">
+          TopLeft="1249.74204603671,456.622219660017">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6307,18 +6585,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de source de fichier plat]"
-          TopLeft="1047.70038266382,43.0999999922514">
+          TopLeft="1060.20038247756,44.8333332945903">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.7666654191415"
+              EndConnector="0,29.4999987214805"
               Start="0,0"
-              End="0,20.2666654191415">
+              End="0,21.9999987214805">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2666654191415" />
+                    End="0,21.9999987214805" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6329,7 +6607,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 31]"
-          TopLeft="552.099199642205,1184.28809289304">
+          TopLeft="552.099199642205,1208.55475912578">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6363,18 +6641,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 3]"
-          TopLeft="1095.0094097325,664.355551670921">
+          TopLeft="1100.009409658,689.488884554836">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.8333327263599"
+              EndConnector="0,50.9666660751899"
               Start="0,0"
-              End="0,44.3333327263599">
+              End="0,43.4666660751899">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.3333327263599" />
+                    End="0,43.4666660751899" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6385,18 +6663,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 22]"
-          TopLeft="537.702374499646,879.629357603622">
+          TopLeft="1058.28371511758,689.488884554836">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.1190462778018"
+              EndConnector="-519.624991306622,32.192855816185"
               Start="0,0"
-              End="0,22.6190462778018">
+              End="-519.624991306622,24.692855816185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.6190462778018" />
+                    End="0,9.09136465722862" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.09136465722862"
+                    Point2="0,13.0913646572286"
+                    Point3="-4,13.0913646572286" />
+                  <mssgle:LineSegment
+                    End="-515.624991306622,13.0913646572286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-515.624991306622,13.0913646572286"
+                    Point2="-519.624991306622,13.0913646572286"
+                    Point3="-519.624991306622,17.0913646572286" />
+                  <mssgle:LineSegment
+                    End="-519.624991306622,24.692855816185" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6407,41 +6697,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 21]"
-          TopLeft="1047.45038194567,664.355551670921">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-508.791658134718,33.0595224673551"
-              Start="0,0"
-              End="-508.791658134718,25.5595224673551">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.44379841556029" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.44379841556029"
-                    Point2="0,13.4437984155603"
-                    Point3="-4,13.4437984155603" />
-                  <mssgle:LineSegment
-                    End="-504.791658134718,13.4437984155603" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-504.791658134718,13.4437984155603"
-                    Point2="-508.791658134718,13.4437984155603"
-                    Point3="-508.791658134718,17.4437984155603" />
-                  <mssgle:LineSegment
-                    End="-508.791658134718,25.5595224673551" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 2]"
-          TopLeft="584.765866308872,1184.28809289303">
+          TopLeft="584.765866308872,1208.55475912577">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6474,8 +6730,30 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 2]"
+          TopLeft="537.702374499646,903.896023836367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.1190462778018"
+              Start="0,0"
+              End="0,22.6190462778018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6190462778018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 11]"
-          TopLeft="537.702374499646,879.629357603622">
+          TopLeft="537.702374499646,903.896023836367">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6497,7 +6775,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de multidiffusion 1]"
-          TopLeft="519.432532975539,1184.28809289303">
+          TopLeft="519.432532975539,1208.55475912577">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6530,66 +6808,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion6]"
-          TopLeft="1056.26486672776,1694.39999268532">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.936490428348"
-              Start="0,0"
-              End="0,42.436490428348">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.436490428348" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion5]"
-          TopLeft="541.333326478799,1553.66666008035">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="484.611103697784,98.0666659382975"
-              Start="0,0"
-              End="484.611103697784,90.5666659382975">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.3760836662927" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.3760836662927"
-                    Point2="0,58.3760836662927"
-                    Point3="4,58.3760836662927" />
-                  <mssgle:LineSegment
-                    End="480.611103697784,58.3760836662927" />
-                  <mssgle:CubicBezierSegment
-                    Point1="480.611103697784,58.3760836662927"
-                    Point2="484.611103697784,58.3760836662927"
-                    Point3="484.611103697784,62.3760836662927" />
-                  <mssgle:LineSegment
-                    End="484.611103697784,90.5666659382975" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="234.305551848892,63.3760836662927,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion4]"
-          TopLeft="759.638878675385,1454.85554917846">
+          TopLeft="759.638878675385,1479.1222154112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6623,7 +6843,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion3]"
-          TopLeft="375.416662165274,1461.02221575472">
+          TopLeft="375.416662165274,1485.28888198746">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6652,25 +6872,23 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="62.0694432678735,34.6945886739973,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion2]"
-          TopLeft="1066.21427096391,593.466659785906">
+          TopLeft="1079.96427075902,620.333325972159">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.2222252183486"
+              EndConnector="0,26.4888919160101"
               Start="0,0"
-              End="0,20.7222252183486">
+              End="0,18.9888919160101">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.7222252183486" />
+                    End="0,18.9888919160101" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6681,18 +6899,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion1]"
-          TopLeft="1026.88556790834,357.892586955914">
+          TopLeft="1041.05223436391,296.359254722882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.5740749996014"
+              EndConnector="0,32.4407416507705"
               Start="0,0"
-              End="0,24.0740749996014">
+              End="0,24.9407416507705">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.0740749996014" />
+                    End="0,24.9407416507705" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6703,7 +6921,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion]"
-          TopLeft="538.444437945882,952.41507054809">
+          TopLeft="538.444437945882,976.681736780835">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6724,30 +6942,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Sortie de colonne dérivée1]"
-          TopLeft="1046.20038267624,113.53333207806">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,97.162960450693"
-              Start="0,0"
-              End="0,89.662960450693">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,89.662960450693" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie de colonne dérivée]"
-          TopLeft="537.067453613416,1105.73253174003">
+          TopLeft="537.067453613416,1129.99919797277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6769,7 +6965,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie d'agrégation 12]"
-          TopLeft="538.634913994443,739.415074138276">
+          TopLeft="538.634913994443,763.681740371021">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6791,7 +6987,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie d'agrégation 11]"
-          TopLeft="129.053571248959,1302.29999386089">
+          TopLeft="129.053571248959,1326.56666009363">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6813,7 +7009,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Sortie d'agrégation 1]"
-          TopLeft="920.117051509785,1300.21666214646">
+          TopLeft="920.117051509785,1324.4833283792">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6835,7 +7031,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Multidiffusion sortie 1]"
-          TopLeft="486.765866308872,1184.28809289303">
+          TopLeft="486.765866308872,1208.55475912577">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6868,32 +7064,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactMarketHistory.Paths[Valid date1]"
-          TopLeft="1032.46427157858,431.466661955515">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.4555562865068"
-              Start="0,0"
-              End="0,30.9555562865068">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.9555562865068" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.80953125,10.6032664245034,45.6190625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactMarketHistory.Paths[Valid date]"
-          TopLeft="538.769834756496,1025.92300936954">
+          TopLeft="538.769834756496,1050.18967560228">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6915,8 +7087,188 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de colonne dérivée1]"
+          TopLeft="1062.03371577364,116.999998682737">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.4296280781869"
+              Start="0,0"
+              End="0,35.9296280781869">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9296280781869" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\FactMarketHistory\Calculate Yield"
+          TopLeft="970.833318866789,415.99999256134" />
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Valid date1]"
+          TopLeft="1043.00296183813,370.799996373653">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.1999961876877"
+              Start="0,0"
+              End="0,37.6999961876877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6999961876877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.80953125,13.9754863750939,45.6190625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de colonne dérivée2]"
+          TopLeft="1045.12796177915,458.666659228007">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.1888919909122"
+              Start="0,0"
+              End="0,23.6888919909122">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6888919909122" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="201.333333333334,42.6666666666667"
+          Id="Package\FactMarketHistory\Join to have max and min"
+          TopLeft="962.916652318091,1696.74999230951" />
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion5]"
+          TopLeft="541.333326478799,1577.9333263131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="490.027770283736,118.816665996409"
+              Start="0,0"
+              End="490.027770283736,111.316665996409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.7279233855105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.7279233855105"
+                    Point2="0,70.7279233855105"
+                    Point3="4,70.7279233855105" />
+                  <mssgle:LineSegment
+                    End="486.027770283736,70.7279233855105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="486.027770283736,70.7279233855105"
+                    Point2="490.027770283736,70.7279233855105"
+                    Point3="490.027770283736,74.7279233855105" />
+                  <mssgle:LineSegment
+                    End="490.027770283736,111.316665996409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de tri9]"
+          TopLeft="1096.32587825826,783.122217296692">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,913.627775012819"
+              Start="0,0"
+              End="0,906.127775012819">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,906.127775012819" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactMarketHistory.Paths[Sortie de jointure de fusion6]"
+          TopLeft="1066.26486657875,1739.41665897618">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.2698236841989"
+              Start="0,0"
+              End="0,22.7698236841989">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7698236841989" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactMarketHistory\Fetch DimSecurity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactMarketHistory\Store to FactMarketHistory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
