@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dimAccount"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{6872BF37-C1D9-4CA0-AD3F-E93A7D1038F5}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{1CE21A99-C634-43E8-B6E2-AAC79E7B0962}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8435,44 +8435,44 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
               startId="Package\dimAccount\dimCustomer.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\dimAccount.Paths[Sort Output7]"
-              endId="Package\dimAccount\Merge with DimBroker.Inputs[Merge Join Left Input]"
+              endId="Package\dimAccount\Merge CustomerMgmt.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\dimAccount\Order by CA_B_ID.Outputs[Sort Output]" />
+              startId="Package\dimAccount\Sort ActionId.Outputs[Sort Output]" />
             <path
               refId="Package\dimAccount.Paths[Sort Output6]"
-              endId="Package\dimAccount\Merge with DimCustomer.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\dimAccount\Sort by C_ID.Outputs[Sort Output]" />
-            <path
-              refId="Package\dimAccount.Paths[Sort Output5]"
-              endId="Package\dimAccount\Merge with DimCustomer.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\dimAccount\Sort by CustomerID.Outputs[Sort Output]" />
-            <path
-              refId="Package\dimAccount.Paths[Sort Output4]"
-              endId="Package\dimAccount\Merge Account and Customer.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\dimAccount\Sort Account.Outputs[Sort Output]" />
-            <path
-              refId="Package\dimAccount.Paths[Sort Output]"
-              endId="Package\dimAccount\Merge with DimBroker.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\dimAccount\Order by BrokerID.Outputs[Sort Output]" />
-            <path
-              refId="Package\dimAccount.Paths[Sort Output2]"
-              endId="Package\dimAccount\Merge CustomerMgmt.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\dimAccount\Sort Action.Outputs[Sort Output]" />
-            <path
-              refId="Package\dimAccount.Paths[Sort Output1]"
               endId="Package\dimAccount\Merge Account and Customer.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\dimAccount\Sort Customer.Outputs[Sort Output]" />
             <path
-              refId="Package\dimAccount.Paths[Sort Output3]"
-              endId="Package\dimAccount\Merge CustomerMgmt.Inputs[Merge Join Left Input]"
+              refId="Package\dimAccount.Paths[Sort Output5]"
+              endId="Package\dimAccount\Merge CustomerMgmt.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\dimAccount\Sort ActionId.Outputs[Sort Output]" />
+              startId="Package\dimAccount\Sort Action.Outputs[Sort Output]" />
+            <path
+              refId="Package\dimAccount.Paths[Sort Output4]"
+              endId="Package\dimAccount\Merge with DimBroker.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\dimAccount\Order by BrokerID.Outputs[Sort Output]" />
+            <path
+              refId="Package\dimAccount.Paths[Sort Output]"
+              endId="Package\dimAccount\Merge with DimBroker.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\dimAccount\Order by CA_B_ID.Outputs[Sort Output]" />
+            <path
+              refId="Package\dimAccount.Paths[Sort Output2]"
+              endId="Package\dimAccount\Merge with DimCustomer.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\dimAccount\Sort by CustomerID.Outputs[Sort Output]" />
+            <path
+              refId="Package\dimAccount.Paths[Sort Output1]"
+              endId="Package\dimAccount\Merge with DimCustomer.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\dimAccount\Sort by C_ID.Outputs[Sort Output]" />
+            <path
+              refId="Package\dimAccount.Paths[Sort Output3]"
+              endId="Package\dimAccount\Merge Account and Customer.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\dimAccount\Sort Account.Outputs[Sort Output]" />
             <path
               refId="Package\dimAccount.Paths[Sortie de commande OLE DB]"
               endId="Package\dimAccount\Merge all.Inputs[Entrée Union All 1]"
@@ -8533,6 +8533,38 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Order by CA_B_ID"
+          TopLeft="507.273813764432,727.993283654566" />
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\dimAccount\Sort by C_ID"
+          TopLeft="548.750003706663,976.335706223291" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\dimAccount\Update History"
+          TopLeft="719.444433723887,1289.44443811642" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Check date for Broker"
+          TopLeft="529.583325441926,880.96903352821" />
+        <NodeLayout
+          Size="165.333333333334,42"
+          Id="Package\dimAccount\Data Conversion 1"
+          TopLeft="513.992427564142,541.482676195337" />
+        <NodeLayout
+          Size="154.666666666667,42"
+          Id="Package\dimAccount\Conditional Split"
+          TopLeft="512.916670572012,1140.63570608382" />
+        <NodeLayout
+          Size="192.666666666667,46"
+          Id="Package\dimAccount\Source-CustomerMgmt"
+          TopLeft="483.587294744298,49.8730155464676" />
+        <NodeLayout
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Check value already exist"
+          TopLeft="487.499992735684,1220.88888176017" />
+        <NodeLayout
           Size="126.666666666667,42"
           Id="Package\dimAccount\dimBroker"
           TopLeft="724.545453260229,652.396315615797" />
@@ -8541,83 +8573,167 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
           Id="Package\dimAccount\dimCustomer"
           TopLeft="349.916670758276,926.185708268922" />
         <NodeLayout
-          Size="198.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Merge with DimCustomer"
-          TopLeft="493.583337735385,1064.35237292095" />
-        <NodeLayout
           Size="185.333333333334,42.6666666666667"
           Id="Package\dimAccount\Merge with DimBroker"
           TopLeft="527.916670423,808.652374563656" />
-        <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Order by BrokerID"
-          TopLeft="700.416665878146,729.685709353727" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Check date for Broker"
-          TopLeft="529.583325441926,880.96903352821" />
-        <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\dimAccount\Sort by C_ID"
-          TopLeft="548.750003706663,976.335706223291" />
-        <NodeLayout
-          Size="182.666666666667,42"
-          Id="Package\dimAccount\Merge CustomerMgmt"
-          TopLeft="506.77380966129,393.11904122645" />
         <NodeLayout
           Size="186.666666666667,42.6666666666667"
           Id="Package\dimAccount\Create missing column"
           TopLeft="510.083336655051,472.619039831701" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Order by CA_B_ID"
-          TopLeft="507.273813764432,727.993283654566" />
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\dimAccount\Sort by CustomerID"
-          TopLeft="331.250004786997,995.4023748736" />
-        <NodeLayout
-          Size="218,42"
-          Id="Package\dimAccount\Merge Account and Customer"
-          TopLeft="361.548225979639,226.854699716394" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\dimAccount\Sort ActionId"
-          TopLeft="397.781746277143,307.896822620242" />
-        <NodeLayout
-          Size="192.666666666667,46"
-          Id="Package\dimAccount\Source-CustomerMgmt"
-          TopLeft="483.587294744298,49.8730155464676" />
+          Size="138.666666666667,42"
+          Id="Package\dimAccount\Sort Account"
+          TopLeft="443.162694711061,151.682538511024" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\dimAccount\Save to DimAccount"
           TopLeft="489.583326037973,1429.48013833196" />
         <NodeLayout
-          Size="146,42"
-          Id="Package\dimAccount\Sort Customer"
-          TopLeft="275.588518789318,152.506714866534" />
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Merge with DimCustomer"
+          TopLeft="493.583337735385,1064.35237292095" />
         <NodeLayout
-          Size="154.666666666667,42"
-          Id="Package\dimAccount\Conditional Split"
-          TopLeft="512.916670572012,1140.63570608382" />
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Order by BrokerID"
+          TopLeft="700.416665878146,729.685709353727" />
         <NodeLayout
-          Size="165.333333333334,42"
-          Id="Package\dimAccount\Data Conversion 1"
-          TopLeft="513.992427564142,541.482676195337" />
+          Size="140,42"
+          Id="Package\dimAccount\Sort ActionId"
+          TopLeft="397.781746277143,307.896822620242" />
         <NodeLayout
           Size="130.666666666667,42"
           Id="Package\dimAccount\Sort Action"
           TopLeft="557.289679271183,307.670630044549" />
         <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\dimAccount\Merge all"
+          TopLeft="508.333325758577,1358.83332502941" />
+        <NodeLayout
+          Size="182.666666666667,42"
+          Id="Package\dimAccount\Merge CustomerMgmt"
+          TopLeft="506.77380966129,393.11904122645" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\dimAccount\Sort Customer"
+          TopLeft="275.588518789318,152.506714866534" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\dimAccount\Merge Account and Customer"
+          TopLeft="361.548225979639,226.854699716394" />
+        <NodeLayout
           Size="138,42"
           Id="Package\dimAccount\ActionType"
           TopLeft="524.25000340864,618.76904074991" />
         <NodeLayout
-          Size="138.666666666667,42"
-          Id="Package\dimAccount\Sort Account"
-          TopLeft="443.162694711061,151.682538511024" />
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\dimAccount\Sort by CustomerID"
+          TopLeft="331.250004786997,995.4023748736" />
         <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output1]"
+          Id="Package\dimAccount.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="618.611103846795,1263.55554842684">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175.499996543758,25.8888896895783"
+              Start="0,0"
+              End="175.499996543758,18.3888896895783">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.47965707807162" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.47965707807162"
+                    Point2="0,10.4796570780716"
+                    Point3="4,10.4796570780716" />
+                  <mssgle:LineSegment
+                    End="171.499996543758,10.4796570780716" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171.499996543758,10.4796570780716"
+                    Point2="175.499996543758,10.4796570780716"
+                    Point3="175.499996543758,14.4796570780716" />
+                  <mssgle:LineSegment
+                    End="175.499996543758,18.3888896895783" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.92701344687103,15.4796570780716,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sortie de commande OLE DB]"
+          TopLeft="794.111100390553,1332.11110478309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-205.333330187532,26.7222202463281"
+              Start="0,0"
+              End="-205.333330187532,19.2222202463281">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.826894394821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.826894394821"
+                    Point2="0,15.826894394821"
+                    Point3="-4,15.826894394821" />
+                  <mssgle:LineSegment
+                    End="-201.333330187532,15.826894394821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-201.333330187532,15.826894394821"
+                    Point2="-205.333330187532,15.826894394821"
+                    Point3="-205.333330187532,19.826894394821" />
+                  <mssgle:LineSegment
+                    End="-205.333330187532,19.2222202463281" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output7]"
+          TopLeft="467.781746277142,349.896822620242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.21428560637,43.2222186062075"
+              Start="0,0"
+              End="101.21428560637,35.7222186062075">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.708150285313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.708150285313"
+                    Point2="0,25.708150285313"
+                    Point3="4,25.708150285313" />
+                  <mssgle:LineSegment
+                    End="97.2142856063699,25.708150285313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.2142856063699,25.708150285313"
+                    Point2="101.21428560637,25.708150285313"
+                    Point3="101.21428560637,29.708150285313" />
+                  <mssgle:LineSegment
+                    End="101.21428560637,35.7222186062075" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output6]"
           TopLeft="348.588518789318,194.506714866534">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8651,7 +8767,29 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output]"
+          Id="Package\dimAccount.Paths[Sort Output5]"
+          TopLeft="624.920633355126,349.670630044549">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.4484111819004"
+              Start="0,0"
+              End="0,35.9484111819004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9484111819004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output4]"
           TopLeft="783.74999921148,772.352376020394">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8676,6 +8814,106 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
                     Point3="-133.611106566257,25.5935797325827" />
                   <mssgle:LineSegment
                     End="-133.611106566257,28.7999985432626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output3]"
+          TopLeft="509.022127012016,193.682538511024">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1721612053697"
+              Start="0,0"
+              End="0,25.6721612053697">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6721612053697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output2]"
+          TopLeft="417.916671453664,1038.06904154027">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.222221837276,26.283331380685"
+              Start="0,0"
+              End="143.222221837276,18.783331380685">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6440068271188" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6440068271188"
+                    Point2="0,15.6440068271188"
+                    Point3="4,15.6440068271188" />
+                  <mssgle:LineSegment
+                    End="139.222221837276,15.6440068271188" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.222221837276,15.6440068271188"
+                    Point2="143.222221837276,15.6440068271188"
+                    Point3="143.222221837276,19.6440068271188" />
+                  <mssgle:LineSegment
+                    End="143.222221837276,18.783331380685" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output1]"
+          TopLeft="621.722226276579,1019.00237288996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.3500000309942"
+              Start="0,0"
+              End="0,37.8500000309942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.8500000309942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimAccount.Paths[Sort Output]"
+          TopLeft="590.817464315938,770.659950321232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9924242424244"
+              Start="0,0"
+              End="0,30.4924242424244">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4924242424244" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8859,9 +9097,7 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,1.34848484848465,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8983,6 +9219,30 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\dimAccount.Paths[Valid Date1]"
+          TopLeft="588.541664987182,1182.63570608382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.2531756763533"
+              Start="0,0"
+              End="0,30.7531756763533">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.7531756763533" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.43453125,10.5020761194267,46.8690625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\dimAccount.Paths[Valid Date]"
           TopLeft="619.833331240962,923.635700194877">
           <EdgeLayout.Curve>
@@ -9003,218 +9263,6 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-23.43453125,17.7254912954569,46.8690625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output7]"
-          TopLeft="590.817464315938,770.659950321232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.9924242424244"
-              Start="0,0"
-              End="0,30.4924242424244">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.4924242424244" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output6]"
-          TopLeft="621.722226276579,1019.00237288996">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.3500000309942"
-              Start="0,0"
-              End="0,37.8500000309942">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.8500000309942" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output5]"
-          TopLeft="417.916671453664,1038.06904154027">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.222221837276,26.283331380685"
-              Start="0,0"
-              End="143.222221837276,18.783331380685">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.6440068271188" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.6440068271188"
-                    Point2="0,15.6440068271188"
-                    Point3="4,15.6440068271188" />
-                  <mssgle:LineSegment
-                    End="139.222221837276,15.6440068271188" />
-                  <mssgle:CubicBezierSegment
-                    Point1="139.222221837276,15.6440068271188"
-                    Point2="143.222221837276,15.6440068271188"
-                    Point3="143.222221837276,19.6440068271188" />
-                  <mssgle:LineSegment
-                    End="143.222221837276,18.783331380685" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output4]"
-          TopLeft="509.022127012016,193.682538511024">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.1721612053697"
-              Start="0,0"
-              End="0,25.6721612053697">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6721612053697" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output3]"
-          TopLeft="467.781746277142,349.896822620242">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.21428560637,43.2222186062075"
-              Start="0,0"
-              End="101.21428560637,35.7222186062075">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.708150285313" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.708150285313"
-                    Point2="0,25.708150285313"
-                    Point3="4,25.708150285313" />
-                  <mssgle:LineSegment
-                    End="97.2142856063699,25.708150285313" />
-                  <mssgle:CubicBezierSegment
-                    Point1="97.2142856063699,25.708150285313"
-                    Point2="101.21428560637,25.708150285313"
-                    Point3="101.21428560637,29.708150285313" />
-                  <mssgle:LineSegment
-                    End="101.21428560637,35.7222186062075" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sort Output2]"
-          TopLeft="624.920633355126,349.670630044549">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.4484111819004"
-              Start="0,0"
-              End="0,35.9484111819004">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.9484111819004" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="198.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Check value already exist"
-          TopLeft="487.499992735684,1220.88888176017" />
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Valid Date1]"
-          TopLeft="588.541664987182,1182.63570608382">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.2531756763533"
-              Start="0,0"
-              End="0,30.7531756763533">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.7531756763533" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.43453125,10.5020761194266,46.8690625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="122.666666666667,42.6666666666667"
-          Id="Package\dimAccount\Merge all"
-          TopLeft="508.333325758577,1358.83332502941" />
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="552.805548136019,1263.55554842684">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,95.2777766025731"
-              Start="0,0"
-              End="0,87.7777766025731">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,87.7777766025731" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.50201171875,38.0842008012866,183.0040234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9240,83 +9288,56 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\dimAccount\Update History"
-          TopLeft="719.444433723887,1289.44443811642" />
         <EdgeLayout
-          Id="Package\dimAccount.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="618.611103846795,1263.55554842684">
+          Id="Package\dimAccount.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="552.805548136019,1263.55554842684">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="175.499996543758,25.8888896895783"
+              EndConnector="0,95.2777766025731"
               Start="0,0"
-              End="175.499996543758,18.3888896895783">
+              End="0,87.7777766025731">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,6.47965707807162" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,6.47965707807162"
-                    Point2="0,10.4796570780716"
-                    Point3="4,10.4796570780716" />
-                  <mssgle:LineSegment
-                    End="171.499996543758,10.4796570780716" />
-                  <mssgle:CubicBezierSegment
-                    Point1="171.499996543758,10.4796570780716"
-                    Point2="175.499996543758,10.4796570780716"
-                    Point3="175.499996543758,14.4796570780716" />
-                  <mssgle:LineSegment
-                    End="175.499996543758,18.3888896895783" />
+                    End="0,87.7777766025731" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-3.92701344687102,15.4796570780716,183.3540234375,11.609375"
+              BoundingBox="-91.50201171875,38.0842008012865,183.0040234375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimAccount.Paths[Sortie de commande OLE DB]"
-          TopLeft="794.111100390553,1332.11110478309">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-205.333330187532,26.7222202463281"
-              Start="0,0"
-              End="-205.333330187532,19.2222202463281">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.826894394821" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.826894394821"
-                    Point2="0,15.826894394821"
-                    Point3="-4,15.826894394821" />
-                  <mssgle:LineSegment
-                    End="-201.333330187532,15.826894394821" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-201.333330187532,15.826894394821"
-                    Point2="-205.333330187532,15.826894394821"
-                    Point3="-205.333330187532,19.826894394821" />
-                  <mssgle:LineSegment
-                    End="-205.333330187532,19.2222202463281" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dimAccount\Check value already exist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dimAccount\dimBroker">
     <Properties>
@@ -9353,29 +9374,6 @@ WHERE IsCurrent = 1 AND AccountID = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dimAccount\Check value already exist">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
