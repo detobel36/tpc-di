@@ -33,10 +33,7 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
   ETL for DimCustomer    
   **TODO:** missing Phone, NationalTaxRateDesc, LocalTaxRateDesc...
 - [`DimTrade.dtsx`](DimTrade.dtsx)    
-  ETL fo DimTrade    
-  **Note:** Some aspect could not be made.  For instance: 
-  > If TH_ST_ID is "CMPT" or "CNCL", (...). SK_CreateDateID and SK_CreateTimeID must be set to NULL if a new DimTrade record is being inserted.    
-  Is not possible because SK_CloseDateID could not be NULL.
+  ETL fo DimTrade
 - [`FactHoldings.dtsx`](FactHoldings.dtsx)    
   ETL for FactHoldings (use HoldingHistory.txt and DimTrade)    
   **TODO:** Test with real data (not test when DimTrade were deploy)
