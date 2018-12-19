@@ -30,7 +30,8 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 - [`DimCompany.dtsx`](DimCompany.dtsx)       
   ETL for DimCompany, DimSecurity and Financial (they use FINWIRE files)
 - [`DimCustomer.dtsx`](DimCustomer.dtsx)       
-  ETL for DimCustomer
+  ETL for DimCustomer    
+  *TODO*: missing Phone, NationalTaxRateDesc, LocalTaxRateDesc...
 - [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
   ETL for FactMarketHistory (use DailyMarket.txt)     
 - [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
