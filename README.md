@@ -27,19 +27,27 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 
 - [`CustomerMgmt.xsd`](CustomerMgmt.xsd)       
   Used by DimCustomer.dtsx to open XML file
+- [`DimAccount.dtsx`](DimAccount.dtsx)          
+  ELT for DimAccount (use CustomerMgmt.xml (and thus CustomerMgmt.xsd))
 - [`DimCompany.dtsx`](DimCompany.dtsx)       
   ETL for DimCompany, DimSecurity and Financial (they use FINWIRE files)
 - [`DimCustomer.dtsx`](DimCustomer.dtsx)       
   ETL for DimCustomer    
   **TODO:** missing Phone, NationalTaxRateDesc, LocalTaxRateDesc...
 - [`DimTrade.dtsx`](DimTrade.dtsx)    
-  ETL fo DimTrade
+  ETL for DimTrade (use TradeHistory.txt and Trade.txt)
+- [`FactCashBalance.dtsx`](FactCashBalance.dtsx)     
+  ETL for FactCashBalance (use ?)    
+  **TODO:** need to be check
 - [`FactHoldings.dtsx`](FactHoldings.dtsx)    
   ETL for FactHoldings (use HoldingHistory.txt and DimTrade)
 - [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
   ETL for FactMarketHistory (use DailyMarket.txt)      
 - [`FactWatches.dtsx`](FactWatches.dtsx)   
   ETL for FactWatches (use WatchHistory.txt)
+- [`Prospect.dtsx`](Prospect.dtsx)    
+  ETL for Prospect (use ?)         
+  **TODO:** Not finish, need to debug
 - [`ReferenceTable+DimBroker.dtsx`](ReferenceTable+DimBroker.dtsx)       
   ETL for ReferenceTable (DimDate, DimTime, TradeType, StatusType, TaxRate, Industry) but also DimBroker
 - [`createTables.sql`](createTables.sql)       
