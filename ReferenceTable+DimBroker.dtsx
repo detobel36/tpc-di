@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="tpc-di"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{738636DF-2B21-490C-9A79-86FF5C47155C}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{449B5912-4961-4C0E-A2C8-385AECD5C542}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3597,7 +3597,7 @@ where [refTable].[BrokerID] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.DimBroker
 SET 
-  EndDate = CONVERT(date, GETDATE()),
+  EndDate = CONVERT(date, ?),
   IsCurrent = 0
 WHERE IsCurrent = 1 AND BrokerID = ?</property>
                 <property
@@ -3622,18 +3622,37 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
                   name="Entrée de commande OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].Columns[EmployeeIDEncode]"
-                      cachedDataType="i4"
-                      cachedName="EmployeeIDEncode"
+                      refId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].Columns[EffectiveDate]"
+                      cachedDataType="dbDate"
+                      cachedName="EffectiveDate"
                       externalMetadataColumnId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
-                      lineageId="Package\dimBroker\Data Conversion.Outputs[Data Conversion Output].Columns[EmployeeIDEncode]" />
+                      lineageId="Package\dimBroker\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[EffectiveDate]" />
+                    <inputColumn
+                      refId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\dimBroker\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[EmployeeID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
-                      dataType="i4"
+                      dataType="dbDate"
                       name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dimBroker\Update History.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -7903,17 +7922,21 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\dimBroker\Order for join 2"
+          TopLeft="556.249991711229,227.04166266645" />
+        <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\dimBroker\Update History"
           TopLeft="441.145826759748,615.983322318694" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\dimBroker\Flat File Broker"
-          TopLeft="278.499996423721,75.3666657213371" />
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\dimBroker\Unir tout 1"
+          TopLeft="289.062495692633,728.624992842229" />
         <NodeLayout
-          Size="190,42"
-          Id="Package\dimBroker\Split EmployeeCobCode"
-          TopLeft="273.979169840924,444.774993508607" />
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\dimBroker\Order for join"
+          TopLeft="285.937495739199,223.708329333117" />
         <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\dimBroker\Fetch DimDate"
@@ -7923,21 +7946,115 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
           Id="Package\dimBroker\Keep only the minimum date"
           TopLeft="517.187492293306,84.0666651634376" />
         <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\dimBroker\Check if BrokerID exist"
+          TopLeft="274.99999590218,535.816657085518" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\dimBroker\Split EmployeeCobCode"
+          TopLeft="273.979169840924,444.774993508607" />
+        <NodeLayout
           Size="156,42"
           Id="Package\dimBroker\Data Conversion"
           TopLeft="297.312499883585,374.608328159203" />
         <NodeLayout
-          Size="170.666666666667,42"
-          Id="Package\dimBroker\OLE DB Destination"
-          TopLeft="268.395840170793,799.399988694788" />
+          Size="164,42.6666666666667"
+          Id="Package\dimBroker\Jointure de fusion"
+          TopLeft="300.520828855224,308.083328122397" />
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\dimBroker\Create join column"
+          TopLeft="546.874991850928,155.54166394497" />
         <NodeLayout
           Size="242,42"
           Id="Package\dimBroker\Add missing column for DimBroker"
           TopLeft="236.375000139698,153.399997605682" />
         <NodeLayout
-          Size="186.666666666667,42.6666666666667"
-          Id="Package\dimBroker\Check if BrokerID exist"
-          TopLeft="274.99999590218,535.816657085518" />
+          Size="170.666666666667,42"
+          Id="Package\dimBroker\OLE DB Destination"
+          TopLeft="268.395840170793,799.399988694788" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\dimBroker\Flat File Broker"
+          TopLeft="278.499996423721,75.3666657213371" />
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Unir tout sortie 1]"
+          TopLeft="354.062501265046,771.291659508895">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.1083291858928"
+              Start="0,0"
+              End="0,20.6083291858928">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6083291858928" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de tri1]"
+          TopLeft="632.249991711229,269.708329333117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-223.729162856005,38.3749987892807"
+              Start="0,0"
+              End="-223.729162856005,30.8749987892807">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8025355124711" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8025355124711"
+                    Point2="0,22.8025355124711"
+                    Point3="-4,22.8025355124711" />
+                  <mssgle:LineSegment
+                    End="-219.729162856005,22.8025355124711" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-219.729162856005,22.8025355124711"
+                    Point2="-223.729162856005,22.8025355124711"
+                    Point3="-223.729162856005,26.8025355124711" />
+                  <mssgle:LineSegment
+                    End="-223.729162856005,30.8749987892807" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de tri]"
+          TopLeft="356.895828963878,266.374995999783">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.7083321226142"
+              Start="0,0"
+              End="0,34.2083321226142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2083321226142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\dimBroker.Paths[Sortie de source OLE DB]"
           TopLeft="621.333325435718,54.5833331202468">
@@ -7958,6 +8075,30 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="336.253468019629,578.483323752185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,150.141669090044"
+              Start="0,0"
+              End="0,142.641669090044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,142.641669090044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.50201171875,65.5161470450219,183.0040234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7997,6 +8138,106 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de jointure de fusion]"
+          TopLeft="378.916664369404,350.749994789064">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.8583333701385"
+              Start="0,0"
+              End="0,16.3583333701385">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3583333701385" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de commande OLE DB]"
+          TopLeft="515.812493426415,658.649988985361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140.972219956004,69.9750038568681"
+              Start="0,0"
+              End="-140.972219956004,62.4750038568681">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.4771192216113" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.4771192216113"
+                    Point2="0,41.4771192216113"
+                    Point3="-4,41.4771192216113" />
+                  <mssgle:LineSegment
+                    End="-136.972219956004,41.4771192216113" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-136.972219956004,41.4771192216113"
+                    Point2="-140.972219956004,41.4771192216113"
+                    Point3="-140.972219956004,45.4771192216113" />
+                  <mssgle:LineSegment
+                    End="-140.972219956004,62.4750038568681" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie de colonne dérivée]"
+          TopLeft="631.562491781078,198.208330611636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8333320548137"
+              Start="0,0"
+              End="0,21.3333320548137">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3333320548137" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Sortie d'agrégation 1]"
+          TopLeft="628.031242072117,126.733331830104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8083321148654"
+              Start="0,0"
+              End="0,21.3083321148654">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3083321148654" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\dimBroker.Paths[Flat File Source Output]"
           TopLeft="355.43749828171,117.366665721337">
           <EdgeLayout.Curve>
@@ -8010,6 +8251,28 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,28.5333318843444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dimBroker.Paths[Derived Column Output]"
+          TopLeft="357.322914606115,195.399997605681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.3083317274352"
+              Start="0,0"
+              End="0,20.8083317274352">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8083317274352" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8064,270 +8327,11 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130.666666666667,42.6666666666667"
-          Id="Package\dimBroker\Unir tout 1"
-          TopLeft="289.062495692633,728.624992842229" />
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="336.253468019629,578.483323752185">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,150.141669090044"
-              Start="0,0"
-              End="0,142.641669090044">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,142.641669090044" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.50201171875,65.5161470450219,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de commande OLE DB]"
-          TopLeft="515.812493426415,658.649988985361">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-140.972219956004,69.9750038568681"
-              Start="0,0"
-              End="-140.972219956004,62.4750038568681">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.4771192216113" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37.4771192216113"
-                    Point2="0,41.4771192216113"
-                    Point3="-4,41.4771192216113" />
-                  <mssgle:LineSegment
-                    End="-136.972219956004,41.4771192216113" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-136.972219956004,41.4771192216113"
-                    Point2="-140.972219956004,41.4771192216113"
-                    Point3="-140.972219956004,45.4771192216113" />
-                  <mssgle:LineSegment
-                    End="-140.972219956004,62.4750038568681" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Unir tout sortie 1]"
-          TopLeft="354.062501265046,771.291659508895">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.1083291858928"
-              Start="0,0"
-              End="0,20.6083291858928">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6083291858928" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\dimBroker\Order for join"
-          TopLeft="285.937495739199,223.708329333117" />
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Derived Column Output]"
-          TopLeft="357.322914606115,195.399997605681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.3083317274352"
-              Start="0,0"
-              End="0,20.8083317274352">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.8083317274352" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,42.6666666666667"
-          Id="Package\dimBroker\Order for join 2"
-          TopLeft="556.249991711229,227.04166266645" />
-        <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\dimBroker\Create join column"
-          TopLeft="546.874991850928,155.54166394497" />
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie d'agrégation 1]"
-          TopLeft="628.031242072117,126.733331830104">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8083321148654"
-              Start="0,0"
-              End="0,21.3083321148654">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3083321148654" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de colonne dérivée]"
-          TopLeft="631.562491781078,198.208330611636">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8333320548137"
-              Start="0,0"
-              End="0,21.3333320548137">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3333320548137" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\dimBroker\Jointure de fusion"
-          TopLeft="300.520828855224,308.083328122397" />
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de tri]"
-          TopLeft="356.895828963878,266.374995999783">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.7083321226142"
-              Start="0,0"
-              End="0,34.2083321226142">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.2083321226142" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de tri1]"
-          TopLeft="632.249991711229,269.708329333117">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-223.729162856005,38.3749987892807"
-              Start="0,0"
-              End="-223.729162856005,30.8749987892807">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.8025355124711" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.8025355124711"
-                    Point2="0,22.8025355124711"
-                    Point3="-4,22.8025355124711" />
-                  <mssgle:LineSegment
-                    End="-219.729162856005,22.8025355124711" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-219.729162856005,22.8025355124711"
-                    Point2="-223.729162856005,22.8025355124711"
-                    Point3="-223.729162856005,26.8025355124711" />
-                  <mssgle:LineSegment
-                    End="-223.729162856005,30.8749987892807" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dimBroker.Paths[Sortie de jointure de fusion]"
-          TopLeft="378.916664369404,350.749994789064">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.8583333701385"
-              Start="0,0"
-              End="0,16.3583333701385">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.3583333701385" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,0.179166685069248,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\dimBroker\Fetch DimDate">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dimBroker\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8359,6 +8363,19 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dimBroker\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8453,7 +8470,7 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
           Id="Package\dimTime\Flat File Time"
           TopLeft="206,117" />
         <NodeLayout
-          Size="171,42"
+          Size="170.666666666667,42"
           Id="Package\dimTime\OLE DB Destination"
           TopLeft="402,112" />
         <NodeLayout
@@ -8461,7 +8478,7 @@ WHERE IsCurrent = 1 AND BrokerID = ?</property>
           Id="Package\dimTime\Data Conversion"
           TopLeft="406,35" />
         <NodeLayout
-          Size="169,42"
+          Size="169.333333333334,42"
           Id="Package\dimTime\Sort by SK_TimeID"
           TopLeft="193,35" />
         <EdgeLayout
