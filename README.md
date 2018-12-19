@@ -38,7 +38,7 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
   ETL for DimTrade (use TradeHistory.txt and Trade.txt)
 - [`FactCashBalance.dtsx`](FactCashBalance.dtsx)     
   ETL for FactCashBalance (use ?)    
-  **TODO:** need to be check
+  **TODO:** not finish ?
 - [`FactHoldings.dtsx`](FactHoldings.dtsx)    
   ETL for FactHoldings (use HoldingHistory.txt and DimTrade)
 - [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
