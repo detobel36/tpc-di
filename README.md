@@ -35,8 +35,7 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 - [`DimTrade.dtsx`](DimTrade.dtsx)    
   ETL fo DimTrade
 - [`FactHoldings.dtsx`](FactHoldings.dtsx)    
-  ETL for FactHoldings (use HoldingHistory.txt and DimTrade)    
-  **TODO:** Test with real data (not test when DimTrade were deploy)
+  ETL for FactHoldings (use HoldingHistory.txt and DimTrade)
 - [`FactMarketHistory.dtsx`](FactMarketHistory.dtsx)    
   ETL for FactMarketHistory (use DailyMarket.txt)      
 - [`FactWatches.dtsx`](FactWatches.dtsx)   
