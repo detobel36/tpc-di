@@ -25,7 +25,13 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 
 ## Files
 
-- [`AllPackages.xsd`](AllPackages.xsd)       
+- [`Splitting packages`](Splitting packages)   
+  Package files: generally one file per table (used to work in group)
+- [`CustomerMgmt.xsd`](CustomerMgmt.xsd)
+  Used by DimCustomer.dtsx to open XML file
+- [`AllPackages.dtsx`](AllPackages.dtsx)       
   Contains all the ETL process
+- [`TPC_DI__DW_2018__Part_2.pdf`](TPC_DI__DW_2018__Part_2.pdf)
+  Report about this project
 - [`createTables.sql`](createTables.sql)       
   Create destination database
