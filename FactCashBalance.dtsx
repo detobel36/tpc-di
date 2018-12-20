@@ -11,44 +11,17 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactCashBalance"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{3313F0A3-8998-4DC9-AFF0-2852FCD22DAE}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{B1A81B41-BE33-453E-A4B3-A8662FF14490}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[BatchDate]"
+      DTS:refId="Package.ConnectionManagers[Flat File - CashTransaction.txt]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{1C3F23EC-5F66-4126-9CEF-6D17C8A62769}"
-      DTS:ObjectName="BatchDate">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Public\Documents\TPC-DI\Batch1\BatchDate.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="BatchDate"
-              DTS:DTSID="{89278923-D509-4451-8890-892BECD2AFA7}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CashTransaction]"
-      DTS:CreationName="FLATFILE"
+      DTS:Description="Flat File - CashTransaction.txt"
       DTS:DTSID="{9F73BA08-77DF-439D-8AF3-B971DAAC1A25}"
-      DTS:ObjectName="CashTransaction">
+      DTS:ObjectName="Flat File - CashTransaction.txt">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -66,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CT_CA_ID"
-              DTS:DTSID="{CC57249E-408D-4906-ACA7-9FFED24E4719}"
+              DTS:DTSID="{8B5991B1-54C1-4FBF-BD74-AC8E1CF64AC9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CT_DTS"
-              DTS:DTSID="{27C594A4-4466-489E-B12E-D868352550E7}"
+              DTS:DTSID="{60B446CB-C4CE-4231-87C4-1FCC3398F843}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CT_AMT"
-              DTS:DTSID="{BB70CFC4-7570-4156-ABC4-4DEA141D4409}"
+              DTS:DTSID="{A0CE645F-553C-4DE8-BC57-13ACC8FF01F1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CT_NAME"
-              DTS:DTSID="{EB2D2649-5877-4513-BEC3-A087FF8A17F1}"
+              DTS:DTSID="{0D89F529-2609-413A-811F-EE63ADEA095F}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1152,8 +1125,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\FactCashBalance\CashTransaction.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[CashTransaction]"
-                  connectionManagerRefId="Package.ConnectionManagers[CashTransaction]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File - CashTransaction.txt]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File - CashTransaction.txt]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -3266,73 +3239,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="134,42"
-          Id="Package\FactCashBalance\dimAccount"
-          TopLeft="552.928567570236,337.333328097491" />
-        <NodeLayout
-          Size="165.333333333334,42.6666666666667"
-          Id="Package\FactCashBalance\Sort by AccountID"
-          TopLeft="531.214282388134,416.190472083716" />
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\FactCashBalance\CashTransaction"
-          TopLeft="325.452376952129,116.999998605251" />
-        <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\FactCashBalance\Data Conversion"
           TopLeft="330.452376952129,182.999998605251" />
+        <NodeLayout
+          Size="134,42.6666666666667"
+          Id="Package\FactCashBalance\Merge Date"
+          TopLeft="382.85713718051,741.285702341794" />
+        <NodeLayout
+          Size="201.333333333334,42.6666666666667"
+          Id="Package\FactCashBalance\Group by Accound &amp; Date"
+          TopLeft="313.690471516124,254.333328938768" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\FactCashBalance\Sort by CT_DTS"
+          TopLeft="359.047613725776,663.238086648213" />
         <NodeLayout
           Size="198.666666666667,42.6666666666667"
           Id="Package\FactCashBalance\Store to FactCashBalance"
           TopLeft="344.130951972945,892.547611719652" />
         <NodeLayout
-          Size="118,42"
-          Id="Package\FactCashBalance\dimDate"
-          TopLeft="562.738094563996,596.583323448328" />
-        <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Flat File Source Output]"
-          TopLeft="406.619043618796,159.666665271918">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.3333333333333"
-              Start="0,0"
-              End="0,15.8333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactCashBalance.Paths[OLE DB Source Output]"
-          TopLeft="616.904758312518,379.333328097491">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.857143986225"
-              Start="0,0"
-              End="0,29.357143986225">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.357143986225" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\FactCashBalance\CashTransaction"
+          TopLeft="325.452376952129,116.999998605251" />
         <NodeLayout
           Size="132,42.6666666666667"
           Id="Package\FactCashBalance\Check date"
@@ -3341,36 +3270,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="164,42.6666666666667"
           Id="Package\FactCashBalance\Sort by DateValue"
           TopLeft="536.95238067742,663.821418664284" />
-        <EdgeLayout
-          Id="Package\FactCashBalance.Paths[OLE DB Source Output1]"
-          TopLeft="620.345237620708,638.583323448327">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.2380952159563"
-              Start="0,0"
-              End="0,17.7380952159563">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.7380952159563" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="134,42.6666666666667"
-          Id="Package\FactCashBalance\Merge Date"
-          TopLeft="382.85713718051,741.285702341794" />
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\FactCashBalance\Sort by AccountID"
+          TopLeft="531.214282388134,416.190472083716" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\FactCashBalance\Sort by CT_DTS"
-          TopLeft="359.047613725776,663.238086648213" />
+          Size="148,42.6666666666667"
+          Id="Package\FactCashBalance\Calculate Cash"
+          TopLeft="340.4761854027,414.714283577885" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\FactCashBalance\dimAccount"
+          TopLeft="552.928567570236,337.333328097491" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\FactCashBalance\dimDate"
+          TopLeft="562.738094563996,596.583323448328" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\FactCashBalance\Sort by AccountID and DateID"
+          TopLeft="304.761900220599,331.85714271324" />
+        <NodeLayout
+          Size="139.333333333334,42.6666666666667"
+          Id="Package\FactCashBalance\Add BatchID"
+          TopLeft="372.619042066591,817.428564986161" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\FactCashBalance\Merge Account"
+          TopLeft="361.309518425592,498.619042671011" />
         <EdgeLayout
           Id="Package\FactCashBalance.Paths[Valid Date]"
           TopLeft="433.92856604464,623.571418354339">
@@ -3396,6 +3323,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\FactCashBalance.Paths[Sortie de tri1]"
+          TopLeft="415.285709478316,374.523809379907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.1904741979782"
+              Start="0,0"
+              End="0,32.6904741979782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.6904741979782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\FactCashBalance.Paths[Sortie de tri]"
           TopLeft="432.61904211981,705.90475331488">
           <EdgeLayout.Curve>
@@ -3418,31 +3367,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Sort Output]"
-          TopLeft="618.95238067742,706.488085330951">
+          Id="Package\FactCashBalance.Paths[Sortie de jointure de fusion1]"
+          TopLeft="446.071422956884,783.95236900846">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-148.095243496909,34.7976170108432"
+              EndConnector="0,33.4761959777006"
               Start="0,0"
-              End="-148.095243496909,27.2976170108432">
+              End="0,25.9761959777006">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.6322153958097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.6322153958097"
-                    Point2="0,20.6322153958097"
-                    Point3="-4,20.6322153958097" />
-                  <mssgle:LineSegment
-                    End="-144.095243496909,20.6322153958097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-144.095243496909,20.6322153958097"
-                    Point2="-148.095243496909,20.6322153958097"
-                    Point3="-148.095243496909,24.6322153958097" />
-                  <mssgle:LineSegment
-                    End="-148.095243496909,27.2976170108432" />
+                    End="0,25.9761959777006" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3451,28 +3388,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\FactCashBalance\Sort by AccountID and DateID"
-          TopLeft="304.761900220599,331.85714271324" />
-        <NodeLayout
-          Size="148,42.6666666666667"
-          Id="Package\FactCashBalance\Calculate Cash"
-          TopLeft="340.4761854027,414.714283577885" />
         <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Sortie de tri1]"
-          TopLeft="415.285709478316,374.523809379907">
+          Id="Package\FactCashBalance.Paths[Sortie de jointure de fusion]"
+          TopLeft="433.726185061215,541.285709337677">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.1904741979782"
+              EndConnector="0,39.6190423499958"
               Start="0,0"
-              End="0,32.6904741979782">
+              End="0,32.1190423499958">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.6904741979782" />
+                    End="0,32.1190423499958" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3481,24 +3410,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="201.333333333334,42.6666666666667"
-          Id="Package\FactCashBalance\Group by Accound &amp; Date"
-          TopLeft="313.690471516124,254.333328938768" />
         <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Data Conversion Output]"
-          TopLeft="411.738090900793,225.666665271918">
+          Id="Package\FactCashBalance.Paths[Sortie de colonne dérivée]"
+          TopLeft="442.874997019768,860.095231652828">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.66666366685"
+              EndConnector="0,32.4523800668244"
               Start="0,0"
-              End="0,21.16666366685">
+              End="0,24.9523800668244">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.16666366685" />
+                    End="0,24.9523800668244" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3529,10 +3454,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\FactCashBalance\Merge Account"
-          TopLeft="361.309518425592,498.619042671011" />
         <EdgeLayout
           Id="Package\FactCashBalance.Paths[Sortie 0]"
           TopLeft="413.448407469702,457.380950244552">
@@ -3590,45 +3511,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Sortie de jointure de fusion]"
-          TopLeft="433.726185061215,541.285709337677">
+          Id="Package\FactCashBalance.Paths[Sort Output]"
+          TopLeft="618.95238067742,706.488085330951">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.6190423499958"
+              EndConnector="-148.095243496909,34.7976170108432"
               Start="0,0"
-              End="0,32.1190423499958">
+              End="-148.095243496909,27.2976170108432">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.1190423499958" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139.333333333334,42.6666666666667"
-          Id="Package\FactCashBalance\Add BatchID"
-          TopLeft="372.619042066591,817.428564986161" />
-        <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Sortie de jointure de fusion1]"
-          TopLeft="446.071422956884,783.95236900846">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.4761959777006"
-              Start="0,0"
-              End="0,25.9761959777006">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,16.6322153958097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6322153958097"
+                    Point2="0,20.6322153958097"
+                    Point3="-4,20.6322153958097" />
                   <mssgle:LineSegment
-                    End="0,25.9761959777006" />
+                    End="-144.095243496909,20.6322153958097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144.095243496909,20.6322153958097"
+                    Point2="-148.095243496909,20.6322153958097"
+                    Point3="-148.095243496909,24.6322153958097" />
+                  <mssgle:LineSegment
+                    End="-148.095243496909,27.2976170108432" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3638,19 +3545,85 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactCashBalance.Paths[Sortie de colonne dérivée]"
-          TopLeft="442.874997019768,860.095231652828">
+          Id="Package\FactCashBalance.Paths[OLE DB Source Output1]"
+          TopLeft="620.345237620708,638.583323448327">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.4523800668244"
+              EndConnector="0,25.2380952159563"
               Start="0,0"
-              End="0,24.9523800668244">
+              End="0,17.7380952159563">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9523800668244" />
+                    End="0,17.7380952159563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactCashBalance.Paths[OLE DB Source Output]"
+          TopLeft="616.904758312518,379.333328097491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.857143986225"
+              Start="0,0"
+              End="0,29.357143986225">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.357143986225" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactCashBalance.Paths[Flat File Source Output]"
+          TopLeft="406.619043618796,159.666665271918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3333333333333"
+              Start="0,0"
+              End="0,15.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactCashBalance.Paths[Data Conversion Output]"
+          TopLeft="411.738090900793,225.666665271918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.66666366685"
+              Start="0,0"
+              End="0,21.16666366685">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.16666366685" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3663,7 +3636,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\FactCashBalance\dimAccount">
+    design-time-name="Package\FactCashBalance\Store to FactCashBalance">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3676,7 +3649,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FactCashBalance\Store to FactCashBalance">
+    design-time-name="Package\FactCashBalance\dimAccount">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

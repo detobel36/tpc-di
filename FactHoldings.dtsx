@@ -11,16 +11,17 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactHoldings"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{E0BC6F11-F2B9-4E5F-8F50-7A22B49E9AAF}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{2D852804-7479-46B6-ABFA-C8EB5CF2FDE8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HoldingHistory]"
+      DTS:refId="Package.ConnectionManagers[Flat File - HoldingHistory.txt]"
       DTS:CreationName="FLATFILE"
+      DTS:Description="Flat File - HoldingHistory.txt"
       DTS:DTSID="{6AE4BCB9-5A85-4553-AE16-E06332937291}"
-      DTS:ObjectName="HoldingHistory">
+      DTS:ObjectName="Flat File - HoldingHistory.txt">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -38,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HH_H_T_ID"
-              DTS:DTSID="{1F21DE11-E175-4D6C-B336-5165D954FE0A}"
+              DTS:DTSID="{CD98E832-36DD-4DFE-8018-AAC9B10845DE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HH_T_ID"
-              DTS:DTSID="{0D3E1E28-F3BE-4AF0-92D3-3A928414CE59}"
+              DTS:DTSID="{9E5A4AC6-1826-4F4D-BBCA-EE5AAC59DD8D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HH_BEFORE_QTY"
-              DTS:DTSID="{0F20351E-CF9E-4B35-87F5-8D4CB112B1AA}"
+              DTS:DTSID="{7DBD5557-13A1-4CD2-BF01-6A5C2DCADEB5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HH_AFTER_QTY"
-              DTS:DTSID="{BFEB6673-8F39-44D9-9C65-1141EED3D00A}"
+              DTS:DTSID="{22F7B28C-02BB-4FA5-9C55-788E4B4B1686}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -790,8 +791,8 @@
               <connections>
                 <connection
                   refId="Package\FactHoldings\HoldingHistory.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HoldingHistory]"
-                  connectionManagerRefId="Package.ConnectionManagers[HoldingHistory]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File - HoldingHistory.txt]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File - HoldingHistory.txt]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1931,25 +1932,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\FactHoldings\Sort by TradeID"
-          TopLeft="441.749999869615,159.466666139762" />
-        <NodeLayout
           Size="148,42"
           Id="Package\FactHoldings\HoldingHistory"
           TopLeft="252.16666444391,16.3333351155122" />
         <NodeLayout
-          Size="139.333333333334,42.6666666666667"
-          Id="Package\FactHoldings\Add BatchID"
-          TopLeft="277.333335220814,318.83333290716" />
+          Size="180,42.6666666666667"
+          Id="Package\FactHoldings\Store to FactHoldings"
+          TopLeft="260.916668783873,394.999999535084" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FactHoldings\Data Conversion"
+          TopLeft="245.583331104368,82.5000022083521" />
         <NodeLayout
           Size="160,42.6666666666667"
           Id="Package\FactHoldings\Sort by HH_T_ID"
           TopLeft="242.250000502914,159.166667557756" />
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\FactHoldings\Store to FactHoldings"
-          TopLeft="260.916668783873,394.999999535084" />
         <NodeLayout
           Size="130,42"
           Id="Package\FactHoldings\Merge Join"
@@ -1959,9 +1956,91 @@
           Id="Package\FactHoldings\Fetch dimTrade"
           TopLeft="441.666668727994,80.2000008368492" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\FactHoldings\Data Conversion"
-          TopLeft="245.583331104368,82.5000022083521" />
+          Size="139.333333333334,42.6666666666667"
+          Id="Package\FactHoldings\Add BatchID"
+          TopLeft="277.333335220814,318.83333290716" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\FactHoldings\Sort by TradeID"
+          TopLeft="441.749999869615,159.466666139762" />
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Sort Output1]"
+          TopLeft="519.083333202948,202.133332806428">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-150.583331178874,35.2666667751471"
+              Start="0,0"
+              End="-150.583331178874,27.7666667751471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.902735626607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.902735626607"
+                    Point2="0,20.902735626607"
+                    Point3="-4,20.902735626607" />
+                  <mssgle:LineSegment
+                    End="-146.583331178874,20.902735626607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.583331178874,20.902735626607"
+                    Point2="-150.583331178874,20.902735626607"
+                    Point3="-150.583331178874,24.902735626607" />
+                  <mssgle:LineSegment
+                    End="-150.583331178874,27.7666667751471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[Sort Output]"
+          TopLeft="325.041667930161,201.833334224423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.5666653571526"
+              Start="0,0"
+              End="0,28.0666653571526">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0666653571526" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactHoldings.Paths[OLE DB Source Output]"
+          TopLeft="518.708334298804,122.866667503516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.5999986362458"
+              Start="0,0"
+              End="0,29.0999986362458">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0999986362458" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FactHoldings.Paths[Merge Join Output]"
           TopLeft="347.583335289111,279.399999581575">
@@ -2042,84 +2121,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,27.1666653494041" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactHoldings.Paths[Sort Output1]"
-          TopLeft="519.083333202948,202.133332806428">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-150.583331178874,35.2666667751471"
-              Start="0,0"
-              End="-150.583331178874,27.7666667751471">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.902735626607" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.902735626607"
-                    Point2="0,20.902735626607"
-                    Point3="-4,20.902735626607" />
-                  <mssgle:LineSegment
-                    End="-146.583331178874,20.902735626607" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-146.583331178874,20.902735626607"
-                    Point2="-150.583331178874,20.902735626607"
-                    Point3="-150.583331178874,24.902735626607" />
-                  <mssgle:LineSegment
-                    End="-150.583331178874,27.7666667751471" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactHoldings.Paths[Sort Output]"
-          TopLeft="325.041667930161,201.833334224423">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.5666653571526"
-              Start="0,0"
-              End="0,28.0666653571526">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.0666653571526" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactHoldings.Paths[OLE DB Source Output]"
-          TopLeft="518.708334298804,122.866667503516">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.5999986362458"
-              Start="0,0"
-              End="0,29.0999986362458">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.0999986362458" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

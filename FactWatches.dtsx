@@ -11,26 +11,17 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FactWatches"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{272728A4-9027-4CC9-AA8B-822F7A929631}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{A9B54C25-A6C7-4AE8-8712-B193D19BC6D0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{EDCF9D3E-6FE7-4F16-81AF-5F7624A136A2}"
-      DTS:ObjectName="LocalHost.destination_di">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=LocalHost;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[WatchHistory]"
+      DTS:refId="Package.ConnectionManagers[Flat File - WatchHistory.txt]"
       DTS:CreationName="FLATFILE"
+      DTS:Description="Flat File - WatchHistory.txt"
       DTS:DTSID="{48837894-9BC8-4261-8DB2-A3D649803FFA}"
-      DTS:ObjectName="WatchHistory">
+      DTS:ObjectName="Flat File - WatchHistory.txt">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -48,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="W_C_ID"
-              DTS:DTSID="{343BF99A-1732-4520-A93E-1D90EF6FA42B}"
+              DTS:DTSID="{1F1BA2B0-A685-43B1-BC0B-DE1D6FF25CF9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="W_S_SYMB"
-              DTS:DTSID="{CDA3924E-18A1-4E1C-8421-A648407CF902}"
+              DTS:DTSID="{2BC6B6D6-F4EC-4AEE-BA56-19212E3A78AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="W_DTS"
-              DTS:DTSID="{8F1037D3-1194-42CC-B44D-41174506C06B}"
+              DTS:DTSID="{CA27CDBB-4281-4E66-A780-BFE975BD7367}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,10 +66,20 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="W_ACTION"
-              DTS:DTSID="{9C1350F3-2379-45D3-9614-B7B377E33E0A}"
+              DTS:DTSID="{97A2D63D-54D8-4656-9694-F5C96ECA183C}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.destination_di]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EDCF9D3E-6FE7-4F16-81AF-5F7624A136A2}"
+      DTS:ObjectName="LocalHost.destination_di">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LocalHost;Initial Catalog=destination_di;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -3128,8 +3129,8 @@
               <connections>
                 <connection
                   refId="Package\FactWatches\WatchHistory.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[WatchHistory]"
-                  connectionManagerRefId="Package.ConnectionManagers[WatchHistory]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File - WatchHistory.txt]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File - WatchHistory.txt]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -3316,17 +3317,27 @@
               name="Merge Join Output"
               startId="Package\FactWatches\Merge with Security.Outputs[Merge Join Output]" />
             <path
-              refId="Package\FactWatches.Paths[OLE DB Source Output1]"
+              refId="Package\FactWatches.Paths[OLE DB Source Output]"
               endId="Package\FactWatches\Sort by Symbol.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\FactWatches\dimSecurity.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\FactWatches.Paths[OLE DB Source Output]"
+              refId="Package\FactWatches.Paths[OLE DB Source Output1]"
               endId="Package\FactWatches\Sort by CustomerID.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\FactWatches\dimCustomer.Outputs[OLE DB Source Output]" />
             <path
+              refId="Package\FactWatches.Paths[Sort Output3]"
+              endId="Package\FactWatches\Merge with Security.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\FactWatches\Sort by Symbol.Outputs[Sort Output]" />
+            <path
               refId="Package\FactWatches.Paths[Sort Output2]"
+              endId="Package\FactWatches\Merge with Customer.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\FactWatches\Sort by W_C_ID.Outputs[Sort Output]" />
+            <path
+              refId="Package\FactWatches.Paths[Sort Output]"
               endId="Package\FactWatches\Merge with Security.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\FactWatches\Sort by W_S_SYMB.Outputs[Sort Output]" />
@@ -3335,16 +3346,6 @@
               endId="Package\FactWatches\Merge with Customer.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\FactWatches\Sort by CustomerID.Outputs[Sort Output]" />
-            <path
-              refId="Package\FactWatches.Paths[Sort Output]"
-              endId="Package\FactWatches\Merge with Customer.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\FactWatches\Sort by W_C_ID.Outputs[Sort Output]" />
-            <path
-              refId="Package\FactWatches.Paths[Sort Output3]"
-              endId="Package\FactWatches\Merge with Security.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\FactWatches\Sort by Symbol.Outputs[Sort Output]" />
             <path
               refId="Package\FactWatches.Paths[Sortie de jointure de fusion]"
               endId="Package\FactWatches\Create missing column.Inputs[Derived Column Input]"
@@ -3403,65 +3404,213 @@
     design-time-name="Package\FactWatches">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\FactWatches\Sort by W_S_SYMB"
-          TopLeft="344.851853314373,498.259258785734" />
-        <NodeLayout
-          Size="134,42"
-          Id="Package\FactWatches\dimSecurity"
-          TopLeft="172.129630491965,425.481477391941" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\FactWatches\WatchHistory"
-          TopLeft="337.611111876865,42.0185181784409" />
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="141.333333333334,42"
           Id="Package\FactWatches\dimCustomer"
           TopLeft="569.537037019101,189.314813915116" />
         <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\FactWatches\Store to FactWatches"
-          TopLeft="328.296295233899,998.77777224183" />
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\FactWatches\Sort by CustomerID"
+          TopLeft="555.33333392938,261.314815309865" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\FactWatches\Sort by W_S_SYMB"
+          TopLeft="344.851853314373,498.259258785734" />
+        <NodeLayout
+          Size="154.666666666667,42"
+          Id="Package\FactWatches\Conditional Split"
+          TopLeft="331.027778611829,116.91851857362" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\FactWatches\WatchHistory"
+          TopLeft="337.611111876865,42.0185181784409" />
         <NodeLayout
           Size="156,42.6666666666667"
           Id="Package\FactWatches\Sort by W_C_ID"
           TopLeft="327.259260611402,256.703704263325" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\FactWatches\Sort by DateValue"
+          TopLeft="524.999992176891,775.925922396007" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FactWatches\Data Conversion"
+          TopLeft="328.444445272287,189.185185736197" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\FactWatches\Fetch DimDate"
+          TopLeft="531.481473561791,699.592586453978" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\FactWatches\dimSecurity"
+          TopLeft="172.129630491965,425.481477391941" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\FactWatches\Check date Security"
+          TopLeft="314.814810123709,671.333330044483" />
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\FactWatches\Sort by W_DTS"
+          TopLeft="323.61110628893,767.777773386903" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\FactWatches\Merge with Security"
+          TopLeft="314.111109827955,590.555553360119" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\FactWatches\Merge with Date"
+          TopLeft="341.203698619372,851.814809278869" />
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\FactWatches\Create missing column"
+          TopLeft="323.111110573014,926.81480906363" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\FactWatches\Store to FactWatches"
+          TopLeft="328.296295233899,998.77777224183" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\FactWatches\Sort by Symbol"
           TopLeft="168.092593634294,499.555552895202" />
         <NodeLayout
           Size="180,42.6666666666667"
+          Id="Package\FactWatches\Check date Customer"
+          TopLeft="339.351846795115,407.962960078761" />
+        <NodeLayout
+          Size="180,42.6666666666667"
           Id="Package\FactWatches\Merge with Customer"
           TopLeft="337.574075391723,329.185185736197" />
-        <NodeLayout
-          Size="186.666666666667,42.6666666666667"
-          Id="Package\FactWatches\Create missing column"
-          TopLeft="323.111110573014,926.81480906363" />
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\FactWatches\Sort by CustomerID"
-          TopLeft="555.33333392938,261.314815309865" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\FactWatches\Data Conversion"
-          TopLeft="328.444445272287,189.185185736197" />
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\FactWatches\Merge with Security"
-          TopLeft="314.111109827955,590.555553360119" />
-        <NodeLayout
-          Size="154.666666666667,42"
-          Id="Package\FactWatches\Conditional Split"
-          TopLeft="331.027778611829,116.91851857362" />
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Valid Date]"
+          TopLeft="429.768516721411,450.629626745427">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.6296320403062"
+              Start="0,0"
+              End="0,40.1296320403062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1296320403062" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.43453125,15.1903043014031,46.8690625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Sortie de tri1]"
+          TopLeft="606.999992176891,818.592589062674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-162.240738001963,33.222220216195"
+              Start="0,0"
+              End="-162.240738001963,25.722220216195">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7326610008943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7326610008943"
+                    Point2="0,19.7326610008943"
+                    Point3="-4,19.7326610008943" />
+                  <mssgle:LineSegment
+                    End="-158.240738001963,19.7326610008943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.240738001963,19.7326610008943"
+                    Point2="-162.240738001963,19.7326610008943"
+                    Point3="-162.240738001963,23.7326610008943" />
+                  <mssgle:LineSegment
+                    End="-162.240738001963,25.722220216195" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Sortie de tri]"
+          TopLeft="397.29629134304,810.44444005357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41.3703692252991"
+              Start="0,0"
+              End="0,33.8703692252991">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8703692252991" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Sortie de source OLE DB]"
+          TopLeft="606.574066202674,742.259253120644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33.6666692753632"
+              Start="0,0"
+              End="0,26.1666692753632">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1666692753632" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Sortie de jointure de fusion]"
+          TopLeft="418.157404596193,894.481475945536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32.3333331180942"
+              Start="0,0"
+              End="0,24.8333331180942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.8333331180942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FactWatches.Paths[Sort Output3]"
           TopLeft="243.425926967628,542.222219561869">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="129.796293971439,48.3333337982501"
               Start="0,0"
               End="129.796293971439,40.8333337982501">
@@ -3492,30 +3641,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactWatches.Paths[Sort Output2]"
-          TopLeft="430.185186647706,540.925925452401">
+          TopLeft="402.083334668229,299.370370929992">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-29.4074101530842,49.6296279077178"
+              StartConnector="{x:Null}"
+              EndConnector="0,29.8148148062054"
               Start="0,0"
-              End="-29.4074101530842,42.1296279077178">
+              End="0,22.3148148062054">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.8148139538589" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.8148139538589"
-                    Point2="0,24.8148139538589"
-                    Point3="-4,24.8148139538589" />
-                  <mssgle:LineSegment
-                    End="-25.4074101530842,24.8148139538589" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-25.4074101530842,24.8148139538589"
-                    Point2="-29.4074101530842,24.8148139538589"
-                    Point3="-29.4074101530842,28.8148139538589" />
-                  <mssgle:LineSegment
-                    End="-29.4074101530842,42.1296279077178" />
+                    End="0,22.3148148062054" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3529,7 +3666,7 @@
           TopLeft="642.000000596047,303.981481976531">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-185.759258537657,25.2037037596659"
               Start="0,0"
               End="-185.759258537657,17.7037037596659">
@@ -3560,18 +3697,118 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactWatches.Paths[Sort Output]"
-          TopLeft="402.083334668229,299.370370929992">
+          TopLeft="430.185186647706,540.925925452401">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.8148148062054"
+              StartConnector="{x:Null}"
+              EndConnector="-29.4074101530842,49.6296279077178"
               Start="0,0"
-              End="0,22.3148148062054">
+              End="-29.4074101530842,42.1296279077178">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3148148062054" />
+                    End="0,20.8148139538589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8148139538589"
+                    Point2="0,24.8148139538589"
+                    Point3="-4,24.8148139538589" />
+                  <mssgle:LineSegment
+                    End="-25.4074101530842,24.8148139538589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.4074101530842,24.8148139538589"
+                    Point2="-29.4074101530842,24.8148139538589"
+                    Point3="-29.4074101530842,28.8148139538589" />
+                  <mssgle:LineSegment
+                    End="-29.4074101530842,42.1296279077178" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[OLE DB Source Output1]"
+          TopLeft="641.101852140907,231.314813915116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.0000013947487"
+              Start="0,0"
+              End="0,22.5000013947487">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5000013947487" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[OLE DB Source Output]"
+          TopLeft="241.277778729796,467.481477391941">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32.0740755032604"
+              Start="0,0"
+              End="0,24.5740755032604">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5740755032604" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Merge Join Output1]"
+          TopLeft="401.129626642499,633.222220026786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.111110017697"
+              Start="0,0"
+              End="0,30.611110017697">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.611110017697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactWatches.Paths[Merge Join Output]"
+          TopLeft="428.462961093419,371.851852402864">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,36.1111076758967"
+              Start="0,0"
+              End="0,28.6111076758967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6111076758967" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3585,7 +3822,7 @@
           TopLeft="408.486111911014,84.0185181784409">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,32.9000003951788"
               Start="0,0"
               End="0,25.4000003951788">
@@ -3607,7 +3844,7 @@
           TopLeft="417.370369570123,969.481475730297">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,29.2962965115339"
               Start="0,0"
               End="0,21.7962965115339">
@@ -3629,7 +3866,7 @@
           TopLeft="405.851852941844,231.185185736197">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,25.5185185271281"
               Start="0,0"
               End="0,18.0185185271281">
@@ -3651,7 +3888,7 @@
           TopLeft="407.402778608725,158.91851857362">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,30.2666671625773"
               Start="0,0"
               End="0,22.7666671625773">
@@ -3671,247 +3908,11 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactWatches.Paths[OLE DB Source Output]"
-          TopLeft="641.101852140907,231.314813915116">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.0000013947487"
-              Start="0,0"
-              End="0,22.5000013947487">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5000013947487" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\FactWatches\Check date Customer"
-          TopLeft="339.351846795115,407.962960078761" />
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Merge Join Output]"
-          TopLeft="428.462961093419,371.851852402864">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.1111076758967"
-              Start="0,0"
-              End="0,28.6111076758967">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.6111076758967" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Valid Date]"
-          TopLeft="429.768516721411,450.629626745427">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.6296320403062"
-              Start="0,0"
-              End="0,40.1296320403062">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.1296320403062" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.43453125,15.1903043014031,46.8690625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\FactWatches\Fetch DimDate"
-          TopLeft="531.481473561791,699.592586453978" />
-        <NodeLayout
-          Size="152,42.6666666666667"
-          Id="Package\FactWatches\Sort by W_DTS"
-          TopLeft="323.61110628893,767.777773386903" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\FactWatches\Sort by DateValue"
-          TopLeft="524.999992176891,775.925922396007" />
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Sortie de source OLE DB]"
-          TopLeft="606.574066202674,742.259253120644">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.6666692753632"
-              Start="0,0"
-              End="0,26.1666692753632">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.1666692753632" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\FactWatches\Merge with Date"
-          TopLeft="341.203698619372,851.814809278869" />
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Sortie de tri]"
-          TopLeft="397.29629134304,810.44444005357">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.3703692252991"
-              Start="0,0"
-              End="0,33.8703692252991">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.8703692252991" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Sortie de tri1]"
-          TopLeft="606.999992176891,818.592589062674">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-162.240738001963,33.222220216195"
-              Start="0,0"
-              End="-162.240738001963,25.722220216195">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.7326610008943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.7326610008943"
-                    Point2="0,19.7326610008943"
-                    Point3="-4,19.7326610008943" />
-                  <mssgle:LineSegment
-                    End="-158.240738001963,19.7326610008943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-158.240738001963,19.7326610008943"
-                    Point2="-162.240738001963,19.7326610008943"
-                    Point3="-162.240738001963,23.7326610008943" />
-                  <mssgle:LineSegment
-                    End="-162.240738001963,25.722220216195" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Sortie de jointure de fusion]"
-          TopLeft="418.157404596193,894.481475945536">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.3333331180942"
-              Start="0,0"
-              End="0,24.8333331180942">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.8333331180942" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[OLE DB Source Output1]"
-          TopLeft="241.277778729796,467.481477391941">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.0740755032604"
-              Start="0,0"
-              End="0,24.5740755032604">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5740755032604" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\FactWatches\Check date Security"
-          TopLeft="314.814810123709,671.333330044483" />
-        <EdgeLayout
-          Id="Package\FactWatches.Paths[Merge Join Output1]"
-          TopLeft="401.129626642499,633.222220026786">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.111110017697"
-              Start="0,0"
-              End="0,30.611110017697">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.611110017697" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactWatches.Paths[Valid Date1]"
           TopLeft="400.546291539653,713.999996711149">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,53.7777766757542"
               Start="0,0"
               End="0,46.2777766757542">
@@ -3934,19 +3935,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\FactWatches\dimSecurity">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\FactWatches\dimCustomer">
     <Properties>
       <Property>
@@ -3960,7 +3948,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FactWatches\Store to FactWatches">
+    design-time-name="Package\FactWatches\Fetch DimDate">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3973,7 +3961,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FactWatches\Fetch DimDate">
+    design-time-name="Package\FactWatches\dimSecurity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactWatches\Store to FactWatches">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
