@@ -25,7 +25,7 @@ This project have be done with Visual Studio 2017 and a Microsoft SQL Database.
 
 ## Files
 
-- [`Splitting packages`](Splitting packages)   
+- `Splitting packages`    
   Package files: generally one file per table (used to work in group)
 - [`CustomerMgmt.xsd`](CustomerMgmt.xsd)
   Used by DimCustomer.dtsx to open XML file
