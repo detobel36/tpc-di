@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Prospect"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{94680C91-07BF-4721-BBF3-FB583CEA4ECF}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{3ECBE1C4-3F11-42F3-BB7E-DC2014D3A08E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,7 +38,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AgencyID"
-              DTS:DTSID="{2F780243-BFA0-4772-BC95-DEC5C02A8972}"
+              DTS:DTSID="{1113570D-2308-4E03-B352-8007EC5C5756}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastName"
-              DTS:DTSID="{4559F5BF-2647-45FF-9A47-F9AF4EBD5EF3}"
+              DTS:DTSID="{2E6EE4FF-F3FB-4155-B066-91A86DBF1233}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FirstName"
-              DTS:DTSID="{5D493506-3E21-46DE-B6BD-FBEAD20E2B33}"
+              DTS:DTSID="{0E5C5130-A0D8-449C-903B-689BF0799C66}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MiddleInitial"
-              DTS:DTSID="{1DB9E32F-3F9E-4927-A292-BE12C10309D8}"
+              DTS:DTSID="{34A34178-BD30-4B3C-BE21-36A98C665106}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -74,7 +74,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Gender"
-              DTS:DTSID="{49DDF40F-43A9-44E3-8FBF-BD75DF68D5F7}"
+              DTS:DTSID="{AD0C468B-71B9-4209-8F6C-FEBD8922119F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -83,7 +83,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressLine1"
-              DTS:DTSID="{E9CC8854-F3EC-419B-9085-D3E713058A21}"
+              DTS:DTSID="{46199CCB-A4E5-4C37-8CCD-7379625EE712}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -92,7 +92,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AddressLine2"
-              DTS:DTSID="{24D6DA81-50FE-44D7-9E0C-C2E409BCF017}"
+              DTS:DTSID="{CDA8CF28-8CC0-4571-96CF-69028593F69C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -101,7 +101,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PostalCode"
-              DTS:DTSID="{B0B016D9-DDDA-4D44-9C88-7D0016F7FB4F}"
+              DTS:DTSID="{03396AFD-F551-4DAB-AE6D-3DBD08C43AB0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -110,7 +110,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="City"
-              DTS:DTSID="{43EB372F-FD36-413F-BEFA-A9FD9A758F69}"
+              DTS:DTSID="{87B8C03C-6839-470E-AA48-173B7053010A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -119,7 +119,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="State"
-              DTS:DTSID="{404BC0E2-C489-419A-B651-8A9421FA7648}"
+              DTS:DTSID="{9755BD69-079D-40F5-86D2-7DDAC2CC671B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -128,7 +128,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Country"
-              DTS:DTSID="{32DCC4B2-59E4-4721-87FB-70827039CCEC}"
+              DTS:DTSID="{47380FE7-366C-4032-97EC-055ADF29FE93}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -137,7 +137,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Phone"
-              DTS:DTSID="{AC9C3B4C-AC4E-42E0-9F5B-85292AC33A5F}"
+              DTS:DTSID="{8477295F-8323-4019-BC9A-FA119CB26822}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -146,7 +146,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Income"
-              DTS:DTSID="{44286756-0ED3-43A1-AE61-3BE59D06D1D7}"
+              DTS:DTSID="{0F58C56E-3AC7-4A98-BF8F-398907F0054F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -155,7 +155,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NumberCars"
-              DTS:DTSID="{B8EC301E-F625-4C38-856E-0D5CFEE2E302}"
+              DTS:DTSID="{0080B148-3128-467C-B3A5-10D590AEEB59}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -164,7 +164,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NumberChildren"
-              DTS:DTSID="{568F4C33-03C0-45E9-980C-6F4DD9D0C2EC}"
+              DTS:DTSID="{5CDBA203-909C-467D-BEEF-4842235C39C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -173,7 +173,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MaritalStatus"
-              DTS:DTSID="{F82F83C4-9894-4248-BC99-2EB511CC64FD}"
+              DTS:DTSID="{393E5A0B-B35C-4700-8EE7-5BCB17E0432E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -182,7 +182,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{651202DE-734D-4F66-90FE-903C08A21F1A}"
+              DTS:DTSID="{5BC8F75F-907B-437E-9E7A-D3FE30B11CE1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -191,7 +191,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CreditRating"
-              DTS:DTSID="{CC563552-AFC2-4EF6-9D09-831630E5701A}"
+              DTS:DTSID="{7049C1BA-726C-44E7-BA6B-5D3930672770}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -200,7 +200,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="OwnOrRentFlag"
-              DTS:DTSID="{57E719B9-138F-49C6-B381-C87E2575EEA7}"
+              DTS:DTSID="{24160D81-94F9-48A6-BB01-D1E8D244702F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +209,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Employer"
-              DTS:DTSID="{7D92D3A8-11FA-4EF2-BD5C-DD0AD8630DD8}"
+              DTS:DTSID="{47276171-2AAF-4FD6-AC50-1C76B38288F0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -218,7 +218,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NumberCreditCards"
-              DTS:DTSID="{479DC5AD-EACC-4110-907A-32EB430F087B}"
+              DTS:DTSID="{C70C6F87-B189-48BD-A7AA-CF9E9EF95E60}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -227,7 +227,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NetWorth"
-              DTS:DTSID="{0EBBA4F9-2E56-4ABE-A151-43BED4B0FEB6}"
+              DTS:DTSID="{3FA0EE6F-E7D8-4E20-A606-A237F0E131AE}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -753,6 +753,48 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AgencyID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AgencyID"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AgencyID]" />
+                    <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine1"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine2"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[PostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PostalCode"
+                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[PostalCode]" />
+                    <inputColumn
                       refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[Income]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -823,27 +865,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       cachedName="Employer"
                       lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[Employer]" />
                     <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AgencyID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="AgencyID"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AgencyID]" />
-                    <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="LastName"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[LastName]" />
-                    <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="FirstName"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[FirstName]" />
-                    <inputColumn
                       refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[MiddleInitial]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -857,27 +878,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       cachedLength="50"
                       cachedName="Gender"
                       lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[Gender]" />
-                    <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AddressLine1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine1"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine1]" />
-                    <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[AddressLine2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine2"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine2]" />
-                    <inputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[PostalCode]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="PostalCode"
-                      lineageId="Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[PostalCode]" />
                     <inputColumn
                       refId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input].Columns[City]"
                       cachedCodepage="1252"
@@ -917,6 +917,138 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   name="Data Conversion Output"
                   synchronousInputId="Package\Import all the prospect\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]"
+                      name="AgencyID_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AgencyID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]"
+                      name="LastName_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]"
+                      name="FirstName_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]"
+                      name="AddressLine1_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]"
+                      name="AddressLine2_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]"
+                      name="PostalCode_Format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[PostalCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Income_Format]"
                       dataType="numeric"
@@ -1131,72 +1263,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]"
-                      name="AgencyID_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AgencyID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]"
-                      name="LastName_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[LastName]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]"
-                      name="FirstName_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[FirstName]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[MiddleInitial_Format]"
                       codePage="1252"
                       dataType="str"
@@ -1234,72 +1300,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[Gender]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="80"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]"
-                      name="AddressLine1_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine1]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="80"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]"
-                      name="AddressLine2_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[AddressLine2]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="12"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]"
-                      name="PostalCode_Format"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import all the prospect\List of prospect.Outputs[Flat File Source Output].Columns[PostalCode]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1791,7 +1791,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
+                  name="RetainNulls">true</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
@@ -2472,45 +2472,120 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   name="Unir tout entrée 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[Income_Format]"
-                      cachedDataType="numeric"
-                      cachedName="Income_Format"
-                      cachedPrecision="9"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Income_Format]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AgencyID_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="AgencyID_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[NumberCars_Format]"
-                      cachedDataType="numeric"
-                      cachedName="NumberCars_Format"
-                      cachedPrecision="2"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberCars_Format]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[LastName_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="LastName_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[NumberChildren_Format]"
-                      cachedDataType="numeric"
-                      cachedName="NumberChildren_Format"
-                      cachedPrecision="2"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberChildren_Format]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[FirstName_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="FirstName_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AddressLine1_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine1_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AddressLine2_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine2_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[PostalCode_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="PostalCode_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[IsCustomer]"
+                      cachedDataType="bool"
+                      cachedName="IsCustomer"
+                      lineageId="Package\Import all the prospect\IsCustomer.Outputs[Sortie de colonne dérivée].Columns[IsCustomer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[Age_Format]"
+                      cachedDataType="numeric"
+                      cachedName="Age_Format"
+                      cachedPrecision="3"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Age_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2586,20 +2661,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[Age_Format]"
-                      cachedDataType="numeric"
-                      cachedName="Age_Format"
-                      cachedPrecision="3"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Age_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[Employer_Format]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -2612,51 +2673,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
                           name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Employer]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AgencyID_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="AgencyID_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[LastName_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="LastName_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[FirstName_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="FirstName_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2687,51 +2703,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
                           name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Gender]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AddressLine1_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine1_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[AddressLine2_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine2_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[PostalCode_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="12"
-                      cachedName="PostalCode_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2795,28 +2766,21 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[IsCustomer]"
-                      cachedDataType="bool"
-                      cachedName="IsCustomer"
-                      lineageId="Package\Import all the prospect\IsCustomer.Outputs[Sortie de colonne dérivée].Columns[IsCustomer]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[NumberChildren_Format]"
+                      cachedDataType="numeric"
+                      cachedName="NumberChildren_Format"
+                      cachedPrecision="2"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberChildren_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
                       </properties>
                     </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1]"
-                  hasSideEffects="true"
-                  name="Entrée Union All 1">
-                  <inputColumns>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[Income_Format]"
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[Income_Format]"
                       cachedDataType="numeric"
                       cachedName="Income_Format"
                       cachedPrecision="9"
@@ -2830,7 +2794,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[NumberCars_Format]"
+                      refId="Package\Import all the prospect\Merge all.Inputs[Unir tout entrée 1].Columns[NumberCars_Format]"
                       cachedDataType="numeric"
                       cachedName="NumberCars_Format"
                       cachedPrecision="2"
@@ -2843,18 +2807,129 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]}</property>
                       </properties>
                     </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[NumberChildren_Format]"
-                      cachedDataType="numeric"
-                      cachedName="NumberChildren_Format"
-                      cachedPrecision="2"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberChildren_Format]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AgencyID_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="AgencyID_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[LastName_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="LastName_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[FirstName_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="FirstName_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AddressLine1_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine1_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AddressLine2_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="AddressLine2_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[PostalCode_Format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="PostalCode_Format"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[IsCustomer]"
+                      cachedDataType="bool"
+                      cachedName="IsCustomer"
+                      lineageId="Package\Import all the prospect\IsNotCustomer.Outputs[Sortie de colonne dérivée].Columns[IsCustomer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[Age_Format]"
+                      cachedDataType="numeric"
+                      cachedName="Age_Format"
+                      cachedPrecision="3"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Age_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2930,20 +3005,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[Age_Format]"
-                      cachedDataType="numeric"
-                      cachedName="Age_Format"
-                      cachedPrecision="3"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Age_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[Employer_Format]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -2956,51 +3017,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
                           name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Employer]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AgencyID_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="AgencyID_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AgencyID_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[LastName_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="LastName_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[FirstName_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="FirstName_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -3031,51 +3047,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
                           name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Gender]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AddressLine1_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine1_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine1_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[AddressLine2_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="80"
-                      cachedName="AddressLine2_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[AddressLine2_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[PostalCode_Format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="12"
-                      cachedName="PostalCode_Format"
-                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[PostalCode_Format]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -3139,16 +3110,45 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[IsCustomer]"
-                      cachedDataType="bool"
-                      cachedName="IsCustomer"
-                      lineageId="Package\Import all the prospect\IsNotCustomer.Outputs[Sortie de colonne dérivée].Columns[IsCustomer]">
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[NumberChildren_Format]"
+                      cachedDataType="numeric"
+                      cachedName="NumberChildren_Format"
+                      cachedPrecision="2"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberChildren_Format]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]}</property>
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[Income_Format]"
+                      cachedDataType="numeric"
+                      cachedName="Income_Format"
+                      cachedPrecision="9"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[Income_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Merge all.Inputs[Entrée Union All 1].Columns[NumberCars_Format]"
+                      cachedDataType="numeric"
+                      cachedName="NumberCars_Format"
+                      cachedPrecision="2"
+                      lineageId="Package\Import all the prospect\Data Conversion.Outputs[Data Conversion Output].Columns[NumberCars_Format]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -3168,23 +3168,58 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   name="Unir tout sortie 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]"
-                      name="Income"
-                      precision="9" />
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]"
+                      name="AgencyID" />
                     <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]"
-                      name="NumberCars"
-                      precision="2" />
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]"
+                      name="LastName" />
                     <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]"
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]"
+                      dataType="bool"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]"
+                      name="IsCustomer" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]"
                       dataType="numeric"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]"
-                      name="NumberChildren"
-                      precision="2" />
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]"
+                      name="Age"
+                      precision="3" />
                     <outputColumn
                       refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[MaritalStatus]"
                       codePage="1252"
@@ -3218,39 +3253,12 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       name="CreditRating"
                       precision="4" />
                     <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Age]"
-                      name="Age"
-                      precision="3" />
-                    <outputColumn
                       refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Employer]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Employer]"
                       name="Employer" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AgencyID]"
-                      name="AgencyID" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[LastName]"
-                      name="LastName" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[FirstName]"
-                      name="FirstName" />
                     <outputColumn
                       refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[MiddleInitial]"
                       codePage="1252"
@@ -3265,27 +3273,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       length="1"
                       lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Gender]"
                       name="Gender" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="80"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine1]"
-                      name="AddressLine1" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="80"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[AddressLine2]"
-                      name="AddressLine2" />
-                    <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="12"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[PostalCode]"
-                      name="PostalCode" />
                     <outputColumn
                       refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[City]"
                       codePage="1252"
@@ -3315,10 +3302,23 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                       lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Phone]"
                       name="Phone" />
                     <outputColumn
-                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]"
-                      dataType="bool"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[IsCustomer]"
-                      name="IsCustomer" />
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]"
+                      name="NumberChildren"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]"
+                      name="Income"
+                      precision="9" />
+                    <outputColumn
+                      refId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]"
+                      name="NumberCars"
+                      precision="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3938,57 +3938,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   name="Entrée de tri">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[Income]"
-                      cachedDataType="numeric"
-                      cachedName="Income"
-                      cachedPrecision="9"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison pour les données caractères."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie l'ordre de tri de la colonne."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[NumberCars]"
-                      cachedDataType="numeric"
-                      cachedName="NumberCars"
-                      cachedPrecision="2"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison pour les données caractères."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie l'ordre de tri de la colonne."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[NumberChildren]"
-                      cachedDataType="numeric"
-                      cachedName="NumberChildren"
-                      cachedPrecision="2"
-                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie les options de comparaison pour les données caractères."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Spécifie l'ordre de tri de la colonne."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[MaritalStatus]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -4374,6 +4323,57 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[NumberChildren]"
+                      cachedDataType="numeric"
+                      cachedName="NumberChildren"
+                      cachedPrecision="2"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[NumberCars]"
+                      cachedDataType="numeric"
+                      cachedName="NumberCars"
+                      cachedPrecision="2"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri].Columns[Income]"
+                      cachedDataType="numeric"
+                      cachedName="Income"
+                      cachedPrecision="9"
+                      lineageId="Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4384,48 +4384,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   isSorted="true"
                   name="Sortie de tri">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[Income]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[Income]"
-                      name="Income"
-                      precision="9">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberCars]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberCars]"
-                      name="NumberCars"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberChildren]"
-                      dataType="numeric"
-                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberChildren]"
-                      name="NumberChildren"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[MaritalStatus]"
                       codePage="1252"
@@ -4745,6 +4703,48 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\Import all the prospect\Add batch information.Outputs[Sortie de colonne dérivée].Columns[BatchDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberChildren]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberChildren]"
+                      name="NumberChildren"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberChildren]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberCars]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[NumberCars]"
+                      name="NumberCars"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[NumberCars]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[Income]"
+                      dataType="numeric"
+                      lineageId="Package\Import all the prospect\Sort by BatchDate.Outputs[Sortie de tri].Columns[Income]"
+                      name="Income"
+                      precision="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Import all the prospect\Merge all.Outputs[Unir tout sortie 1].Columns[Income]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5538,14 +5538,14 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
               startId="Package\Import all the prospect\Uppercase.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\Import all the prospect.Paths[Sortie de colonne dérivée3]"
-              endId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri]"
-              name="Sortie de colonne dérivée"
-              startId="Package\Import all the prospect\Add batch information.Outputs[Sortie de colonne dérivée]" />
-            <path
-              refId="Package\Import all the prospect.Paths[Sortie de colonne dérivée4]"
               endId="Package\Import all the prospect\Store to Prospect.Inputs[OLE DB Destination Input]"
               name="Sortie de colonne dérivée"
               startId="Package\Import all the prospect\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Import all the prospect.Paths[Sortie de colonne dérivée4]"
+              endId="Package\Import all the prospect\Sort by BatchDate.Inputs[Entrée de tri]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Import all the prospect\Add batch information.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\Import all the prospect.Paths[Sortie de jointure de fusion]"
               endId="Package\Import all the prospect\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
@@ -5601,7 +5601,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
         <NodeLayout
           Size="186.666666666667,41.3333333333334"
           Id="Package\Import all the prospect"
-          TopLeft="40.6428569568968,90.0823544534145" />
+          TopLeft="230.226187465218,131.682353709549" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5615,27 +5615,71 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
           Id="Package\Import all the prospect\List of prospect"
           TopLeft="247.702381804662,1.55490589533247" />
         <NodeLayout
+          Size="159.333333333334,41.3333333333334"
+          Id="Package\Import all the prospect\Data Conversion"
+          TopLeft="244.821427112863,82.5451017005777" />
+        <NodeLayout
+          Size="134,42.6666666666667"
+          Id="Package\Import all the prospect\Merge Date"
+          TopLeft="272.083329278976,611.199996962547" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\IsNotCustomer"
+          TopLeft="419.999993741512,308.933329644998" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Import all the prospect\Sort by DateValue"
+          TopLeft="442.083326745779,522.666664807002" />
+        <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\Import all the prospect\Merge all"
+          TopLeft="259.166662804782,388.16666259865" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\Fetch DimDate"
+          TopLeft="452.083326596767,451.499996551871" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\Check IsCustomer"
+          TopLeft="236.249996479601,225.766662629644" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Import all the prospect\Colonne dérivée"
+          TopLeft="267.916662674397,684.433328986367" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\Uppercase"
+          TopLeft="254.999996200204,153.733330667814" />
+        <NodeLayout
           Size="161.333333333334,43.3333333333334"
           Id="Package\Import all the prospect\Store to Prospect"
           TopLeft="265.749996423189,770.211758719778" />
         <NodeLayout
-          Size="159.333333333334,41.3333333333334"
-          Id="Package\Import all the prospect\Data Conversion"
-          TopLeft="244.821427112863,82.5451017005777" />
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\Sort by BatchDate"
+          TopLeft="239.999996423721,528.433331775864" />
+        <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\Import all the prospect\Add batch information"
+          TopLeft="232.49999653548,455.333328064283" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Import all the prospect\IsCustomer"
+          TopLeft="84.5833320729435,305.499994537234" />
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Flat File Source Output]"
-          TopLeft="324.095237792096,44.2215725619992">
+          Id="Package\Import all the prospect.Paths[Sortie de tri]"
+          TopLeft="320.374996184682,571.099998442531">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.3235291385786"
+              EndConnector="0,40.0999985200167"
               Start="0,0"
-              End="0,30.8235291385786">
+              End="0,32.5999985200167">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.8235291385786" />
+                    End="0,32.5999985200167" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5644,18 +5688,64 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\Check IsCustomer"
-          TopLeft="236.249996479601,225.766662629644" />
-        <NodeLayout
-          Size="133.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\IsCustomer"
-          TopLeft="84.5833320729435,305.499994537234" />
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\IsNotCustomer"
-          TopLeft="419.999993741512,308.933329644998" />
+        <EdgeLayout
+          Id="Package\Import all the prospect.Paths[Sortie de source OLE DB]"
+          TopLeft="525.416660004606,494.166663218538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.5000015884638"
+              Start="0,0"
+              End="0,21.0000015884638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0000015884638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import all the prospect.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="345.13888536849,268.433329296311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149.527775039689,40.5000003486871"
+              Start="0,0"
+              End="149.527775039689,33.0000003486871">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.4329074897229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.4329074897229"
+                    Point2="0,16.4329074897229"
+                    Point3="4,16.4329074897229" />
+                  <mssgle:LineSegment
+                    End="145.527775039689,16.4329074897229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="145.527775039689,16.4329074897229"
+                    Point2="149.527775039689,16.4329074897229"
+                    Point3="149.527775039689,20.4329074897229" />
+                  <mssgle:LineSegment
+                    End="149.527775039689,33.0000003486871" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.7381241989055,21.4329074897229,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import all the prospect.Paths[Sortie de recherche avec correspondance]"
           TopLeft="292.694440924045,268.433329296311">
@@ -5693,75 +5783,63 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="345.13888536849,268.433329296311">
+          Id="Package\Import all the prospect.Paths[Sortie de jointure de fusion]"
+          TopLeft="342.166662643353,653.866663629214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="149.527775039689,40.5000003486871"
+              EndConnector="0,30.5666653571528"
               Start="0,0"
-              End="149.527775039689,33.0000003486871">
+              End="0,23.0666653571528">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.4329074897229" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.4329074897229"
-                    Point2="0,16.4329074897229"
-                    Point3="4,16.4329074897229" />
-                  <mssgle:LineSegment
-                    End="145.527775039689,16.4329074897229" />
-                  <mssgle:CubicBezierSegment
-                    Point1="145.527775039689,16.4329074897229"
-                    Point2="149.527775039689,16.4329074897229"
-                    Point3="149.527775039689,20.4329074897229" />
-                  <mssgle:LineSegment
-                    End="149.527775039689,33.0000003486871" />
+                    End="0,23.0666653571528" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.7381241989053,21.4329074897229,183.0040234375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\Import all the prospect\Add batch information"
-          TopLeft="232.49999653548,455.333328064283" />
-        <NodeLayout
-          Size="122.666666666667,42.6666666666667"
-          Id="Package\Import all the prospect\Merge all"
-          TopLeft="259.166662804782,388.16666259865" />
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée]"
-          TopLeft="151.24999873961,348.166661203901">
+          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée3]"
+          TopLeft="345.833329548793,727.099995653033">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.138886287394,40.0000013947487"
+              EndConnector="0,43.1117630667444"
               Start="0,0"
-              End="150.138886287394,32.5000013947487">
+              End="0,35.6117630667444">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.6909879505378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.6909879505378"
-                    Point2="0,23.6909879505378"
-                    Point3="4,23.6909879505378" />
+                    End="0,35.6117630667444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée2]"
+          TopLeft="319.291663006569,196.39999733448">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.3666652951638"
+              Start="0,0"
+              End="0,21.8666652951638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="146.138886287394,23.6909879505378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="146.138886287394,23.6909879505378"
-                    Point2="150.138886287394,23.6909879505378"
-                    Point3="150.138886287394,27.6909879505378" />
-                  <mssgle:LineSegment
-                    End="150.138886287394,32.5000013947487" />
+                    End="0,21.8666652951638" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5805,19 +5883,31 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Unir tout sortie 1]"
-          TopLeft="322.499996336798,430.833329265316">
+          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée]"
+          TopLeft="151.24999873961,348.166661203901">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.4999987989664"
+              EndConnector="150.138886287394,40.0000013947487"
               Start="0,0"
-              End="0,16.9999987989664">
+              End="150.138886287394,32.5000013947487">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.9999987989664" />
+                    End="0,19.6909879505378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.6909879505378"
+                    Point2="0,23.6909879505378"
+                    Point3="4,23.6909879505378" />
+                  <mssgle:LineSegment
+                    End="146.138886287394,23.6909879505378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.138886287394,23.6909879505378"
+                    Point2="150.138886287394,23.6909879505378"
+                    Point3="150.138886287394,27.6909879505378" />
+                  <mssgle:LineSegment
+                    End="150.138886287394,32.5000013947487" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5826,10 +5916,28 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\Uppercase"
-          TopLeft="254.999996200204,153.733330667814" />
+        <EdgeLayout
+          Id="Package\Import all the prospect.Paths[Flat File Source Output]"
+          TopLeft="324.095237792096,44.2215725619992">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3235291385786"
+              Start="0,0"
+              End="0,30.8235291385786">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8235291385786" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import all the prospect.Paths[Data Conversion Output]"
           TopLeft="322.0773783232,123.878435033911">
@@ -5844,114 +5952,6 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,22.3548956339025" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée2]"
-          TopLeft="319.291663006569,196.39999733448">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.3666652951638"
-              Start="0,0"
-              End="0,21.8666652951638">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.8666652951638" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Import all the prospect\Sort by DateValue"
-          TopLeft="442.083326745779,522.666664807002" />
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\Fetch DimDate"
-          TopLeft="452.083326596767,451.499996551871" />
-        <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de source OLE DB]"
-          TopLeft="525.416660004606,494.166663218538">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.5000015884638"
-              Start="0,0"
-              End="0,21.0000015884638">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0000015884638" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Import all the prospect\Colonne dérivée"
-          TopLeft="267.916662674397,684.433328986367" />
-        <NodeLayout
-          Size="165.333333333334,42.6666666666667"
-          Id="Package\Import all the prospect\Sort by BatchDate"
-          TopLeft="239.999996423721,528.433331775864" />
-        <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée3]"
-          TopLeft="323.583329812934,497.999994730949">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.4333370449147"
-              Start="0,0"
-              End="0,22.9333370449147">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.9333370449147" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="134,42.6666666666667"
-          Id="Package\Import all the prospect\Merge Date"
-          TopLeft="272.083329278976,611.199996962547" />
-        <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de tri]"
-          TopLeft="320.374996184682,571.099998442531">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.0999985200167"
-              Start="0,0"
-              End="0,32.5999985200167">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5999985200167" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5995,19 +5995,19 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de jointure de fusion]"
-          TopLeft="342.166662643353,653.866663629214">
+          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée4]"
+          TopLeft="323.583329812934,497.999994730949">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.5666653571528"
+              EndConnector="0,30.4333370449147"
               Start="0,0"
-              End="0,23.0666653571528">
+              End="0,22.9333370449147">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.0666653571528" />
+                    End="0,22.9333370449147" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6017,19 +6017,19 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import all the prospect.Paths[Sortie de colonne dérivée4]"
-          TopLeft="345.833329548793,727.099995653033">
+          Id="Package\Import all the prospect.Paths[Unir tout sortie 1]"
+          TopLeft="322.499996336798,430.833329265317">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.1117630667444"
+              EndConnector="0,24.4999987989663"
               Start="0,0"
-              End="0,35.6117630667444">
+              End="0,16.9999987989663">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.6117630667444" />
+                    End="0,16.9999987989663" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6042,7 +6042,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import all the prospect\Store to Prospect">
+    design-time-name="Package\Import all the prospect\Fetch DimDate">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6060,7 +6060,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -6070,7 +6070,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6078,7 +6078,7 @@ where [refTable].[AddressLine1] = ? and [refTable].[AddressLine2] = ? and [refTa
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import all the prospect\Fetch DimDate">
+    design-time-name="Package\Import all the prospect\Store to Prospect">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
